@@ -54,6 +54,11 @@ env/
 knowledge_graph/layer3/search_results.json
 knowledge_graph/layer3/layer3_result.json
 
+# Large PDF/ZIP data files (download separately)
+knowledge_graph/layer2/consensus/*.pdf
+knowledge_graph/layer2/dart/*.zip
+knowledge_graph/layer2/dart/*/*.xml
+
 # Logs
 *.log
 logs/
