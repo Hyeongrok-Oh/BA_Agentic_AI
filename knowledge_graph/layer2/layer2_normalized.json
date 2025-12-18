@@ -1,0 +1,1388 @@
+{
+  "summary": {
+    "original_factors": 186,
+    "normalized_factors": 45,
+    "excluded_factors": 11,
+    "original_relations": 203,
+    "normalized_relations": 76,
+    "skipped_relations": 11
+  },
+  "factors": [
+    {
+      "id": "물류비",
+      "name": "물류비",
+      "category": "supply_chain",
+      "original_names": [
+        "물류비와 원재료비의 하향 안정화",
+        "물류비",
+        "물류비 부담 완화",
+        "물류비 갱신 계약",
+        "물류비용 하락",
+        "추가 물류비 개선",
+        "물류비 절감",
+        "물류비 완화",
+        "물류비 안정화",
+        "물류비 상승",
+        "물류비 증가",
+        "물류비 부담"
+      ],
+      "mention_count": 23,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf",
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf",
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf",
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf",
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf",
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf",
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf",
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf",
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf",
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf",
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf",
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf",
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf",
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf",
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf",
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "패널가격",
+      "name": "패널가격",
+      "category": "supply_chain",
+      "original_names": [
+        "LCD 패널가격",
+        "패널가격",
+        "패널 가격",
+        "TV 패널 가격",
+        "패널 가격 상승",
+        "패널가 부담",
+        "LCD 패널 가격 상승",
+        "패널가",
+        "LCD 패널 업황 안정화",
+        "LCD 패널가 인상",
+        "LCD 패널 가격",
+        "panel price",
+        "LCD 패널 원가 통제",
+        "패널 가격 협상력 약화",
+        "패널 가격 부담 지속",
+        "LCD 등 원가부담",
+        "패널 원가 통제력 약화"
+      ],
+      "mention_count": 22,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf",
+        "LG전자_20250124_LG전자066570_탑라인_경쟁력은_입증_수익성.pdf",
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf",
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf",
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf",
+        "LG전자_20231011_LG전자066570_프리미엄_이상의_스페셜_입증.pdf",
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf",
+        "LG전자_20240408_LG전자066570_저평가_매력_부각_기대.pdf",
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf",
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf",
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf",
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf",
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf",
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf",
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf",
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf",
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf",
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf",
+        "LG전자_20240327_LG전자066570_4개의_관전포인트.pdf",
+        "LG전자_20230710_LG전자066570_높아진_이익레벨_증명.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "경쟁심화",
+      "name": "경쟁심화",
+      "category": "competition",
+      "original_names": [
+        "경쟁심화",
+        "경쟁 심화",
+        "업체간 경쟁 심화",
+        "마케팅 경쟁",
+        "경쟁",
+        "경쟁 격화",
+        "산업 내 경쟁",
+        "가격경쟁"
+      ],
+      "mention_count": 21,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf",
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf",
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf",
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf",
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf",
+        "LG전자_20231011_LG전자066570_3Q23_견조한_가전과_전장의.pdf",
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf",
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf",
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf",
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf",
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf",
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf",
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf",
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "id": "재고정상화",
+      "name": "재고정상화",
+      "category": "supply_chain",
+      "original_names": [
+        "유통재고 수준 정상화 위해 판매 촉진 비용 증가",
+        "재고 개선",
+        "유통재고 수준 정상화를 위한 판매촉진 비용 증가",
+        "재고 정상화를 위한 적극적인 비용 투입",
+        "재고 정상화 위한 비용 투입",
+        "재고 정상화 노력",
+        "TV 보유 재고 정상화",
+        "유통재고의 건전화",
+        "재고 부담 감소",
+        "재고 정상화",
+        "재고 정상화 이후 판촉비 통제",
+        "유통 재고 부담"
+      ],
+      "mention_count": 15,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf",
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf",
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20230410_LG전자066570_1_위_사업자의_이유_있는_실적.pdf",
+        "LG전자_20230410_LG전자066570_PB_10_배를_넘을_수_있.pdf",
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf",
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf",
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf",
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf"
+      ]
+    },
+    {
+      "id": "원재료비",
+      "name": "원재료비",
+      "category": "supply_chain",
+      "original_names": [
+        "원재료비",
+        "원재료 하락분",
+        "원자재 및 운임 비용 하락",
+        "원자재가격하락",
+        "원재료 하락",
+        "원재료 가격 인하",
+        "원자재 비용 감소",
+        "원자재 가격 안정화 및 컨테이너 운임비 하락",
+        "원자재 가격 안정화",
+        "낮아진 가격으로 구매한 원부재료",
+        "원자재 가격 하락",
+        "원재료비 개선",
+        "원재료 가격 상승"
+      ],
+      "mention_count": 14,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf",
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf",
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf",
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf",
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf",
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf",
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "id": "관세",
+      "name": "관세",
+      "category": "trade",
+      "original_names": [
+        "관세",
+        "관세 영향",
+        "보편 관세 부담",
+        "한국산 가전에 대한 상호 관세 및 Section 232 범위 확대",
+        "관세로 인한 원가 상승",
+        "관세 부담 확대",
+        "가전 관세",
+        "미국 관세 본격화"
+      ],
+      "mention_count": 13,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf",
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf",
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf",
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf",
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf",
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf",
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf",
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf",
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "id": "수요부진",
+      "name": "수요부진",
+      "category": "demand",
+      "original_names": [
+        "수요부진",
+        "수요 부진",
+        "수요 침체",
+        "수요 불확실성",
+        "수요 침체 장기화"
+      ],
+      "mention_count": 11,
+      "sources": [
+        "LG전자_20250106_LG전자066570_불확실성을_건너는_중.pdf",
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf",
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf",
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf",
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf",
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf",
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf",
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "id": "oled판매확대",
+      "name": "OLED판매확대",
+      "category": "technology",
+      "original_names": [
+        "W OLED 판매",
+        "P OLED 물량",
+        "OLED TV 생태계 확대",
+        "OLED 물량 감소",
+        "LCD에서 OLED로의 시장 전환 가속화",
+        "OLED 중심의 TV 수요 회복",
+        "OLED TV 판매 증가",
+        "WOLED 패널 출하 확대",
+        "OLED TV 회복",
+        "올레드 TV 확판",
+        "OLED TV 물량 증가"
+      ],
+      "mention_count": 11,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf",
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf",
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf",
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf",
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "id": "해상운임",
+      "name": "해상운임",
+      "category": "supply_chain",
+      "original_names": [
+        "운임 비용 하락",
+        "컨테이너 운임비 하락",
+        "컨테이너 운임비",
+        "해상물류의 지연",
+        "운임지수의 불확실성",
+        "해상 운임 급등",
+        "해상 운임 증가",
+        "해상운임"
+      ],
+      "mention_count": 9,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf",
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf",
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "webos매출확대",
+      "name": "WebOS매출확대",
+      "category": "technology",
+      "original_names": [
+        "WebOS 플랫폼 사업의 이익 기여도 확대",
+        "Web OS 실적 기여",
+        "Web OS 매출 확대",
+        "WebOS 매출 확대",
+        "Web OS와 프리미엄 제품 물량 증가",
+        "web OS 사업 확대"
+      ],
+      "mention_count": 9,
+      "sources": [
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf",
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf",
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20231011_LG전자066570_프리미엄_이상의_스페셜_입증.pdf",
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf"
+      ]
+    },
+    {
+      "id": "지역별수요",
+      "name": "지역별수요",
+      "category": "demand",
+      "original_names": [
+        "유럽/북미의 수요 부진",
+        "유럽지역에서의 판매 감소",
+        "유럽 수요 개선",
+        "미국 주택 경기 개선",
+        "북미 고객사향 성수기 진입",
+        "미국 수요",
+        "유럽중심의 개선",
+        "북미 비중"
+      ],
+      "mention_count": 8,
+      "sources": [
+        "LG전자_20240528_LG전자066570_B2B_회사로_인정해주세요.pdf",
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf",
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf",
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf",
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf",
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf",
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "id": "tv수요부진",
+      "name": "TV수요부진",
+      "category": "demand",
+      "original_names": [
+        "TV 수요 둔화",
+        "TV 수요",
+        "선진국의 TV 수요",
+        "TV 수요 부진"
+      ],
+      "mention_count": 8,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf",
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf",
+        "LG전자_20230710_LG전자066570_높아진_이익레벨_증명.pdf",
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf",
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "id": "마케팅비용",
+      "name": "마케팅비용",
+      "category": "cost",
+      "original_names": [
+        "마케팅 비용 증가",
+        "마케팅 비용 개선",
+        "마케팅 통제 (보수적 출하 전략)",
+        "마케팅비 증가",
+        "마케팅비용의 추가 집행",
+        "마케팅 비용 확대"
+      ],
+      "mention_count": 7,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf",
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf",
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf"
+      ]
+    },
+    {
+      "id": "프리미엄제품확대",
+      "name": "프리미엄제품확대",
+      "category": "technology",
+      "original_names": [
+        "프리미엄 매출(OLED TV, 신가전) 확대",
+        "OLED TV와 신가전/프리미엄 가전 비중 확대",
+        "대형 프리미엄 TV 및 가전 판매 확대",
+        "프리미엄 TV 수요 회복",
+        "대형 프리미엄 TV 및 가전(세탁기, 냉장고, 에어컨 등)의 판매 확대",
+        "프리미엄 물량 증가"
+      ],
+      "mention_count": 6,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf",
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf",
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "환율",
+      "name": "환율",
+      "category": "macro_economy",
+      "original_names": [
+        "환율",
+        "고환율",
+        "달러 약세",
+        "달러 강세",
+        "환율 하락"
+      ],
+      "mention_count": 6,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf",
+        "LG전자_20240925_LG전자066570_아웃퍼폼_지속을_전망하는_이유.pdf",
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf",
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf",
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf",
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "id": "소비심리위축",
+      "name": "소비심리위축",
+      "category": "demand",
+      "original_names": [
+        "소비심리 위축",
+        "소비자 수요 심리 둔화",
+        "소비 부진"
+      ],
+      "mention_count": 5,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf",
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf",
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "id": "스포츠이벤트",
+      "name": "스포츠이벤트",
+      "category": "demand",
+      "original_names": [
+        "스포츠이벤트",
+        "스포츠이벤트를 앞둔 유럽 중심의 출하 확대",
+        "파리올림픽과 유로2024 이벤트",
+        "스포츠 이벤트"
+      ],
+      "mention_count": 5,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf",
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf",
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "글로벌수요",
+      "name": "글로벌수요",
+      "category": "demand",
+      "original_names": [
+        "글로벌 수요 분화",
+        "글로벌 수요",
+        "글로벌 수요 위축"
+      ],
+      "mention_count": 4,
+      "sources": [
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf",
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "id": "비용개선",
+      "name": "비용개선",
+      "category": "cost",
+      "original_names": [
+        "비용 구조 개선",
+        "비용 개선",
+        "원가 및 비용"
+      ],
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf",
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "id": "운송비",
+      "name": "운송비",
+      "category": "supply_chain",
+      "original_names": [
+        "운송비용하락",
+        "운송비",
+        "운송비 절감"
+      ],
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf",
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf",
+        "LG전자_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "id": "출하량",
+      "name": "출하량",
+      "category": "quantity",
+      "original_names": [
+        "출하량 감소",
+        "출하량 감소 및 일회성 요인",
+        "LGD의 출하량 급감"
+      ],
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf",
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "id": "가전수요",
+      "name": "가전수요",
+      "category": "demand",
+      "original_names": [
+        "2H24E 가전 시장의 수요 회복 기대감",
+        "가전 시장의 수요 회복",
+        "가전 수요"
+      ],
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf",
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "id": "수요",
+      "name": "수요",
+      "category": "macro_economy",
+      "original_names": [
+        "수요"
+      ],
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf",
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "id": "b2b매출확대",
+      "name": "B2B매출확대",
+      "category": "demand",
+      "original_names": [
+        "B2B향 매출 확대",
+        "고수익성인 B2B 사업 매출 비중 확대"
+      ],
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "id": "it세트_수요",
+      "name": "IT세트 수요",
+      "category": "macro_economy",
+      "original_names": [
+        "IT세트 수요"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "id": "covid-19",
+      "name": "Covid-19",
+      "category": "macro_economy",
+      "original_names": [
+        "Covid-19"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "id": "판촉비",
+      "name": "판촉비",
+      "category": "cost",
+      "original_names": [
+        "판촉비 집행"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "id": "경기부진",
+      "name": "경기부진",
+      "category": "macro_economy",
+      "original_names": [
+        "경기부진"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "id": "성수기_효과_부진",
+      "name": "성수기 효과 부진",
+      "category": "macro_economy",
+      "original_names": [
+        "성수기 효과 부진"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "id": "lcd_패널_가격_하락",
+      "name": "LCD 패널 가격 하락",
+      "category": "macro_economy",
+      "original_names": [
+        "LCD 패널 가격 하락"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "id": "it_세트_수요_둔화",
+      "name": "IT 세트 수요 둔화",
+      "category": "macro_economy",
+      "original_names": [
+        "IT 세트 수요 둔화"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "id": "it_수요",
+      "name": "IT 수요",
+      "category": "macro_economy",
+      "original_names": [
+        "IT 수요"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "id": "양호한_수요",
+      "name": "양호한 수요",
+      "category": "macro_economy",
+      "original_names": [
+        "양호한 수요"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "id": "원재료_가격_안정화",
+      "name": "원재료 가격 안정화",
+      "category": "macro_economy",
+      "original_names": [
+        "원재료 가격 안정화"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "id": "글로벌_교역량_회복",
+      "name": "글로벌 교역량 회복",
+      "category": "macro_economy",
+      "original_names": [
+        "글로벌 교역량 회복"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "id": "모기지_금리",
+      "name": "모기지 금리",
+      "category": "macro_economy",
+      "original_names": [
+        "모기지 금리"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "id": "침체된_주택_매매",
+      "name": "침체된 주택 매매",
+      "category": "macro_economy",
+      "original_names": [
+        "침체된 주택 매매"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "id": "세트_수요의_회복",
+      "name": "세트 수요의 회복",
+      "category": "macro_economy",
+      "original_names": [
+        "세트 수요의 회복"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "id": "믹스_악화",
+      "name": "믹스 악화",
+      "category": "macro_economy",
+      "original_names": [
+        "믹스 악화"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "id": "기저효과",
+      "name": "기저효과",
+      "category": "macro_economy",
+      "original_names": [
+        "기저효과"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_저평가_매력_부각_기대.pdf"
+      ]
+    },
+    {
+      "id": "ai_기술",
+      "name": "AI 기술",
+      "category": "macro_economy",
+      "original_names": [
+        "AI 기술"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "id": "계절적_수요",
+      "name": "계절적 수요",
+      "category": "macro_economy",
+      "original_names": [
+        "계절적 수요"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "id": "연말_성수기_효과",
+      "name": "연말 성수기 효과",
+      "category": "macro_economy",
+      "original_names": [
+        "연말 성수기 효과"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "id": "광고_컨텐츠_사업_확대",
+      "name": "광고/컨텐츠 사업 확대",
+      "category": "macro_economy",
+      "original_names": [
+        "광고/컨텐츠 사업 확대"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "id": "중국_tv_업체들의_점유율_확대",
+      "name": "중국 TV 업체들의 점유율 확대",
+      "category": "macro_economy",
+      "original_names": [
+        "중국 TV 업체들의 점유율 확대"
+      ],
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "factor_id": "물류비",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 16,
+      "source_count": 16
+    },
+    {
+      "factor_id": "원재료비",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 13,
+      "source_count": 13
+    },
+    {
+      "factor_id": "경쟁심화",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 13,
+      "source_count": 13
+    },
+    {
+      "factor_id": "패널가격",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 12,
+      "source_count": 12
+    },
+    {
+      "factor_id": "패널가격",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 9,
+      "source_count": 9
+    },
+    {
+      "factor_id": "관세",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 9,
+      "source_count": 9
+    },
+    {
+      "factor_id": "webos매출확대",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 8,
+      "source_count": 8
+    },
+    {
+      "factor_id": "수요부진",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 7,
+      "source_count": 7
+    },
+    {
+      "factor_id": "재고정상화",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 7,
+      "source_count": 7
+    },
+    {
+      "factor_id": "물류비",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 6,
+      "source_count": 6
+    },
+    {
+      "factor_id": "oled판매확대",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 6,
+      "source_count": 6
+    },
+    {
+      "factor_id": "프리미엄제품확대",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 6,
+      "source_count": 6
+    },
+    {
+      "factor_id": "해상운임",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 5,
+      "source_count": 5
+    },
+    {
+      "factor_id": "경쟁심화",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 5,
+      "source_count": 5
+    },
+    {
+      "factor_id": "tv수요부진",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 5,
+      "source_count": 5
+    },
+    {
+      "factor_id": "재고정상화",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "지역별수요",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "oled판매확대",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "마케팅비용",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "스포츠이벤트",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "해상운임",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 4,
+      "source_count": 4
+    },
+    {
+      "factor_id": "비용개선",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "운송비",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "소비심리위축",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "출하량",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "tv수요부진",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "지역별수요",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "마케팅비용",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "경쟁심화",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "환율",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "가전수요",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 3,
+      "source_count": 3
+    },
+    {
+      "factor_id": "수요부진",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "재고정상화",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "수요부진",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "환율",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "글로벌수요",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "b2b매출확대",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "관세",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "글로벌수요",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 2,
+      "source_count": 2
+    },
+    {
+      "factor_id": "it세트_수요",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "covid-19",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "수요",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "수요",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "판촉비",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "재고정상화",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "경기부진",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "성수기_효과_부진",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "소비심리위축",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "소비심리위축",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "lcd_패널_가격_하락",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "it_세트_수요_둔화",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "oled판매확대",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "it_수요",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "양호한_수요",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "원재료_가격_안정화",
+      "anchor_id": "cost",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "글로벌_교역량_회복",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "물류비",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "모기지_금리",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "침체된_주택_매매",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "세트_수요의_회복",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "믹스_악화",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "기저효과",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "원재료비",
+      "anchor_id": "cost",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "지역별수요",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "ai_기술",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "스포츠이벤트",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "계절적_수요",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "패널가격",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "연말_성수기_효과",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "광고_컨텐츠_사업_확대",
+      "anchor_id": "revenue",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "webos매출확대",
+      "anchor_id": "quantity",
+      "relation_type": "PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "관세",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "관세",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "환율",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "중국_tv_업체들의_점유율_확대",
+      "anchor_id": "revenue",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    },
+    {
+      "factor_id": "재고정상화",
+      "anchor_id": "quantity",
+      "relation_type": "INVERSELY_PROPORTIONAL",
+      "mention_count": 1,
+      "source_count": 1
+    }
+  ],
+  "excluded": [
+    "중화권 스마트폰 수요 회복 지연",
+    "단가가 높은 폴더블용 필름과 대형 디스플레이용 CoF 공급",
+    "디스플레이용 PI 바니쉬의 양산 시작",
+    "기후변화 대응 관련 매출액 수요",
+    "주력 사업과 신규 사업의 성장",
+    "시장 규모 및 매력도 상승",
+    "광고 시장의 커넥티드TV로의 급속 전환",
+    "운영 효율화를 위한 일회성 비용",
+    "희망퇴직 비용",
+    "스마트팩토리 기술",
+    "3공장 완공"
+  ]
+}

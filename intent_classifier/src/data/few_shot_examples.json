@@ -1,0 +1,832 @@
+[
+    {
+        "category": "Report Generation (Defined)",
+        "question": "2024년 3분기 실적 보고서 작성해줘",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "detail_type": "Post-closing",
+            "extracted_entities": {
+                "period": {
+                    "year": 2024,
+                    "quarter": 3
+                },
+                "requested_metrics": [
+                    "Performance Analysis Report"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (Defined)",
+        "question": "2024년 연간 사업 계획서 보여줘",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "extracted_entities": {
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Annual Business Plan"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (Defined)",
+        "question": "이번 분기 수익성 분석 보고서 만들어",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "detail_type": "Pre-closing",
+            "extracted_entities": {
+                "requested_metrics": [
+                    "Profitability Analysis Report"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (Defined)",
+        "question": "상반기 실적 보고서 요약해줘",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "detail_type": "Post-closing",
+            "extracted_entities": {
+                "requested_metrics": [
+                    "Quarterly Performance Report"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (Defined)",
+        "question": "2024년 지역별 마진 갭 분석 보고서",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "extracted_entities": {
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Regional Margin Gap Analysis"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (Defined)",
+        "question": "2024년 연말 결산 보고서 작성해줘",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "Defined Report",
+            "detail_type": "Post-closing",
+            "extracted_entities": {
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Annual Review for 2025 Planning"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "영업이익률 추이 분석해줘",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "extracted_entities": {
+                "company": "LGE",
+                "requested_metrics": [
+                    "Operating Margin",
+                    "Operating Profit Trend"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "최근 물류비 증가가 수익성에 미친 영향 분석",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "requested_metrics": [
+                    "Logistics Cost",
+                    "Profitability Impact"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "북미 지역 마케팅 비용 효율성 분석",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "extracted_entities": {
+                "company": "LGE",
+                "region": "North America",
+                "requested_metrics": [
+                    "Marketing Budget",
+                    "Ad Effectiveness",
+                    "Revenue"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "OLED 대형 모델 판매 비중 변화 보고서",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "extracted_entities": {
+                "company": "LGE",
+                "product": "OLED Large",
+                "requested_metrics": [
+                    "Sales Quantity",
+                    "Revenue Share"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "OLED 패널 가격 상승이 영업이익에 미칠 시나리오 분석",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "product": "OLED TV",
+                "requested_metrics": [
+                    "Profitability Impact",
+                    "Unit Cost"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "홍해 사태로 인한 유럽행 물류비 영향 분석",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "region": "Europe",
+                "requested_metrics": [
+                    "Logistics Cost Impact Analysis"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "파나마 운하 가뭄으로 인한 물류 지연 영향 분석",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "requested_metrics": [
+                    "Logistics Risk Analysis",
+                    "Logistics Cost"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Report Generation (New Report)",
+        "question": "2024년 MiniLED 성장이 OLED 수요에 미친 영향",
+        "answer": {
+            "intent": "Report Generation",
+            "sub_intent": "New Report",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "product": [
+                    "OLED TV",
+                    "Mini-LED TV"
+                ],
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Competitive Pressure Analysis",
+                    "Sales Quantity Trend"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "2024년 3분기 매출액 얼마야?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "period": {
+                    "year": 2024,
+                    "quarter": 3
+                },
+                "requested_metrics": [
+                    "Revenue"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "작년 영업이익 알려줘",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Operating Profit"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "북미 지역 OLED TV 판매량",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "region": "North America",
+                "product": "OLED TV",
+                "requested_metrics": [
+                    "Sales Quantity"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "Best Buy 매출 비중이 어떻게 돼?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "requested_metrics": [
+                    "Revenue Share (Best Buy)"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "QNED 75인치 재고 회전율",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "product": "QNED 75",
+                "unmapped_metrics": [
+                    "Inventory Turnover"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "유럽 법인 환율 영향",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "detail_type": "External Event",
+            "extracted_entities": {
+                "company": "LGE",
+                "region": "Europe",
+                "requested_metrics": [
+                    "Currency Impact Analysis"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Internal)",
+        "question": "Q2 대비 Q3 매출 성장률",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "extracted_entities": {
+                "company": "LGE",
+                "period": {
+                    "year": 2024,
+                    "quarter": 3
+                },
+                "requested_metrics": [
+                    "Revenue Growth Rate"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "삼성전자 OLED 시장 점유율",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "company": "Samsung",
+                "product": "OLED TV",
+                "requested_metrics": [
+                    "Market Share"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "소니 2024년 TV 매출 전망",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "company": "Sony",
+                "product": "TV",
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Revenue Growth Forecast"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "중국 TCL 미니LED 성장률",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "company": "TCL",
+                "product": "Mini-LED TV",
+                "unmapped_metrics": [
+                    "Growth Rate"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "글로벌 TV 시장 트렌드 알려줘",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "unmapped_metrics": [
+                    "Global TV Market Trend"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "하이센스 유럽 시장 진입 전략",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "company": "Hisense",
+                "region": "Europe",
+                "unmapped_metrics": [
+                    "Market Entry Strategy"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "하이센스 2024년 글로벌 TV 순위",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "company": "Hisense",
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Market Ranking"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (External)",
+        "question": "MiniLED TV 2024년 글로벌 출하량",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "External Data",
+            "extracted_entities": {
+                "product": "Mini-LED TV",
+                "period": {
+                    "year": 2024
+                },
+                "requested_metrics": [
+                    "Sales Quantity"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Hybrid)",
+        "question": "LG vs 삼성 북미 시장 점유율 비교",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Hybrid Data",
+            "extracted_entities": {
+                "company": "LGE vs Samsung",
+                "region": "North America",
+                "requested_metrics": [
+                    "Market Share Comparison"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Hybrid)",
+        "question": "우리하고 소니하고 영업이익률 차이가 얼마나 나?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Hybrid Data",
+            "extracted_entities": {
+                "company": "LGE vs Sony",
+                "requested_metrics": [
+                    "Operating Margin Comparison Analysis"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Hybrid)",
+        "question": "OLED TV 경쟁사 대비 가격 경쟁력 분석",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Hybrid Data",
+            "extracted_entities": {
+                "company": "LGE vs Competitors",
+                "product": "OLED TV",
+                "requested_metrics": [
+                    "Price Elasticity Analysis"
+                ],
+                "unmapped_metrics": [
+                    "Price Competitiveness"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Hybrid)",
+        "question": "LG vs 하이센스 유럽 시장 점유율 비교",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Hybrid Data",
+            "extracted_entities": {
+                "company": "LGE vs Hisense",
+                "region": "Europe",
+                "requested_metrics": [
+                    "Market Share Comparison"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Data QA (Hybrid)",
+        "question": "삼성 QLED vs LG OLED 북미 ASP 비교",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Hybrid Data",
+            "extracted_entities": {
+                "company": "LGE vs Samsung",
+                "region": "North America",
+                "product": [
+                    "OLED TV",
+                    "QLED TV"
+                ],
+                "requested_metrics": [
+                    "ASP"
+                ]
+            }
+        }
+    },
+    {
+        "category": "Ambiguous",
+        "question": "삼성",
+        "answer": {
+            "intent": "Ambiguous",
+            "sub_intent": "Ambiguous Clarification",
+            "extracted_entities": {
+                "company": "Samsung"
+            },
+            "clarifying_question": "삼성전자에 대해 보고서를 작성해 드릴까요, 아니면 특정 데이터를 조회해 드릴까요?"
+        }
+    },
+    {
+        "category": "Ambiguous",
+        "question": "북미",
+        "answer": {
+            "intent": "Ambiguous",
+            "sub_intent": "Ambiguous Clarification",
+            "extracted_entities": {
+                "region": "North America"
+            },
+            "clarifying_question": "북미 지역에 대해 보고서를 작성해 드릴까요, 아니면 특정 데이터를 조회해 드릴까요?"
+        }
+    },
+    {
+        "category": "Ambiguous",
+        "question": "OLED",
+        "answer": {
+            "intent": "Ambiguous",
+            "sub_intent": "Ambiguous Clarification",
+            "extracted_entities": {
+                "product": "OLED TV"
+            },
+            "clarifying_question": "OLED TV에 대해 보고서를 작성해 드릴까요, 아니면 특정 데이터를 조회해 드릴까요?"
+        }
+    },
+    {
+        "category": "Ambiguous",
+        "question": "그거",
+        "answer": {
+            "intent": "Ambiguous",
+            "sub_intent": "Ambiguous Clarification",
+            "clarifying_question": "말씀하신 내용이 정확히 무엇을 의미하는지 다시 한 번 말씀해 주시겠어요?"
+        }
+    },
+    {
+        "category": "Out-of-Scope (Data Unavailable)",
+        "question": "직원 평균 연봉이 얼마야?",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Metric Unavailable",
+            "response_message": "죄송합니다. 직원 급여와 같은 인사 데이터는 제공되지 않습니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Data Unavailable)",
+        "question": "2024년 3분기 구내식당 메뉴 알려줘",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Metric Unavailable",
+            "response_message": "죄송합니다. 해당 데이터는 업무와 관련이 없어 제공되지 않습니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Data Unavailable)",
+        "question": "직원 복지 혜택 정보 알려줘",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Metric Unavailable",
+            "response_message": "죄송합니다. 인사/복지 관련 정보는 제공되지 않습니다. 매출, 영업이익 등 사업 실적 데이터만 조회 가능합니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Data Unavailable)",
+        "question": "삼성 임원 연봉 정보",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Metric Unavailable",
+            "extracted_entities": {
+                "company": "Samsung"
+            },
+            "response_message": "죄송합니다. 경쟁사 임원 급여와 같은 내부 인사 정보는 제공되지 않습니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Data Unavailable)",
+        "question": "2024년 3분기 북미 지역",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Required Slot Missing",
+            "extracted_entities": {
+                "region": "North America",
+                "period": {
+                    "year": 2024,
+                    "quarter": 3
+                }
+            },
+            "clarifying_question": "어떤 데이터를 원하시나요? 매출, 판매량, 영업이익 등 구체적인 지표를 말씀해 주세요."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Date Range)",
+        "question": "1990년 매출액 알려줘",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Date Out of Range",
+            "extracted_entities": {
+                "company": "LGE",
+                "period": {
+                    "year": 1990
+                },
+                "requested_metrics": [
+                    "Revenue"
+                ]
+            },
+            "response_message": "요청하신 기간(1990년)의 데이터는 제공되지 않습니다. 2023년~2024년 데이터만 확인 가능합니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Date Range)",
+        "question": "2026년 예상 실적은?",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Date Out of Range",
+            "extracted_entities": {
+                "company": "LGE",
+                "period": {
+                    "year": 2026
+                },
+                "requested_metrics": [
+                    "Revenue Growth Forecast"
+                ]
+            },
+            "response_message": "요청하신 기간(2026년)의 데이터는 제공되지 않습니다. 2023년~2024년 데이터만 확인 가능합니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Date Range)",
+        "question": "2030년 OLED TV 시장 점유율 예측해줘",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Date Out of Range",
+            "extracted_entities": {
+                "product": "OLED TV",
+                "period": {
+                    "year": 2030
+                },
+                "requested_metrics": [
+                    "Market Share"
+                ]
+            },
+            "response_message": "요청하신 기간(2030년)의 예측 데이터는 제공되지 않습니다. 현재 2023년~2024년 실적 데이터만 확인 가능합니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Date Range)",
+        "question": "1985년 CRT TV 판매량",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Date Out of Range",
+            "extracted_entities": {
+                "product": "CRT TV",
+                "period": {
+                    "year": 1985
+                },
+                "requested_metrics": [
+                    "Sales Quantity"
+                ]
+            },
+            "response_message": "요청하신 기간(1985년)의 데이터는 제공되지 않습니다. 2023년~2024년 데이터만 확인 가능합니다."
+        }
+    },
+    {
+        "category": "Out-of-Scope (Date Range)",
+        "question": "2027년 삼성 MiniLED 출하량 전망",
+        "answer": {
+            "intent": "Out-of-Scope",
+            "sub_intent": "Data Unavailable",
+            "detail_type": "Date Out of Range",
+            "extracted_entities": {
+                "company": "Samsung",
+                "product": "Mini-LED TV",
+                "period": {
+                    "year": 2027
+                },
+                "requested_metrics": [
+                    "Sales Quantity"
+                ]
+            },
+            "response_message": "요청하신 기간(2027년)의 예측 데이터는 제공되지 않습니다. 2023년~2024년 실적 데이터만 확인 가능합니다."
+        }
+    },
+    {
+        "category": "Context Management (Partial Change)",
+        "question": "그런데 2023년 4분기는 어땠어?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "partial_change",
+            "extracted_entities": {
+                "period": {
+                    "year": 2023,
+                    "quarter": 4
+                }
+            },
+            "changed_entities": [
+                "period"
+            ]
+        }
+    },
+    {
+        "category": "Context Management (Partial Change)",
+        "question": "북미는?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "partial_change",
+            "extracted_entities": {
+                "region": "North America"
+            },
+            "changed_entities": [
+                "region"
+            ]
+        }
+    },
+    {
+        "category": "Context Management (Slot Filling)",
+        "question": "LG전자",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "continue",
+            "extracted_entities": {
+                "company": "LGE"
+            }
+        }
+    },
+    {
+        "category": "Context Management (Partial Change)",
+        "question": "유럽은 어때?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "partial_change",
+            "extracted_entities": {
+                "region": "Europe"
+            },
+            "changed_entities": [
+                "region"
+            ]
+        }
+    },
+    {
+        "category": "Context Management (Partial Change)",
+        "question": "OLED로 바꿔서 보여줘",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "partial_change",
+            "extracted_entities": {
+                "product": "OLED TV"
+            },
+            "changed_entities": [
+                "product"
+            ]
+        }
+    },
+    {
+        "category": "Context Management (Partial Change)",
+        "question": "그럼 2024년 1분기는?",
+        "answer": {
+            "intent": "Data QA",
+            "sub_intent": "Internal Data",
+            "context_continuity": "partial_change",
+            "extracted_entities": {
+                "period": {
+                    "year": 2024,
+                    "quarter": 1
+                }
+            },
+            "changed_entities": [
+                "period"
+            ]
+        }
+    }
+]

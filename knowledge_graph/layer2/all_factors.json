@@ -1,0 +1,6189 @@
+[
+  {
+    "name": "물류비",
+    "category": "supply_chain",
+    "mentions": 23,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 6,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 16,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 22
+  },
+  {
+    "name": "패널가격",
+    "category": "supply_chain",
+    "mentions": 23,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 10,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 12,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 18
+  },
+  {
+    "name": "경쟁심화",
+    "category": "competition",
+    "mentions": 21,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 5,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 13,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 27
+  },
+  {
+    "name": "재고정상화",
+    "category": "supply_chain",
+    "mentions": 15,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 2,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 4,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 7,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 15
+  },
+  {
+    "name": "원재료비",
+    "category": "supply_chain",
+    "mentions": 14,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 13,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 10
+  },
+  {
+    "name": "관세",
+    "category": "trade",
+    "mentions": 13,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 9,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 2,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 18
+  },
+  {
+    "name": "OLED판매확대",
+    "category": "technology",
+    "mentions": 11,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 4,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 6,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 13
+  },
+  {
+    "name": "수요부진",
+    "category": "demand",
+    "mentions": 11,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 2,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 7,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 2,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 13
+  },
+  {
+    "name": "WebOS매출확대",
+    "category": "technology",
+    "mentions": 9,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 8,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 15
+  },
+  {
+    "name": "해상운임",
+    "category": "supply_chain",
+    "mentions": 9,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 4,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 5,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 8
+  },
+  {
+    "name": "TV수요부진",
+    "category": "demand",
+    "mentions": 8,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 5,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 8
+  },
+  {
+    "name": "지역별수요",
+    "category": "demand",
+    "mentions": 8,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 4,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 3,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "마케팅비용",
+    "category": "cost",
+    "mentions": 7,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 4,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 8
+  },
+  {
+    "name": "프리미엄제품확대",
+    "category": "technology",
+    "mentions": 6,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 6,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 10
+  },
+  {
+    "name": "환율",
+    "category": "macro_economy",
+    "mentions": 6,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 2,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "원가",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 5
+  },
+  {
+    "name": "소비심리위축",
+    "category": "demand",
+    "mentions": 5,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "스포츠이벤트",
+    "category": "demand",
+    "mentions": 5,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 4,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "글로벌수요",
+    "category": "demand",
+    "mentions": 4,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 2,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "매출",
+        "count": 2,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "가전수요",
+    "category": "demand",
+    "mentions": 3,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 3,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비용개선",
+    "category": "cost",
+    "mentions": 3,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 7
+  },
+  {
+    "name": "운송비",
+    "category": "supply_chain",
+    "mentions": 3,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "출하량",
+    "category": "quantity",
+    "mentions": 3,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 3,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "B2B매출확대",
+    "category": "demand",
+    "mentions": 2,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 2,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 11
+  },
+  {
+    "name": "수요",
+    "category": "macro_economy",
+    "mentions": 2,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      },
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "AI 기술",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "IT 세트 수요 둔화",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "IT 수요",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "IT세트 수요",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "경기부진",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절적 수요",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "광고/컨텐츠 사업 확대",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "글로벌 교역량 회복",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "기저효과",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "모기지 금리",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "믹스 악화",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "성수기효과",
+    "category": "demand",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "세트 수요의 회복",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "양호한 수요",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "판매수량",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "연말 성수기 효과",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "원재료 가격 안정화",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "중국 TV 업체들의 점유율 확대",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "침체된 주택 매매",
+    "category": "macro_economy",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "매출",
+        "count": 1,
+        "type": "INVERSELY_PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "판촉비",
+    "category": "cost",
+    "mentions": 1,
+    "affects": [
+      {
+        "anchor": "원가",
+        "count": 1,
+        "type": "PROPORTIONAL"
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "1Q 영업이익 상회",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "1Q26 성수기 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "2분기 말 또는 하반기 부담",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "AI 서버 수요 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "B2B 사업 부정적 영향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "BEP 유지",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "BS 사업부 적자 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "D2C 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "EPS 하향 조정",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "H&A 본부 영업이익",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "H/W 부진 상쇄",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 본부 영업이익",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 본부 지속가능한 이익률의 추가 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 사업부 미미한 영향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 사업부 실적 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 사업부 호실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 사업부 흑자전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE 영업이익 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HE실적",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "HS본부 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "HVAC 투자",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "IVI 고급화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "IVI 이익체력 강화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LCD 가격 저점",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LCD 물량 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LCD 업황 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LG 마그나JV의 흑자 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LGD 출하량 급감",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LGD 흑자전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LG디스플레이 실적 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LG디스플레이의 높은 이익 변동성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LG이노텍 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "LG이노텍 실적 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "MC 사업부사상최대 영업적자가격",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "MC사업부적자",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "MLCC 물량 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "MLCC 부문의 흑자 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "MS 사업부 영업이익 적자전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "MS의 실적 악화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "OLED 식각",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "OLED 식각 샘플 매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SCFI",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SCFI 피크아웃",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SDV 대응 연구개발 비용 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SDV 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SDV와 맞물린 IVI 고급화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "SET 사업 부문의 수익성 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "S사향 MLCC 공급물량 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "S사향 안정적인 물량 공급",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "TV H/W 매출 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV 매출 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV 유럽 중심 개선 기대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV 적자 지속",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV 적자 확대 우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV 판매관리비 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV매출 회복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV와 BS 부문 수익성 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "TV와 BS 부문 흑자전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "VS 본부 수익성 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "VS 본부 영향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "VS 사업부 수익성의 상향 평준화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "VS 사업부 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "VS 사업부 실적 기여",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "VS 사업부 이익 기여 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "W OLED 판매 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "Web OS 실적 기여 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "WebOS 광고, 플랫폼 매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "WebOS 플랫폼 매출 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "WebOS의 수익성 기여 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "ePT 중심의 수요 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "led 사이니지 시장 지위 확보",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가격 전가력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가격 전가력 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가동률 상승",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가시적 성과 발생",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가전 수요 약세 지속",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가전 수요 약화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가전 수요 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가전 시장 수요 회복 기대감",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "가전 시장의 수요 회복 기대감",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "가전(H&A) 매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "가전, PC, TV 수요 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "개발, 생산, 품질, 영업 경쟁력 강화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "개선 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "거시 경제 불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "겨울철 에너지난 미확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "견조한 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "경기 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "경기 방어적 성격",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "경기 침체 우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "경영 효율화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "경영 효율화 효과",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "경쟁 동종업계의 실적 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "경쟁사인 Whirlpool 주가 상승",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "계절성 반복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절성 영향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절성 해소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "계절적 비수기",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "계절적 성수기",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절적 수요 약세",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "계절적 트레이딩 얽매임 해소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "고객사 다변화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "고객의 수요 패러다임 변화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "고수익성 전망",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "고정비 부담",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "고정비 절감",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "공급망 리스크",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "관망심리 강화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "관세 전쟁 격화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "관세 정책 우려 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "관세우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "광고 시장의 커넥티드TV 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "구독 관련 매출 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "구독 모델 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "구독 사업 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "구독가전",
+    "category": "technology",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "구리, 레진, 철강 가격 부담 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "구조적 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "균형 잡힌 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "글로벌 TV수요 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "글로벌 수요 변수",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "글로벌 수요 불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "글로벌 수요 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "글로벌 전기차 시장 성장세 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "금리 인하 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "금리인상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "긍정적 시장 요소 반영",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "긍정적 실적 전망",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "긍정적 영향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "긍정적 요인",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "긍정적 평가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "긍정적인 요소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "기업가치 제고",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "기후변화 대응 관련 매출액 수요 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "낮아진 DMF 가격",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "내부 점유율 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "냉각솔루션에 대한 관심 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "높아진 모기지 금리",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "높은 전기세 부담",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "높은 점유율 달성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "다운사이드 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "달러 매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "달러약세 방어",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "데이터센터 냉각솔루션 수주 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "디스플레이 부문의 매출 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "디스플레이 부문의 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "리스크",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출 기여도 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출 성장률 주춤",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출 수성 및 수익성 방어",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출감소",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "매출과 영업이익 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매출상승",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "매출성장",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "매출액 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "매크로 수요 불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "매크로 환경",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "매크로 환경 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "멀티플 리레이팅 주도",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "멕시코 공장 가동",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "멕시코 법인의 가동",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "면적당 단가가 높은 디스플레이용 PI 바니쉬 양산",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "무역 분쟁 불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "무역갈등 심화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "미국 가전제품 출하-재고, 주택 매매 증감률",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미국 내 제품 판가 인상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "미국 소비심리 위축",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미국 수요의 점진적 하강",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미국 주택 시장 선행 지표 반등",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미국과 관세율 인하 협상 성공",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미국의 주택 매매 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "미래 지향적 사업 포트폴리오 변화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "미중기술패권분쟁",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "믹스 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "반사이익 기대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "배당 기대치 상향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "배당 여력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "밸류에이션 저평가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "밸류에이션 회복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "변동성 큰 장세",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "보수적인 셀인 집행",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "보편관세 10%",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "본업 수요 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "본업 수익성 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "볼륨존 공략",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "부담",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "부담 요인",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "부진한 수익성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "부진한 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "북미 FAST 이동",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "분기 실적 계절성 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "불확실성 해소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "브랜드 포지셔닝",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비수기 수익성 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "비용 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비용 구조 악화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비용 부담 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "비용 부담 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "비용 증가 리스크",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "비용(Sell-Through 프로모션 등) 발생",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비용증가",
+    "category": "cost",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비용통제",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "비즈니스 환경",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "사업 방식, 고객 및 시장 포지션 변화 필요",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "사업모델 확장 노력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "상호 관세",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "상호관세 결정",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "생산기지 이전 및 현지화 전략",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "생산지 조정 및 가격 정책 유연화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "생산지 최적화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "선진국 TV 수요 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "선진국 소비 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "성과",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "성과급",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "성수기",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "성수기효과부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "성장률",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "세트수요 회복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "소비 수요 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "소비 심리 반등",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "소비심리 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "소비자 중저가 제품 선호",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "소비자 호평",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "소비자의 구매력 약화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "소비재 매출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "소폭 적자 예상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "소프트웨어 서비스 강화 필요성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수요 감소 우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수요 분화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "수요 회복 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "수요둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "수요불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수요의 반등 대응",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수요회복",
+    "category": "demand",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "수익개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익구조 안정화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 3
+  },
+  {
+    "name": "수익성 개선 효과",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 기대 부합",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 달성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 방어",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 방어 여부",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 상승",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "수익성 유지",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 저하",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 점진적 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 하락 가능성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수익성 회복 시점의 불확실성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "수출비중 높은 기업의 노출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "스마트 팩토리 기술 적용",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "스마트팩토리기술",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "스포츠 이벤트 등 수요 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "시장 기대치 상회 실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "시장 회복 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "시장지배력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "신규 고객사 확보 및 국내 IT 고객사향 물량 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "신규 고객사 확보 및 증설 물량 반영",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "신사업 투자 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "신성장동력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 기여 효과",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 발목",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 방어 어려움",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 변동성 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 안정성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 우려 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 추가 하향 조정 위험",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 하향 조정",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 호조 가능성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적개선",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적부진",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적에 대한 불안감",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적의 변동",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "실적컨센서스하회",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "안정적 수익 창출",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "안정적 수익구조 확보",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "안정적인 OLED패널 공급망",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "안정적인 수익성 확보",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "안정적인 포트폴리오",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "업황 회복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "업황 회복 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "연결 실적 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "연결 실적 하향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "연결 영업이익 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "연결/지분법 대상 실적 하향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "연말 비용 반영",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "영업비용",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업비용 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "영업이익 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 기대치 하회",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 상향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 하향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익 향상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익률",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익률 상향",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익률 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업이익률 회복",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업적자 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "영업적자 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업적자 지속",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업적자 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "영업흑자 기대 어려움",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "완성차 수요 부진의 하방 위험",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "외형 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "외형 성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "외형 성장 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "외형 역성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "우려 대비 출하량 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "운반비 상승",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "운송비용 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "원가개선",
+    "category": "cost",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "원부자재 및 운임비용 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "원자재 및 운임비용 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "원자재가격 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "원재료 가격 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "위험",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "유럽 소비 심리 반등",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "유럽 시장 수요",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "유럽의 규제",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "유럽지역 판매 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "유로2024 이벤트",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "유지비용 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "유통 물량 수준 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "유통재고 건전화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "이익 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "이익 개선 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "이익 기여도 강화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "이익 변동성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "이익 체력 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "이익의 동반성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "인버터형 에어컨",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "인프라 투자 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "인플레이션",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "일회성 비용",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "자체 핵심 솔루션 내재화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "잠재 위험",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "장기 선복 계약 갱신",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "재고 확충",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "재고증가",
+    "category": "supply_chain",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "재료비 부담",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "적극적인 비용 투입",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "적자전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "적자폭 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전기세 설정 기능",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전기차 부품 시장의 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전기차 수요 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전기차 수요 둔화 우려",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전력소비 문제 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전력소비 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전반적 수익성 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전방 수요 회복 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "전방 시장 수요 둔화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전자제품 소비 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전자칠판 경쟁력 배가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전장 부문 실적 기여도 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "전장부품 관련 기회",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전장부품 실적 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전장부품 호실적",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "전장사업 성장 기대 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "점유율 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "정밀 타겟 광고",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "제품 믹스 도전적 시장 환경",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "제품 차별화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "제품 판가 인상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "제품믹스 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주가 반등",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주가 반등 가능성",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주가 상승 여력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주가 하락",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주가 하방 리스크 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "주력 사업의 시장 지위 강화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "주주환원",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "중국 TV 업체의 점유율 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "중국 세트업체 셀인 물량 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "중국 업체의 부상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "중단사업손실",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "중화권 경기 부양",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "지난 2년간의 부진",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "지역별 포트폴리오 개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "지정학적 리스크",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "차별화된 경험 제공",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "철강 관련 파생 관세",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "첨단기술 확보",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "체질개선",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "최악의 시나리오 회피",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "출하 반전",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "코로나특수효과소멸",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "코스트 절감 효과",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "클라우드 연결 확장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "탄력적인 가동률 유지",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "트럼프2기 집권",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "파리올림픽",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "판가 인상",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "판매 감소세 완화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "판매 부진 심화",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "판매 실적 역성장",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "판매 촉진 비용 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "판매관리비 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "판매비용 증가",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "판촉비 감소",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "패널 공급업체들의 가동률 조정",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "포트폴리오 전환",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 2
+  },
+  {
+    "name": "폴더블용 필름과 대형 디스플레이용 CoF 공급",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "프리미엄 경쟁력",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "프리미엄 매출 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "플랫폼 매출 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "플랫폼/서비스 이익",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "한국산 가전에 대한 상호 관세 및 Section 232의 범위 확대",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "해상물류 지연",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  },
+  {
+    "name": "흑자기조유지",
+    "category": "performance",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 0
+  },
+  {
+    "name": "희망퇴직 일회성 비용 사라짐",
+    "category": "extracted",
+    "mentions": 0,
+    "affects": [
+      {
+        "anchor": null,
+        "count": null,
+        "type": null
+      }
+    ],
+    "influences_count": 1
+  }
+]

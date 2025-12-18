@@ -1,0 +1,4554 @@
+{
+  "summary": {
+    "normalized_relations": 503
+  },
+  "relations": [
+    {
+      "source_factor": "물류비",
+      "target_factor": "수익성",
+      "relation_type": "MITIGATES",
+      "mention_count": 4,
+      "sources": [
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf",
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf",
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf",
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "마케팅비용",
+      "relation_type": "CAUSES",
+      "mention_count": 4,
+      "sources": [
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf",
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf",
+        "LG전자_20231011_LG전자066570_3Q23_견조한_가전과_전장의.pdf",
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 4,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf",
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf",
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20240327_LG전자066570_4개의_관전포인트.pdf",
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf",
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "마케팅비용",
+      "relation_type": "CAUSES",
+      "mention_count": 3,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf",
+        "LG전자_20250106_LG전자066570_불확실성을_건너는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비심리위축",
+      "target_factor": "수요부진",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "비용증가",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "성수기효과",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상운임",
+      "target_factor": "원가개선",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄제품확대",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf",
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상운임",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf",
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "데이터센터 냉각솔루션 수주 증가",
+      "target_factor": "구조적 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf",
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "마케팅비용 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20240109_LG전자066570_전통의_4_분기_통과.pdf",
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf",
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "영업적자 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf",
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "수요부진",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf",
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "비용증가",
+      "relation_type": "CAUSES",
+      "mention_count": 2,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf",
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "전방 시장 수요 둔화",
+      "target_factor": "수익성 저하",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 및 판매 촉진 비용 증가",
+      "target_factor": "수익성 저하",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "판매 촉진 비용 증가",
+      "target_factor": "유통재고 수준 정상화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "비용절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "VS 사업부 실적",
+      "target_factor": "실적 기여 효과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "기저효과",
+      "target_factor": "IT세트 수요 반등",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요 반등",
+      "target_factor": "안정적 수익 창출",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "MC 사업부, 태양광 패널 사업 철수",
+      "target_factor": "밸류에이션 매력 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "VS 사업부 실적 기여",
+      "target_factor": "멀티플 리레이팅 주도",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "HE 사업부 부진",
+      "target_factor": "2Q15 실적시장 컨센서스 하회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "MC 사업부 적자폭 확대",
+      "target_factor": "2Q15 실적시장 컨센서스 하회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_다져진_바닥.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 하락",
+      "target_factor": "실적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비 하락",
+      "target_factor": "실적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "비용개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 감소",
+      "target_factor": "비용개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV 유통 재고 감소",
+      "target_factor": "출하 반전",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 확판",
+      "target_factor": "견조한 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_매수를_고려할_시점.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "부진한 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "판촉비",
+      "target_factor": "부진한 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "보유 재고 정상화",
+      "target_factor": "긍정적 영향",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "겨울철 에너지난 미확대",
+      "target_factor": "소비 심리 반등",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "구리, 레진, 철강 가격 부담 완화",
+      "target_factor": "비용 부담 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "장기 선복 계약 갱신",
+      "target_factor": "물류비",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230109_LG전자066570_어려운_환경에서_지켜낸_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "코로나특수효과소멸",
+      "target_factor": "IT 수요 둔화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "인플레이션",
+      "target_factor": "IT 수요 둔화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "금리인상",
+      "target_factor": "IT 수요 둔화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "IT 수요 둔화",
+      "target_factor": "Set/부품 재고 상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "미중기술패권분쟁",
+      "target_factor": "공급망 리스크",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "미중기술패권분쟁",
+      "target_factor": "무역갈등 심화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "생존경쟁 심화",
+      "target_factor": "첨단기술 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "생존경쟁 심화",
+      "target_factor": "신성장동력",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "생존경쟁 심화",
+      "target_factor": "체질개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "유럽지역 판매 감소",
+      "target_factor": "TV 매출 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "판매 부진 심화",
+      "target_factor": "가전 매출 및 영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "원자재 및 운임비용 하락",
+      "target_factor": "원가 개선 기대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "원부자재 및 운임비용 개선",
+      "target_factor": "실적 우려 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "경기 둔화",
+      "target_factor": "전장사업 성장 기대 감소",
+      "relation_type": "CAUSED_BY",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230110_LG전자066570_전장에_거는_기대감이_커질_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "경기부진",
+      "target_factor": "소비재 매출",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "성수기효과부진",
+      "target_factor": "TV 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "판매비용 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "원자재가격 하락",
+      "target_factor": "비용구조 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "운송비용 하락",
+      "target_factor": "비용구조 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 패널가격 하락",
+      "target_factor": "IT 패널 수익성 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD TV 패널가격 반등",
+      "target_factor": "영업적자 지속",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "W OLED 판매 부진",
+      "target_factor": "영업흑자 기대 어려움",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 가격 저점",
+      "target_factor": "긍정적 실적 전망",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230111_LG전자066570_4분기_수요_부진.pdf"
+      ]
+    },
+    {
+      "source_factor": "적극적인 비용 투입",
+      "target_factor": "재고정상화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "출하량",
+      "target_factor": "LG이노텍 실적 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "수익성",
+      "target_factor": "패널 공급업체들의 가동률 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널 공급업체들의 가동률 조정",
+      "target_factor": "LCD패널 가격 하락 제한",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "차별화된 경험 제공",
+      "target_factor": "OLED TV 가격 프리미엄 유지",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요 둔화",
+      "target_factor": "유통 재고 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "글로벌 TV수요 감소",
+      "target_factor": "재고수준 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "경기 침체 우려",
+      "target_factor": "경쟁심화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV시장 수요 감소",
+      "target_factor": "경쟁심화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "적극적인 재고조정 노력",
+      "target_factor": "유통 물량 수준 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이(LCD 종료 및 OLED 전환)",
+      "target_factor": "OLED판매확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이(LCD 종료 및 OLED 전환)",
+      "target_factor": "안정적인 OLED패널 공급망",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "공급사(LCD 패널 과잉 공급)",
+      "target_factor": "탄력적인 가동률 유지",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요 둔화",
+      "target_factor": "LCD 패널 과잉 공급",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요 역성장",
+      "target_factor": "OLED TV 성장",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "전력소비 증가",
+      "target_factor": "유럽의 규제",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED 중심 사업",
+      "target_factor": "전력소비 문제 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_2023년_전장電裝_앞으로.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "판촉비 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "수익성 정상화",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf"
+      ]
+    },
+    {
+      "source_factor": "유럽 소비 심리 반등",
+      "target_factor": "HE 본부 실적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국 주택 시장 선행 지표 반등",
+      "target_factor": "가전 수요 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_3_가지의_추가_기회_요인.pdf"
+      ]
+    },
+    {
+      "source_factor": "IT 세트 수요 둔화",
+      "target_factor": "HE 사업부 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "유통재고 건전화",
+      "target_factor": "판매촉진비 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절적 성수기",
+      "target_factor": "고정비 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "고정비 절감",
+      "target_factor": "H&A 사업부 수익성 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 및 원재료비 정상화",
+      "target_factor": "H&A 사업부 수익성 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "유통재고 건전화",
+      "target_factor": "HE 사업부 흑자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "HE 사업부부진",
+      "target_factor": "실적시장컨센서스하회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "MC 사업부적자폭확대",
+      "target_factor": "MC 사업부사상최대 영업적자가격",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_4Q22_Review_예상대로.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "수익성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 비 투입 증가",
+      "target_factor": "SET 사업 부문의 수익성 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf"
+      ]
+    },
+    {
+      "source_factor": "유통 재고 건전화",
+      "target_factor": "수요의 반등 대응",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 갱신",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230130_LG전자066570_실적_바닥_재확인.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 비용",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "HE 사업부 매출 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "LGD 출하량 급감",
+      "target_factor": "HE 사업부 매출 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "비용 구조 악화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "영업이익률 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용 구조 악화",
+      "target_factor": "영업이익률 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "제품믹스 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "매출액 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230223_LG전자066570_1분기_계절성_기대_확실한_대.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 매출 확대",
+      "target_factor": "1Q 영업이익 상회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용개선",
+      "target_factor": "1Q 영업이익 상회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용 감소",
+      "target_factor": "영업이익률 상향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고조정",
+      "target_factor": "재고정상화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 가전 비중 확대",
+      "target_factor": "영업이익률 상향",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "믹스 개선",
+      "target_factor": "영업이익률 상향",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "영업적자 전환",
+      "target_factor": "긍정적 평가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED 제품 판매 비중 증가",
+      "target_factor": "TV 시장 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "하이엔드 가전 시장 확대",
+      "target_factor": "TV 시장 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 및 무역전쟁",
+      "target_factor": "TV 시장 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230309_LG전자066570_1Q_이익_상향_프리미엄과_V.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "본업 수익성 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상운임",
+      "target_factor": "본업 수익성 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "판매관리비 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "TV 판매관리비 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230331_LG전자066570_2023_파워트레인_부문_흑자전.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 믹스 개선",
+      "target_factor": "영업이익 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_1_위_사업자의_이유_있는_실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "원가개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_1_위_사업자의_이유_있는_실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "마케팅 비용 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_1_위_사업자의_이유_있는_실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "영업이익률 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_1_위_사업자의_이유_있는_실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "판촉비 통제",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_PB_10_배를_넘을_수_있.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "가전 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상운임",
+      "target_factor": "가전 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격 하락",
+      "target_factor": "TV와 BS 부문 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용 구조 효율화",
+      "target_factor": "TV와 BS 부문 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "전 사업 부문 재고조정",
+      "target_factor": "전반적 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용구조 효율화",
+      "target_factor": "전반적 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "전반적 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "운임비 하락",
+      "target_factor": "전반적 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격 하락",
+      "target_factor": "코스트 절감 효과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용 구조 효율화",
+      "target_factor": "코스트 절감 효과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "코스트 절감 효과",
+      "target_factor": "TV와 BS 부문 흑자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_수익성_개선으로_실적_서프라이즈.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절성 반복",
+      "target_factor": "실적 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "source_factor": "영업비용 증가",
+      "target_factor": "실적 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "source_factor": "IT 수요 둔화",
+      "target_factor": "실적 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격 하락",
+      "target_factor": "HE 수익성 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 감소",
+      "target_factor": "가전 영업이익률 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230410_LG전자066570_실적_서프_배경__가전_매출.pdf"
+      ]
+    },
+    {
+      "source_factor": "유통 재고 수준 건전화",
+      "target_factor": "마케팅비용 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230428_LG전자066570_호실적이_일회성이_아닌_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅비용 절감",
+      "target_factor": "영업이익 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230428_LG전자066570_호실적이_일회성이_아닌_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "HE 사업부 부진",
+      "target_factor": "실적 시장 컨센서스 하회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230428_LG전자066570_호실적이_일회성이_아닌_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "중국 세트업체 셀인 물량 증가",
+      "target_factor": "가동률 상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "지역별수요",
+      "target_factor": "가동률 상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "낮아진 DMF 가격",
+      "target_factor": "수익성 상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "폴더블용 필름과 대형 디스플레이용 CoF 공급",
+      "target_factor": "매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "면적당 단가가 높은 디스플레이용 PI 바니쉬 양산",
+      "target_factor": "업황 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 물량 감소",
+      "target_factor": "디스플레이 부문의 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절성",
+      "target_factor": "디스플레이 매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "S사향 안정적인 물량 공급",
+      "target_factor": "MLCC 부문의 흑자 전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "신규 고객사 확보 및 증설 물량 반영",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 업황 부진",
+      "target_factor": "디스플레이 부문의 매출 성장",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230525_LG전자066570_B2B_기업으로의_전환_과정.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료 가격",
+      "target_factor": "영업비용",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료 가격 하락",
+      "target_factor": "이익의 동반성장",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "source_factor": "환율환경",
+      "target_factor": "주가 상승 여력",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "source_factor": "멕시코 공장 가동",
+      "target_factor": "수익성 개선 효과",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "source_factor": "SCFI",
+      "target_factor": "비즈니스 환경",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230622_LG전자066570_여전히_유효한_방향성.pdf"
+      ]
+    },
+    {
+      "source_factor": "보수적인 셀인 집행",
+      "target_factor": "흑자기조 유지",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230710_LG전자066570_높아진_이익레벨_증명.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV 패널 가격 상승 반영되지 않음",
+      "target_factor": "흑자기조 유지",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20230710_LG전자066570_높아진_이익레벨_증명.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 사업 다각화",
+      "target_factor": "실적 확대",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231011_LG전자066570_3Q23_견조한_가전과_전장의.pdf"
+      ]
+    },
+    {
+      "source_factor": "전장 부문 실적 기여도 확대",
+      "target_factor": "실적 확대",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231011_LG전자066570_3Q23_견조한_가전과_전장의.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "HE 사업부 호실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231011_LG전자066570_프리미엄_이상의_스페셜_입증.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "BS 사업부 적자 전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231011_LG전자066570_프리미엄_이상의_스페셜_입증.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "HE 사업부 미미한 영향",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231011_LG전자066570_프리미엄_이상의_스페셜_입증.pdf"
+      ]
+    },
+    {
+      "source_factor": "효과적인 재고관리",
+      "target_factor": "수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용절감",
+      "target_factor": "수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "환율",
+      "target_factor": "수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료 가격 안정화",
+      "target_factor": "수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG 마그나JV의 흑자 전환",
+      "target_factor": "수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "안정적인 재고 유지",
+      "target_factor": "마케팅 비용 통제 효과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "멕시코 법인의 가동",
+      "target_factor": "VS 사업부 수익성의 상향 평준화",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_VS_사업부에_거는_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "전방 수요 회복 지연",
+      "target_factor": "경쟁심화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "전방 수요 회복 지연",
+      "target_factor": "마케팅 비용 투입 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "볼륨존 공략",
+      "target_factor": "매출과 영업이익 성장",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 개선",
+      "target_factor": "매출과 영업이익 성장",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "볼륨존 공략",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 개선",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 개선",
+      "target_factor": "영업이익 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "마케팅 비용 투입",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "타이트한 재고관리",
+      "target_factor": "마케팅 비용 투입",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "H&A, HE 부문의 B2B 사업 다각화",
+      "target_factor": "수익성 중심 사업 전개",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "수익성 중심 사업 전개",
+      "target_factor": "성과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "매크로 환경",
+      "target_factor": "수요 분화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요 분화",
+      "target_factor": "판매 실적 역성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD에서 OLED 전환",
+      "target_factor": "성장률",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요 회복",
+      "target_factor": "비용 증가 리스크",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "기후변화 대응 관련 매출액 수요 증가",
+      "target_factor": "긍정적인 요소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "전기차 부품 시장의 확대",
+      "target_factor": "긍정적인 요소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 판매 확대",
+      "target_factor": "TV매출 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "플랫폼 사업 매출 확대",
+      "target_factor": "TV매출 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "원가 및 비용 인상 요인에 대한 선제적 대응",
+      "target_factor": "안정적인 수익성 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "b2b 사업군의 성장 확대",
+      "target_factor": "안정적인 수익성 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "지역별 포트폴리오 개선",
+      "target_factor": "안정적인 수익성 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "인프라 투자 감소",
+      "target_factor": "B2B 사업 부정적 영향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "사업 방식, 고객 및 시장 포지션 변화 필요",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "클라우드 연결 확장",
+      "target_factor": "소프트웨어 서비스 강화 필요성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "자체 핵심 솔루션 내재화",
+      "target_factor": "전자칠판 경쟁력 배가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "개발, 생산, 품질, 영업 경쟁력 강화",
+      "target_factor": "led 사이니지 시장 지위 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_계절성_아닌_VS_중장기_성장성.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "외형 성장 둔화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 비용 통제",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "점유율 확대",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 개선",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 포지셔닝",
+      "target_factor": "점유율 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국 수요의 점진적 하강",
+      "target_factor": "가전 수요 약화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "높아진 모기지 금리",
+      "target_factor": "가전 수요 약화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "침체된 주택 매매",
+      "target_factor": "가전 수요 약화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "건전한 재고 관리",
+      "target_factor": "수익성 유지",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "효율적 비용 통제",
+      "target_factor": "수익성 유지",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "고객사 다변화",
+      "target_factor": "완성차 수요 부진의 하방 위험",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231030_LG전자066570_터프한_수요_환경에서_지켜낸_수.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "영업이익 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "영업이익 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "세트수요 회복",
+      "target_factor": "HE 사업부 실적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS 플랫폼 전략 확대",
+      "target_factor": "HE 사업부 실적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "전체적인 마케팅 비용 통제",
+      "target_factor": "영업이익 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "MLCC 물량 확대",
+      "target_factor": "영업이익 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED 식각 샘플 매출",
+      "target_factor": "흑자 기조 유지",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "S사향 MLCC 공급물량 확대",
+      "target_factor": "매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "내부 점유율 확대",
+      "target_factor": "우려 대비 출하량 증가",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "신규 고객사 확보 및 국내 IT 고객사향 물량 확대",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED 식각",
+      "target_factor": "고수익성 전망",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231107_LG전자066570_계획대로_흘러가는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "실적부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf"
+      ]
+    },
+    {
+      "source_factor": "지난 2년간의 부진",
+      "target_factor": "판매 감소세 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절성",
+      "target_factor": "4분기 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf"
+      ]
+    },
+    {
+      "source_factor": "연말 비용 반영",
+      "target_factor": "1 분기 호실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231212_LG전자066570_연말에_사야하는_주식.pdf"
+      ]
+    },
+    {
+      "source_factor": "믹스 악화",
+      "target_factor": "소폭 적자 예상",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 비용 추가 집행",
+      "target_factor": "소폭 적자 예상",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 등 프리미엄 제품군 수요 둔화",
+      "target_factor": "믹스 악화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "source_factor": "고수익성 수주 물량 비중 확대",
+      "target_factor": "VS 사업부 이익 기여 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "source_factor": "멕시코 공장 가동",
+      "target_factor": "VS 사업부 이익 기여 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20231228_LG전자066570_하방4분기보다_상방2024.pdf"
+      ]
+    },
+    {
+      "source_factor": "시장 회복 지연",
+      "target_factor": "경쟁심화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240108_LG전자066570_바닥인_것_같은데_회복이_더디네.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "영업이익 하향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240108_LG전자066570_바닥인_것_같은데_회복이_더디네.pdf"
+      ]
+    },
+    {
+      "source_factor": "가전, PC, TV 수요 부진",
+      "target_factor": "HE 사업 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240108_LG전자066570_바닥인_것_같은데_회복이_더디네.pdf"
+      ]
+    },
+    {
+      "source_factor": "성과급",
+      "target_factor": "영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240109_LG전자066570_전통의_4_분기_통과.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240109_LG전자066570_전통의_4_분기_통과.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "수익구조 안정화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240109_LG전자066570_전통의_4_분기_통과.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS의 수익성 기여 확대",
+      "target_factor": "HE 사업부 수익성 개선",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240109_LG전자066570_전통의_4_분기_통과.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240327_LG전자066570_4개의_관전포인트.pdf"
+      ]
+    },
+    {
+      "source_factor": "플랫폼/서비스 이익",
+      "target_factor": "TV 세트 부진",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240327_LG전자066570_4개의_관전포인트.pdf"
+      ]
+    },
+    {
+      "source_factor": "스포츠이벤트",
+      "target_factor": "유럽 시장 수요",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240327_LG전자066570_4개의_관전포인트.pdf"
+      ]
+    },
+    {
+      "source_factor": "기저효과",
+      "target_factor": "HE 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_저평가_매력_부각_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "원가구조 부담 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_저평가_매력_부각_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS 플랫폼 매출 증가",
+      "target_factor": "HE 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_저평가_매력_부각_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "수익성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf"
+      ]
+    },
+    {
+      "source_factor": "Web OS 실적 기여 확대",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "HE 본부 지속가능한 이익률의 추가 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf"
+      ]
+    },
+    {
+      "source_factor": "스포츠이벤트",
+      "target_factor": "프리미엄제품확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240408_LG전자066570_플랫폼과_B2B.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널 조달 관련 재료비 부담",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅 경쟁 심화",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "수익성 높은 플랫폼 매출 확대",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "재료비 부담",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "판촉 경쟁 심화",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "매크로 환경 개선",
+      "target_factor": "본업 수요 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 매출 비중 증가",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 매출 비중 증가",
+      "target_factor": "분기 실적 계절성 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "플랫폼 매출 확대",
+      "target_factor": "TV 사업 수익성 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_수요_바닥_이후_시선_변화_기대.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "비용 부담 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상물류 지연",
+      "target_factor": "운반비 상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄제품확대",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "매출 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "원재료비",
+      "target_factor": "비용 부담 지속",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용 부담",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 수요 회복",
+      "target_factor": "수익성 달성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240426_LG전자066570_우려_대비_양호_저평가_지속.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 및 플랫폼 중심 사업체질 개선",
+      "target_factor": "실적 호조 가능성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240528_LG전자066570_B2B_회사로_인정해주세요.pdf"
+      ]
+    },
+    {
+      "source_factor": "가전 바닥 통과",
+      "target_factor": "TV 유럽 중심 개선 기대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240528_LG전자066570_B2B_회사로_인정해주세요.pdf"
+      ]
+    },
+    {
+      "source_factor": "전기차 수요 둔화 우려",
+      "target_factor": "전장부품 관련 기회",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240528_LG전자066570_B2B_회사로_인정해주세요.pdf"
+      ]
+    },
+    {
+      "source_factor": "SDV 전환",
+      "target_factor": "전장부품 관련 기회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240528_LG전자066570_B2B_회사로_인정해주세요.pdf"
+      ]
+    },
+    {
+      "source_factor": "AI 기술",
+      "target_factor": "제품 차별화",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 라인업",
+      "target_factor": "시장지배력",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "경쟁 동종업계의 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 경쟁력",
+      "target_factor": "매출 수성 및 수익성 방어",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240605_LG전자066570_AI_가전도_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "글로벌 전기차 시장 성장세 둔화",
+      "target_factor": "매출 성장률 주춤",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비자의 구매력 약화",
+      "target_factor": "매출 성장률 주춤",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 제품 비중 확대",
+      "target_factor": "수익성 점진적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "SDV 대응 연구개발 비용 증가",
+      "target_factor": "수익성 점진적 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "가전 시장 수요 회복 기대감",
+      "target_factor": "매출 기여도 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "파리올림픽 및 유로2024 이벤트",
+      "target_factor": "유럽 시장 OLED TV 판매 반등",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 사업 영역 확대",
+      "target_factor": "매출 & 수익성 기여도 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "파리올림픽",
+      "target_factor": "OLED TV 판매 반등",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "유로2024 이벤트",
+      "target_factor": "OLED TV 판매 반등",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "가전 시장의 수요 회복 기대감",
+      "target_factor": "실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 사업 영역 확대",
+      "target_factor": "매출&수익성 기여도 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240610_LG전자066570_B2B로_매출수익성_두_마리.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이 지분법 손실",
+      "target_factor": "다운사이드 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "다운사이드 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "다운사이드 완화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 성과",
+      "target_factor": "영업이익 상향",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 성과",
+      "target_factor": "계절적 트레이딩 얽매임 해소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "잠재 위험",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240703_LG전자066570_계절성_타파.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B/플랫폼 중심 사업 개선",
+      "target_factor": "연결 영업이익 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이 실적 개선",
+      "target_factor": "배당 기대치 상향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "변동성 큰 장세",
+      "target_factor": "주가 하방 리스크 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이의 턴어라운드",
+      "target_factor": "연간 ROE 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "이익 개선 둔화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상 운임 감소",
+      "target_factor": "물류비 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_15년만에_2Q_영업이익_1조.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 매출 성장",
+      "target_factor": "시장 기대치 상회 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf"
+      ]
+    },
+    {
+      "source_factor": "B2B 매출 성장",
+      "target_factor": "계절성 해소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅비용 추가 집행",
+      "target_factor": "영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절적 비수기",
+      "target_factor": "매출 성장",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_B2B의_핵심은_지속성.pdf"
+      ]
+    },
+    {
+      "source_factor": "포트폴리오 전환",
+      "target_factor": "실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 관련 매출 증가",
+      "target_factor": "가전(H&A) 매출",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 중심 매출 확대",
+      "target_factor": "TV(HE) 영업이익률",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "안정적인 포트폴리오",
+      "target_factor": "개선 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "밸류에이션 저평가",
+      "target_factor": "긍정적 요인",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 사업 전환",
+      "target_factor": "가시적 성과 발생",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "고객의 수요 패러다임 변화",
+      "target_factor": "포트폴리오 전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "사업모델 확장 노력",
+      "target_factor": "미래 지향적 사업 포트폴리오 변화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "주력 사업의 시장 지위 강화",
+      "target_factor": "균형 잡힌 성장",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "금리 인하 지연",
+      "target_factor": "수요부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "지정학적 리스크",
+      "target_factor": "운임지수 불확실성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "스포츠 이벤트 등 수요 증가",
+      "target_factor": "TV H/W 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "원가상승",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "매출상승",
+      "target_factor": "수익개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS 기반 광고/컨텐츠 사업 성장",
+      "target_factor": "매출 성장",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "광고 시장의 커넥티드TV 전환",
+      "target_factor": "webOS 기반 플랫폼 사업의 고속 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240726_LG전자066570_가치_확대의_변화에_주목.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS 매출 증가",
+      "target_factor": "이익 개선",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "북미 FAST 이동",
+      "target_factor": "WebOS 고성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "정밀 타겟 광고",
+      "target_factor": "이익 기여도 강화",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "전기차 수요 둔화",
+      "target_factor": "VS 본부 영향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "IVI 이익체력 강화",
+      "target_factor": "VS 본부 수익성 개선",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240807_LG전자066570_NDR_후기_질문의_결이_달라.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 가전",
+      "target_factor": "경기 방어적 성격",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240822_LG전자066570_Investor_Forum_후기.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS",
+      "target_factor": "WebOS 광고, 플랫폼 매출",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240822_LG전자066570_Investor_Forum_후기.pdf"
+      ]
+    },
+    {
+      "source_factor": "AI 서버 수요 확대",
+      "target_factor": "냉각솔루션에 대한 관심 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240822_LG전자066570_Investor_Forum_후기.pdf"
+      ]
+    },
+    {
+      "source_factor": "달러약세 방어",
+      "target_factor": "실적 안정성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240925_LG전자066570_아웃퍼폼_지속을_전망하는_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "포트폴리오 전환",
+      "target_factor": "이익 체력 개선",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240925_LG전자066570_아웃퍼폼_지속을_전망하는_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "기업가치 제고",
+      "target_factor": "주주환원",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20240925_LG전자066570_아웃퍼폼_지속을_전망하는_이유.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절적 수요 약세",
+      "target_factor": "실적에 대한 불안감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "실적에 대한 불안감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "source_factor": "불확실성 해소",
+      "target_factor": "관망심리 강화",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "수익성 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "source_factor": "높은 LCD 패널가격",
+      "target_factor": "비용부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3Q24P__브레이크_작동.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용 부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "source_factor": "운임지수 하락",
+      "target_factor": "물류비",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비 수요 부진",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "source_factor": "환율 변동성",
+      "target_factor": "달러 매출",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "source_factor": "매출 감소",
+      "target_factor": "영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_3_분기_잠정실적_요약_쇼크.pdf"
+      ]
+    },
+    {
+      "source_factor": "선진국 TV 수요 부진",
+      "target_factor": "HE 매출 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 패널 가격 비우호적",
+      "target_factor": "HE 매출 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "HE 수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "HE 수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241010_LG전자066570_잠깐_쉼표.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "HE 수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf"
+      ]
+    },
+    {
+      "source_factor": "연결/지분법 대상 실적 하향",
+      "target_factor": "EPS 하향 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf"
+      ]
+    },
+    {
+      "source_factor": "중단사업손실",
+      "target_factor": "EPS 하향 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 확판",
+      "target_factor": "외형 성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_상대적_매력_부각.pdf"
+      ]
+    },
+    {
+      "source_factor": "매출 성장",
+      "target_factor": "물류비",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_연말에_강한_주식_글로벌_1위.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용(Sell-Through 프로모션 등) 발생",
+      "target_factor": "4분기 실적 저조",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_연말에_강한_주식_글로벌_1위.pdf"
+      ]
+    },
+    {
+      "source_factor": "가전구독과 WebOS",
+      "target_factor": "비수기 수익성 개선",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_연말에_강한_주식_글로벌_1위.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED TV 비중 증가",
+      "target_factor": "TV 사업 개선",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_연말에_강한_주식_글로벌_1위.pdf"
+      ]
+    },
+    {
+      "source_factor": "운임지수 하락",
+      "target_factor": "물류비 부담 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241025_LG전자066570_연말에_강한_주식_글로벌_1위.pdf"
+      ]
+    },
+    {
+      "source_factor": "트럼프2기 집권",
+      "target_factor": "보편관세 우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241118_LG전자066570_비즈니스모델확장_그리고추가기업.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS",
+      "target_factor": "HE 본부 영업이익",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241118_LG전자066570_비즈니스모델확장_그리고추가기업.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독가전",
+      "target_factor": "H&A 본부 영업이익",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20241118_LG전자066570_비즈니스모델확장_그리고추가기업.pdf"
+      ]
+    },
+    {
+      "source_factor": "ePT 중심의 수요 부진",
+      "target_factor": "전장부품 실적 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250106_LG전자066570_불확실성을_건너는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG이노텍 부진",
+      "target_factor": "연결 실적 하향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250106_LG전자066570_불확실성을_건너는_중.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가 추이 불리",
+      "target_factor": "TV 실적 상대적 선방",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_LG전자_-_4분기_잠정실적_요.pdf"
+      ]
+    },
+    {
+      "source_factor": "OLED판매확대",
+      "target_factor": "BEP 유지",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "BEP 유지",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "트럼프 2기 관세 문제",
+      "target_factor": "주가 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "이익 변동성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국 우선주의와 관세 부과",
+      "target_factor": "주가 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 위험 완화",
+      "target_factor": "밸류에이션 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 기저상 부담 완화",
+      "target_factor": "이익 변동성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250109_LG전자066570_지금의_주가가_반영하고_있는_것.pdf"
+      ]
+    },
+    {
+      "source_factor": "SCFI 피크아웃",
+      "target_factor": "물류비",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf"
+      ]
+    },
+    {
+      "source_factor": "LGD 흑자전환",
+      "target_factor": "배당 여력",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf"
+      ]
+    },
+    {
+      "source_factor": "글로벌 수요 증가",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf"
+      ]
+    },
+    {
+      "source_factor": "환율",
+      "target_factor": "패널 조달 부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 불확실성 해결",
+      "target_factor": "긍정적 시장 요소 반영",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_2024년_복기와_2025년의.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "TV 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_가전_홀로_하드캐리_실적_견인.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용 부담 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_가전_홀로_하드캐리_실적_견인.pdf"
+      ]
+    },
+    {
+      "source_factor": "4 분기 계절성",
+      "target_factor": "실적의 변동",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_가전_홀로_하드캐리_실적_견인.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용 부담 감소",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_가전_홀로_하드캐리_실적_견인.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절성 영향",
+      "target_factor": "영업이익 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "성수기효과",
+      "target_factor": "HE사업부 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "광고/컨텐츠 사업 확대",
+      "target_factor": "HE사업부 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅비용",
+      "target_factor": "수익성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄제품확대",
+      "target_factor": "HE 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "WebOS매출확대",
+      "target_factor": "HE 매출 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "HE 영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "HE 영업이익 감소",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_이제_다시_성수기.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널가격",
+      "target_factor": "부진한 수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_탑라인_경쟁력은_입증_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "부진한 수익성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_탑라인_경쟁력은_입증_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "신사업 투자 확대",
+      "target_factor": "수익성 회복 시점의 불확실성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250124_LG전자066570_탑라인_경쟁력은_입증_수익성.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 우려",
+      "target_factor": "수출비중 높은 기업의 노출",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf"
+      ]
+    },
+    {
+      "source_factor": "중화권 경기 부양",
+      "target_factor": "글로벌 수요 변수",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf"
+      ]
+    },
+    {
+      "source_factor": "중화권 경기 부양",
+      "target_factor": "수요 감소 우려",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf"
+      ]
+    },
+    {
+      "source_factor": "글로벌 수요 불확실성",
+      "target_factor": "수요 감소 우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_LG전자__25년_1분기_잠정.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요부진",
+      "target_factor": "외형 역성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "외형 역성장",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "비용통제",
+      "target_factor": "수익성 기대 부합",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS 비중 확대",
+      "target_factor": "수익성 기대 부합",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "일회성 비용",
+      "target_factor": "영업이익 기대치 하회",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "미국 소비심리 위축",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국 소비심리 위축",
+      "target_factor": "전자제품 소비 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "USMCA 관세 면제",
+      "target_factor": "관세 부담 경감",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "미국 내 제품 판가 인상",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "제품 판가 인상",
+      "target_factor": "수요부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "프리미엄 브랜드 포지셔닝",
+      "target_factor": "가격 전가력",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상 운임 하락",
+      "target_factor": "원가개선",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250408_LG전자066570_MC본부_만성_적자_코로나19.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "MS의 실적 악화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "MS의 실적 악화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "수익성 향상",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 전쟁 격화",
+      "target_factor": "영업이익 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상 운임 부담 완화",
+      "target_factor": "영업이익 향상",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "브랜드 포지셔닝",
+      "target_factor": "가격 전가력 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "해상 운임 하향 안정화",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_바텀업_개선과_탑다운_우려.pdf"
+      ]
+    },
+    {
+      "source_factor": "무역 분쟁 불확실성",
+      "target_factor": "재고 확충",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고 확충",
+      "target_factor": "2분기 말 또는 하반기 부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "매크로 수요 불확실성",
+      "target_factor": "실적 발목",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "고객사 재고 축적",
+      "target_factor": "전장부품 호실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "마케팅비용",
+      "target_factor": "수익성 지속",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "수익성 지속",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250425_LG전자066570_배당주로_재평가.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세우려",
+      "target_factor": "수요불확실성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "산업내경쟁",
+      "target_factor": "TV 부문 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 패널 원가통제 어려움",
+      "target_factor": "TV 부문 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "전기차 수요둔화",
+      "target_factor": "LG마그나 실적전망 악화",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요둔화",
+      "target_factor": "영업이익률",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비상승",
+      "target_factor": "영업이익률",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250604_LG전자066570_촉매를기다린다.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "수익성 하락 가능성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV 시장 경쟁 심화",
+      "target_factor": "우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "중국 업체의 부상",
+      "target_factor": "우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "LG디스플레이의 높은 이익 변동성",
+      "target_factor": "우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "업황 회복 지연",
+      "target_factor": "리스크",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "상호 관세",
+      "target_factor": "부담 요인",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "철강 관련 파생 관세",
+      "target_factor": "부담 요인",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "수익성 우려",
+      "target_factor": "주가 하락",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "선진국 소비 부진",
+      "target_factor": "TV 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "TV 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "LCD 패널 조달 부담",
+      "target_factor": "TV 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비",
+      "target_factor": "비용증가",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250701_LG전자066570_도전적인_환경.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "수요부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "source_factor": "환율",
+      "target_factor": "연결 실적 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 불확실성",
+      "target_factor": "가전 수요 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요부진",
+      "target_factor": "MS 사업부 영업이익 적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "MS 사업부 영업이익 적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250707_LG전자066570_2Q25_Preview_불확실.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국 가전제품 출하-재고, 주택 매매 증감률",
+      "target_factor": "수요 회복",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 가전 및 D2C 확대",
+      "target_factor": "수익성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "판촉비 부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "패널 가격 협상력",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "HVAC 투자",
+      "target_factor": "고정비 부담",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "생산지 조정 및 가격 정책 유연화",
+      "target_factor": "관세 부정적 영향",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "한국산 가전에 대한 상호 관세 및 Section 232의 범위 확대",
+      "target_factor": "위험",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁사인 Whirlpool 주가 상승",
+      "target_factor": "반사이익 기대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS 사업 유지",
+      "target_factor": "매출",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250708_LG전자066570_궤도_복귀를_위한_인내의_시간.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요 회복 지연",
+      "target_factor": "실적 하향 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "철강 관세 부담",
+      "target_factor": "실적 하향 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV 산업 내 경쟁 심화",
+      "target_factor": "실적 하향 조정",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "상호 관세 부과",
+      "target_factor": "실적 추가 하향 조정 위험",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국의 주택 매매 부진",
+      "target_factor": "가전 수요 약세 지속",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비자 중저가 제품 선호",
+      "target_factor": "제품 믹스 도전적 시장 환경",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "철강 관세 상승",
+      "target_factor": "HS 본부 수익성 부정적 영향",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "패널 가격 부담",
+      "target_factor": "TV 사업 도전적인 환경",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 정책 우려 완화",
+      "target_factor": "주가 반등 가능성",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_PBR_06배에_담겨_있는_관.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "적자폭 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "원가부담 심화",
+      "target_factor": "적자폭 확대",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "철강&알루미늄 관세",
+      "target_factor": "비용증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "보편관세 10%",
+      "target_factor": "비용증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세부담 확대",
+      "target_factor": "실적 변동성 확대",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비심리위축",
+      "target_factor": "수익성 방어 여부",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "생산기지 이전 및 현지화 전략",
+      "target_factor": "안정적 수익구조 확보",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "미국과 관세율 인하 협상 성공",
+      "target_factor": "주가 반등",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250728_LG전자066570_글로벌_스윙생산체계로_관세_영향.pdf"
+      ]
+    },
+    {
+      "source_factor": "상호관세 결정",
+      "target_factor": "최악의 시나리오 회피",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf"
+      ]
+    },
+    {
+      "source_factor": "물류비 감소",
+      "target_factor": "관세의 부정적 효과 상쇄",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf"
+      ]
+    },
+    {
+      "source_factor": "중국 TV 업체의 점유율 확대",
+      "target_factor": "경쟁 강도 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20250806_LG전자066570_NDR_후기_반등_조건_모색.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV수요부진",
+      "target_factor": "외형 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "외형 부진",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "수익성 방어",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비심리 부진",
+      "target_factor": "외형 성장",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251014_LG전자066570_어려운_환경에서_호실적.pdf"
+      ]
+    },
+    {
+      "source_factor": "스마트 팩토리 기술 적용",
+      "target_factor": "생산원가 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "성수기",
+      "target_factor": "경영 효율화 효과",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "판가 인상",
+      "target_factor": "HS본부 실적",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "D2C 확대",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 모델 성장",
+      "target_factor": "수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "IVI 고급화",
+      "target_factor": "VS본부 수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "TV 경쟁심화",
+      "target_factor": "TV 적자 지속",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "소비심리위축",
+      "target_factor": "TV 적자 확대 우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 우려",
+      "target_factor": "TV 적자 확대 우려",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세 본격화",
+      "target_factor": "실적 방어 어려움",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "실적 방어 어려움",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "실적 방어 어려움",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "희망퇴직 일회성 비용 사라짐",
+      "target_factor": "기저효과",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "높은 전기세 부담",
+      "target_factor": "유지비용 증가",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "인버터형 에어컨",
+      "target_factor": "높은 점유율 달성",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "전기세 설정 기능",
+      "target_factor": "소비자 호평",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "운송비",
+      "target_factor": "원가 경쟁력 제고",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "스마트팩토리기술",
+      "target_factor": "생산원가 절감",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251020_LG전자066570_인도에서도_가전은_역시_LG.pdf"
+      ]
+    },
+    {
+      "source_factor": "경영 효율화",
+      "target_factor": "1Q26 성수기 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "생산지 최적화",
+      "target_factor": "HS본부 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "판가 인상",
+      "target_factor": "HS본부 실적",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "구독 모델 성장",
+      "target_factor": "HS본부 수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "거시 경제 불확실성",
+      "target_factor": "소비 심리 위축",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "SDV와 맞물린 IVI 고급화",
+      "target_factor": "VS본부 수익성",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "webOS 경쟁력 강화",
+      "target_factor": "H/W 부진 상쇄",
+      "relation_type": "MITIGATES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251103_LG전자066570_가장_큰_고비를_넘긴_듯.pdf"
+      ]
+    },
+    {
+      "source_factor": "수요부진",
+      "target_factor": "영업적자 증가",
+      "relation_type": "AMPLIFIES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "관세",
+      "target_factor": "적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "글로벌수요",
+      "target_factor": "적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "경쟁심화",
+      "target_factor": "적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "재고정상화",
+      "target_factor": "적자전환",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    },
+    {
+      "source_factor": "계절적 비수기",
+      "target_factor": "실적 방어 어려움",
+      "relation_type": "CAUSES",
+      "mention_count": 1,
+      "sources": [
+        "LG전자_TEST_20251110_LG전자066570_이제는_AI_주식이어야_한다.pdf"
+      ]
+    }
+  ]
+}
