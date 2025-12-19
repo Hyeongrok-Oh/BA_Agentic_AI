@@ -162,7 +162,7 @@ class EventMatcher(BaseAgent):
         vector_results = []
         if len(graph_results) < top_k:
             hypothesis_embedding = self._get_embedding(hypothesis.description)
-            vector_results = self._vector_search(hypothesis_embedding, top_k=15)
+            vector_results = self._vector_search(hypothesis_embedding, top_k=15, region=region)
 
         # 4. 병합 및 스코어 계산
         all_events = self._merge_and_score_improved(
@@ -205,18 +205,20 @@ class EventMatcher(BaseAgent):
     ) -> List[Dict]:
         """Factor와 직접 연결된 Event만 검색 (정밀)"""
 
-        # 지역 필터 조건
+        # 지역 필터 조건 - Region 노드 직접 확인
         region_filter = ""
         if region:
             normalized = self._normalize_region(region)
             if normalized:
-                region_filter = f"AND (size(target_regions) = 0 OR '{normalized}' IN target_regions OR 'global' IN [r IN target_regions | toLower(r)])"
+                # Region이 없거나(global), 해당 region을 타겟하거나, 'global' 타겟인 경우
+                region_filter = f"AND (size(target_regions) = 0 OR '{normalized}' IN target_regions OR 'global' IN [reg IN target_regions | toLower(reg)])"
 
         query = f"""
         MATCH (e:Event)-[r:INCREASES|DECREASES]->(f:Factor)
         WHERE any(kw IN $keywords WHERE toLower(f.name) CONTAINS toLower(kw))
-        OPTIONAL MATCH (e)-[:TARGETS]->(d:Dimension)
-        WITH e, r, f, collect(DISTINCT d.id) as target_regions
+        // Region 노드만 명시적으로 조회 (Layer 1 Dimension)
+        OPTIONAL MATCH (e)-[:TARGETS]->(reg:Region)
+        WITH e, r, f, collect(DISTINCT reg.id) as target_regions
         WHERE true {region_filter}
         RETURN
             e.id as event_id,
@@ -275,17 +277,28 @@ class EventMatcher(BaseAgent):
     def _vector_search(
         self,
         query_embedding: List[float],
-        top_k: int = 15
+        top_k: int = 15,
+        region: str = None
     ) -> List[Dict]:
         """Neo4j Vector Index로 유사 Event 검색 (보조)"""
         if not query_embedding:
             return []
 
-        query = """
+        # Region 필터 조건
+        region_filter = ""
+        if region:
+            normalized = self._normalize_region(region)
+            if normalized:
+                region_filter = f"WHERE size(target_regions) = 0 OR '{normalized}' IN target_regions OR 'global' IN [reg IN target_regions | toLower(reg)]"
+
+        query = f"""
         CALL db.index.vector.queryNodes('event_embedding', $top_k, $embedding)
         YIELD node, score
         MATCH (node)-[r:INCREASES|DECREASES]->(f:Factor)
-        OPTIONAL MATCH (node)-[:TARGETS]->(d:Dimension)
+        // Region 노드만 명시적으로 조회 (Layer 1 Dimension)
+        OPTIONAL MATCH (node)-[:TARGETS]->(reg:Region)
+        WITH node, score, r, f, collect(DISTINCT reg.id) as target_regions
+        {region_filter}
         RETURN
             node.id as event_id,
             node.name as event_name,
@@ -299,7 +312,7 @@ class EventMatcher(BaseAgent):
             type(r) as impact_type,
             r.magnitude as magnitude,
             score as vector_score,
-            collect(DISTINCT d.id) as target_regions
+            target_regions
         """
 
         params = {
