@@ -65,29 +65,40 @@ REASONING_PROMPT = """당신은 LG전자 HE(Home Entertainment) 사업부의 경
 - 자연스럽고 논리적인 문장으로 서술
 
 ### 2. 구조: 각 원인별 심층 분석
-각 원인에 대해 다음 내용을 **자연스러운 문단**으로 설명:
+각 원인에 대해 **검증 유형에 따라** 다르게 설명:
 
-**데이터 분석 결과**: 실적 데이터에서 확인된 변화
-- 구체적 수치 변화 (예: "물류비가 전년 대비 15% 증가")
-- 이 변화가 매출/원가에 미친 영향
+#### [ERP 데이터 검증된 원인] (실적 데이터 기반)
+**데이터 분석 결과**:
+- 구체적 수치 변화 (예: "물류비가 전년 대비 15% 증가하여 원가 상승")
+- 이 변화가 KPI에 미친 정량적 영향
 
-**시장 환경 요인**: 해당 변화를 설명하는 외부 환경
-- 관련 시장 동향, 경제 상황, 업계 이슈
-- 출처 인용 [1], [2] 형식
-- 외부 요인이 실적에 어떻게 영향을 미쳤는지 논리적 연결
+**시장 환경 요인**: (관련 이벤트가 있는 경우)
+- 관련 시장 동향, 출처 인용 [1], [2] 형식
 
-**사업 영향**: 경영 관점에서의 시사점
-- 수익성, 시장 경쟁력, 향후 전망 관점
+#### [Knowledge Graph 기반 원인] (외부 요인, ERP 데이터 없음)
+**인과관계 분석**:
+- 제공된 인과관계 경로를 자연어로 설명
+- 예: "홍해 사태로 인한 해상운임 상승이 물류비 증가로 이어져 원가 상승 압력"
+- **주의**: 구체적 수치 변화는 언급하지 말 것 (ERP에 해당 데이터 없음)
 
-### 3. 분량
+**시장 환경 요인**:
+- 관련 시장 동향, 출처 인용 [1], [2] 형식
+
+### 3. 사업 영향 (근거가 있는 경우만)
+- ERP 검증: 수치 변화가 전체 KPI에서 차지하는 비중으로 영향 설명
+- Graph 검증: 인과관계 경로에서 도출된 영향만 설명
+- **근거 없이 추측하지 말 것**
+
+### 4. 분량
 - 각 원인당 **150-250자** 상세 설명
 - 총 분석 분량: 600-900자
 
-### 4. 정확성
+### 5. 정확성
 - 제공된 데이터와 뉴스만 인용 (새로운 수치 생성 금지)
-- 불확실한 인과관계는 "~로 분석됨", "~에 기인한 것으로 판단됨" 등으로 표현
+- Graph 기반 원인은 "~로 분석됨", "~에 기인한 것으로 판단됨" 등으로 표현
+- ERP에 없는 외부 요인(환율, 경쟁, 수요 등)은 수치 변화를 언급하지 않음
 
-### 5. 결론
+### 6. 결론
 마지막에 **종합 분석** (2-3문장):
 - 핵심 원인들의 복합 작용
 - 경영 전략적 시사점
@@ -354,7 +365,7 @@ class AnalysisAgent(BaseAgent):
         matched_events: Dict[str, List[MatchedEvent]],
         sql_queries: List[Dict]
     ) -> List[Dict]:
-        """상세 분석 결과 구성"""
+        """상세 분석 결과 구성 (SQL/Graph 검증 타입 구분)"""
         details = []
 
         # SQL 쿼리를 hypothesis_id로 매핑
@@ -363,50 +374,61 @@ class AnalysisAgent(BaseAgent):
         for hypothesis in validated:
             h_data = hypothesis.validation_data or {}
 
+            # 검증 타입 확인 (sql 또는 graph)
+            validation_type = h_data.get("validation_type", "sql")
+            graph_evidence = h_data.get("graph_evidence", {})
+
             prev_val = h_data.get("previous_value", 0)
             curr_val = h_data.get("current_value", 0)
             change_pct = h_data.get("change_percent", 0)
 
-            # 데이터 방향성 올바른 해석
-            # 음수값: 비용/손실 → 값이 커지면(덜 음수) 개선, 작아지면(더 음수) 악화
-            # 양수값: 매출/이익 → 값이 커지면 개선, 작아지면 악화
-            if prev_val < 0 and curr_val < 0:
-                # 둘 다 음수 (비용/손실)
-                if curr_val > prev_val:  # -100 → -50 (개선)
-                    interpretation = "개선 (손실/비용 감소)"
-                    impact_direction = "positive"
-                else:  # -50 → -100 (악화)
-                    interpretation = "악화 (손실/비용 증가)"
-                    impact_direction = "negative"
-            elif prev_val >= 0 and curr_val >= 0:
-                # 둘 다 양수 (매출/이익)
-                if curr_val > prev_val:  # 100 → 150 (개선)
-                    interpretation = "증가"
-                    impact_direction = "positive"
-                else:  # 150 → 100 (악화)
-                    interpretation = "감소"
-                    impact_direction = "negative"
-            else:
-                # 부호가 다른 경우
-                if curr_val > prev_val:
-                    interpretation = "개선 (적자→흑자 또는 손실 감소)"
-                    impact_direction = "positive"
+            # 데이터 방향성 해석 (SQL 검증된 경우만)
+            if validation_type == "sql" and (prev_val != 0 or curr_val != 0):
+                # 음수값: 비용/손실 → 값이 커지면(덜 음수) 개선, 작아지면(더 음수) 악화
+                # 양수값: 매출/이익 → 값이 커지면 개선, 작아지면 악화
+                if prev_val < 0 and curr_val < 0:
+                    if curr_val > prev_val:
+                        interpretation = "개선 (손실/비용 감소)"
+                        impact_direction = "positive"
+                    else:
+                        interpretation = "악화 (손실/비용 증가)"
+                        impact_direction = "negative"
+                elif prev_val >= 0 and curr_val >= 0:
+                    if curr_val > prev_val:
+                        interpretation = "증가"
+                        impact_direction = "positive"
+                    else:
+                        interpretation = "감소"
+                        impact_direction = "negative"
                 else:
-                    interpretation = "악화 (흑자→적자 또는 손실 증가)"
-                    impact_direction = "negative"
+                    if curr_val > prev_val:
+                        interpretation = "개선 (적자→흑자 또는 손실 감소)"
+                        impact_direction = "positive"
+                    else:
+                        interpretation = "악화 (흑자→적자 또는 손실 증가)"
+                        impact_direction = "negative"
+            else:
+                # Graph 검증인 경우: 인과관계 경로에서 해석
+                interpretation = h_data.get("details", hypothesis.description)
+                impact_direction = hypothesis.direction  # increase/decrease
 
+            # 상세 결과 구성
             detail = {
                 "factor": hypothesis.factor,
                 "category": hypothesis.category,
                 "description": hypothesis.description,
+                "validation_type": validation_type,  # "sql" or "graph"
                 "change_percent": change_pct,
                 "previous_value": prev_val,
                 "current_value": curr_val,
-                "direction": h_data.get("direction", ""),
-                "interpretation": interpretation,  # 올바른 해석
-                "impact_direction": impact_direction,  # positive/negative
-                "sql_query": sql_map.get(hypothesis.id, ""),
-                "matched_events": []
+                "direction": h_data.get("direction", hypothesis.direction),
+                "interpretation": interpretation,
+                "impact_direction": impact_direction,
+                "sql_query": sql_map.get(hypothesis.id, "") if validation_type == "sql" else "",
+                "matched_events": [],
+                # Graph 검증 시 인과관계 경로 포함
+                "graph_evidence": graph_evidence if validation_type == "graph" else {},
+                "causal_chains": graph_evidence.get("causal_chains", []) if validation_type == "graph" else []
             }
 
             # 매칭된 이벤트 추가 (Scoring Algorithm 결과)
@@ -419,14 +441,20 @@ class AnalysisAgent(BaseAgent):
                     "impact": ev.impact_type,
                     "score": ev.total_score,
                     "score_breakdown": ev.score_breakdown,
-                    "sources": ev.sources[:2],  # 출처 2개까지
+                    "sources": ev.sources[:2],
                     "evidence": ev.evidence[:200] if ev.evidence else ""
                 })
 
             details.append(detail)
 
-        # 변화율 기준 정렬
-        details.sort(key=lambda x: abs(x["change_percent"]), reverse=True)
+        # 정렬: SQL 검증(수치 있음)은 변화율 순, Graph 검증은 이벤트 수 순
+        def sort_key(d):
+            if d["validation_type"] == "sql" and d["change_percent"] != 0:
+                return (0, abs(d["change_percent"]))  # SQL 검증 우선, 변화율 순
+            else:
+                return (1, len(d.get("matched_events", [])))  # Graph는 이벤트 수 순
+
+        details.sort(key=sort_key, reverse=True)
 
         return details
 
@@ -559,8 +587,8 @@ class AnalysisAgent(BaseAgent):
                 prev_val = d['previous_value']
                 curr_val = d['current_value']
                 interpretation = d.get('interpretation', d.get('direction', ''))
-                impact = d.get('impact_direction', 'unknown')
-                impact_kr = "긍정적" if impact == "positive" else "부정적" if impact == "negative" else ""
+                validation_type = d.get('validation_type', 'sql')
+                causal_chains = d.get('causal_chains', [])
 
                 # 그룹 정보
                 group_name = d.get('group_name', factor)
@@ -573,16 +601,41 @@ class AnalysisAgent(BaseAgent):
                     "external": "외부 환경"
                 }.get(category, category)
 
-                # 원인 헤더 (비즈니스 친화적)
-                validated_hypotheses_detail += f"""
+                # 검증 타입에 따라 다른 형식으로 출력
+                if validation_type == "sql" and (prev_val != 0 or curr_val != 0):
+                    # SQL 검증: 실적 데이터 기반
+                    validated_hypotheses_detail += f"""
 ### 원인 {i}: {group_name}
 **분류:** {category_kr}
+**검증 방식:** ERP 실적 데이터
 
-**실적 데이터:**
+**실적 데이터 변화:**
 - 변화율: {change_pct:+.1f}%
 - 전년 동기: {prev_val:,.0f}
 - 당기: {curr_val:,.0f}
-- 영향: {interpretation}
+- 해석: {interpretation}
+"""
+                else:
+                    # Graph 검증: 인과관계 경로 기반
+                    validated_hypotheses_detail += f"""
+### 원인 {i}: {group_name}
+**분류:** {category_kr}
+**검증 방식:** Knowledge Graph 인과관계 분석 (ERP에 해당 데이터 없음)
+
+**인과관계 경로:**
+"""
+                    # 인과관계 경로 출력
+                    if causal_chains:
+                        for chain in causal_chains[:3]:
+                            chain_text = chain.get('chain_text', '')
+                            if chain_text:
+                                validated_hypotheses_detail += f"- {chain_text}\n"
+                    else:
+                        validated_hypotheses_detail += f"- {interpretation}\n"
+
+                    validated_hypotheses_detail += """
+**주의:** 이 요인은 ERP에 직접적인 수치 데이터가 없어 정량적 영향을 산출할 수 없습니다.
+아래 시장 동향을 바탕으로 정성적 분석을 제공합니다.
 """
 
                 # 외부 이벤트 추가 (고품질 이벤트만, 비즈니스 언어로)
@@ -627,7 +680,10 @@ class AnalysisAgent(BaseAgent):
   {evidence[:400] if evidence else ''}
 """
                 else:
-                    validated_hypotheses_detail += "\n**관련 시장 동향:** 직접 관련된 외부 이슈가 확인되지 않음 (내부 실적 데이터 기반 분석)\n"
+                    if validation_type == "sql":
+                        validated_hypotheses_detail += "\n**관련 시장 동향:** 직접 관련된 외부 이슈가 확인되지 않음 (내부 실적 데이터 기반 분석)\n"
+                    else:
+                        validated_hypotheses_detail += "\n**관련 시장 동향:** 관련 뉴스/이벤트가 확인되지 않음\n"
 
         else:
             validated_hypotheses_detail = "(분석 가능한 데이터 없음)"
