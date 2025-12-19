@@ -44,7 +44,7 @@ class AnalysisResult:
 
 
 REASONING_PROMPT = """당신은 LG전자 HE(Home Entertainment) 사업부의 경영 전략 분석 전문가입니다.
-경영진에게 보고할 **핵심 원인 {top_k}가지**를 분석하세요.
+경영진에게 보고할 **핵심 원인 {top_k}가지**에 대한 심층 인사이트를 제공하세요.
 
 ## 분석 질문
 {question}
@@ -57,51 +57,48 @@ REASONING_PROMPT = """당신은 LG전자 HE(Home Entertainment) 사업부의 경
 
 ---
 
-## 작성 지침 (경영진 보고서 스타일)
+## 작성 지침 (인사이트 중심)
 
-### 1. 문체
-- 경영 전략팀이 이해할 수 있는 **비즈니스 언어** 사용
+### 1. 핵심 원칙
+- **정량적 영향 산출 금지**: "X% 기여", "Y억 영향" 등 수치적 기여도 계산하지 말 것
+- **인사이트 중심**: 왜 이런 일이 발생했는지, 어떤 맥락인지, 향후 어떻게 될지에 집중
 - 기술적 용어 (Factor, Score, Graph, INCREASES 등) **절대 사용 금지**
-- 자연스럽고 논리적인 문장으로 서술
 
-### 2. 구조: 각 원인별 심층 분석
-각 원인에 대해 **검증 유형에 따라** 다르게 설명:
+### 2. 각 원인별 분석 구조
 
-#### [ERP 데이터 검증된 원인] (실적 데이터 기반)
-**데이터 분석 결과**:
-- 구체적 수치 변화 (예: "물류비가 전년 대비 15% 증가하여 원가 상승")
-- 이 변화가 KPI에 미친 정량적 영향
+**[배경/맥락]**
+- 이 요인이 왜 중요한지, 어떤 상황에서 발생했는지
+- 업계 전반의 트렌드와 연결
 
-**시장 환경 요인**: (관련 이벤트가 있는 경우)
-- 관련 시장 동향, 출처 인용 [1], [2] 형식
+**[인과관계 설명]**
+- 제공된 데이터/경로를 바탕으로 원인-결과 관계를 자연어로 설명
+- 예: "홍해 사태 → 우회 항로 사용 → 운송 기간/비용 증가 → 물류비 상승 → 원가 압박"
 
-#### [Knowledge Graph 기반 원인] (외부 요인, ERP 데이터 없음)
-**인과관계 분석**:
-- 제공된 인과관계 경로를 자연어로 설명
-- 예: "홍해 사태로 인한 해상운임 상승이 물류비 증가로 이어져 원가 상승 압력"
-- **주의**: 구체적 수치 변화는 언급하지 말 것 (ERP에 해당 데이터 없음)
+**[시장 동향/근거]**
+- 관련 뉴스, 업계 동향 인용 [1], [2] 형식
+- 경쟁사 동향, 소비자 트렌드 등 구체적 사례
 
-**시장 환경 요인**:
-- 관련 시장 동향, 출처 인용 [1], [2] 형식
+**[시사점/전망]**
+- 이 요인이 지속될 것인지, 완화될 것인지
+- 경영 의사결정에 참고할 포인트
+- 대응 방향 제언 (선택적)
 
-### 3. 사업 영향 (근거가 있는 경우만)
-- ERP 검증: 수치 변화가 전체 KPI에서 차지하는 비중으로 영향 설명
-- Graph 검증: 인과관계 경로에서 도출된 영향만 설명
-- **근거 없이 추측하지 말 것**
+### 3. 분량 및 깊이
+- 각 원인당 **200-300자** 심층 분석
+- 피상적 설명보다 **구체적 사례와 맥락** 중시
+- 단순 나열보다 **논리적 연결** 중시
 
-### 4. 분량
-- 각 원인당 **150-250자** 상세 설명
-- 총 분석 분량: 600-900자
+### 4. 종합 분석 (마지막)
+- 핵심 원인들이 어떻게 복합적으로 작용했는지
+- 단기/중기 전망
+- 전략적 시사점 (2-3문장)
 
-### 5. 정확성
-- 제공된 데이터와 뉴스만 인용 (새로운 수치 생성 금지)
-- Graph 기반 원인은 "~로 분석됨", "~에 기인한 것으로 판단됨" 등으로 표현
-- ERP에 없는 외부 요인(환율, 경쟁, 수요 등)은 수치 변화를 언급하지 않음
-
-### 6. 결론
-마지막에 **종합 분석** (2-3문장):
-- 핵심 원인들의 복합 작용
-- 경영 전략적 시사점
+### 5. 금지사항
+- ❌ "물류비가 원가의 X%를 차지하여..."
+- ❌ "이로 인해 매출이 Y억 감소..."
+- ❌ "전체 실적 악화의 Z%가 이 요인에 기인..."
+- ✅ "물류비 상승이 원가 구조에 부담으로 작용..."
+- ✅ "이러한 추세가 지속될 경우 수익성 압박 예상..."
 
 ## 응답
 """
@@ -601,42 +598,20 @@ class AnalysisAgent(BaseAgent):
                     "external": "외부 환경"
                 }.get(category, category)
 
-                # 검증 타입에 따라 다른 형식으로 출력
-                if validation_type == "sql" and (prev_val != 0 or curr_val != 0):
-                    # SQL 검증: 실적 데이터 기반
-                    validated_hypotheses_detail += f"""
+                # 원인 헤더
+                validated_hypotheses_detail += f"""
 ### 원인 {i}: {group_name}
 **분류:** {category_kr}
-**검증 방식:** ERP 실적 데이터
-
-**실적 데이터 변화:**
-- 변화율: {change_pct:+.1f}%
-- 전년 동기: {prev_val:,.0f}
-- 당기: {curr_val:,.0f}
-- 해석: {interpretation}
 """
-                else:
-                    # Graph 검증: 인과관계 경로 기반
-                    validated_hypotheses_detail += f"""
-### 원인 {i}: {group_name}
-**분류:** {category_kr}
-**검증 방식:** Knowledge Graph 인과관계 분석 (ERP에 해당 데이터 없음)
-
-**인과관계 경로:**
-"""
-                    # 인과관계 경로 출력
-                    if causal_chains:
-                        for chain in causal_chains[:3]:
-                            chain_text = chain.get('chain_text', '')
-                            if chain_text:
-                                validated_hypotheses_detail += f"- {chain_text}\n"
-                    else:
-                        validated_hypotheses_detail += f"- {interpretation}\n"
-
-                    validated_hypotheses_detail += """
-**주의:** 이 요인은 ERP에 직접적인 수치 데이터가 없어 정량적 영향을 산출할 수 없습니다.
-아래 시장 동향을 바탕으로 정성적 분석을 제공합니다.
-"""
+                # 인과관계 경로 (Graph 기반이면 causal_chains 사용)
+                if causal_chains:
+                    validated_hypotheses_detail += "\n**인과관계 경로:**\n"
+                    for chain in causal_chains[:3]:
+                        chain_text = chain.get('chain_text', '')
+                        if chain_text:
+                            validated_hypotheses_detail += f"- {chain_text}\n"
+                elif interpretation:
+                    validated_hypotheses_detail += f"\n**분석:** {interpretation}\n"
 
                 # 외부 이벤트 추가 (고품질 이벤트만, 비즈니스 언어로)
                 matched_events = d.get('matched_events', [])
@@ -680,10 +655,7 @@ class AnalysisAgent(BaseAgent):
   {evidence[:400] if evidence else ''}
 """
                 else:
-                    if validation_type == "sql":
-                        validated_hypotheses_detail += "\n**관련 시장 동향:** 직접 관련된 외부 이슈가 확인되지 않음 (내부 실적 데이터 기반 분석)\n"
-                    else:
-                        validated_hypotheses_detail += "\n**관련 시장 동향:** 관련 뉴스/이벤트가 확인되지 않음\n"
+                    validated_hypotheses_detail += "\n**관련 시장 동향:** 직접 관련된 외부 이슈가 확인되지 않음\n"
 
         else:
             validated_hypotheses_detail = "(분석 가능한 데이터 없음)"
