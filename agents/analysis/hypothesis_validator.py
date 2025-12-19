@@ -15,21 +15,86 @@ from ..tools import SQLGenerator, SQLExecutor, GraphExecutor
 from .hypothesis_generator import Hypothesis
 
 
-# SQL 검증 가능한 Factor 키워드 (ERP 스키마에 존재하는 것들)
-SQL_VALIDATABLE_FACTORS = {
-    # Cost Types (TBL_TX_COST_DETAIL)
-    "cost": ["물류비", "재료비", "관세", "오버헤드", "원가", "비용", "LOG", "MAT", "TAR", "OH"],
-    # Price Conditions (TBL_TX_PRICE_CONDITION)
-    "pricing": ["할인", "가격보호", "프로모션", "MDF", "K007", "ZPRO", "ZMDF", "PR00", "ASP"],
-    # Sales Data
-    "sales": ["매출", "판매량", "수량", "revenue", "quantity", "판매수량"],
+# =============================================================================
+# ERP 스키마 기반 SQL 검증 가능 여부 판단
+# =============================================================================
+#
+# LGE ERP Database Schema (sql/schema_normalized_3nf.sql 참조)
+#
+# [TBL_TX_COST_DETAIL] - COST_TYPE 컬럼
+#   - MAT: Material cost (재료비, 패널, 부품)
+#   - LOG: Logistics cost (물류비, 운송비, 해상운임)
+#   - TAR: Tariff (관세)
+#   - OH:  Overhead (오버헤드, 제조간접비)
+#
+# [TBL_TX_PRICE_CONDITION] - COND_TYPE 컬럼
+#   - PR00: Base list price (기본가, 정가)
+#   - K007: Volume discount (할인, 볼륨할인)
+#   - ZPRO: Price protection (가격보호, PP)
+#   - ZMDF: Marketing Development Fund (MDF, 마케팅비)
+#
+# [TBL_TX_SALES_ITEM] - 판매 데이터
+#   - ORDER_QTY: 판매수량
+#   - NET_VALUE: 순매출
+#
+# [TBL_MD_PRODUCT] - 제품 마스터
+#   - PANEL_TYPE: OLED, QNED, LCD (제품 유형별 분석 가능)
+#   - SCREEN_SIZE: 화면 크기별 분석 가능
+#   - SERIES: 시리즈별 분석 가능
+#
+# [TBL_ORG_SUBSIDIARY] - 지역
+#   - REGION: NA, KR, EU (지역별 분석 가능)
+#
+# [TBL_ORG_CUSTOMER] - 고객/채널
+#   - CHANNEL_TYPE: B2B, RETAIL, ONLINE (채널별 분석 가능)
+# =============================================================================
+
+# SQL 검증 가능한 Factor (ERP 테이블/컬럼에 매핑됨)
+SQL_VALIDATABLE_KEYWORDS = {
+    # TBL_TX_COST_DETAIL.COST_TYPE
+    "cost_mat": ["재료비", "원재료", "패널비용", "부품비", "MAT"],
+    "cost_log": ["물류비", "운송비", "해상운임", "운임", "배송비", "LOG"],
+    "cost_tar": ["관세", "TAR"],  # 주의: DB에 있지만 외부요인과 연계 필요
+    "cost_oh": ["오버헤드", "제조간접비", "간접비", "OH"],
+
+    # TBL_TX_PRICE_CONDITION.COND_TYPE
+    "price_base": ["기본가", "정가", "리스트가", "PR00"],
+    "price_discount": ["할인", "볼륨할인", "K007"],
+    "price_protection": ["가격보호", "PP", "ZPRO"],
+    "price_mdf": ["MDF", "마케팅비", "ZMDF"],
+
+    # TBL_TX_SALES_ITEM (집계)
+    "sales_qty": ["판매수량", "판매량", "출하량", "ORDER_QTY"],
+    "sales_revenue": ["매출", "순매출", "매출액", "NET_VALUE", "revenue"],
+
+    # TBL_MD_PRODUCT (세그먼트 분석)
+    "product_panel": ["OLED판매", "QNED판매", "LCD판매"],  # 제품유형별 매출/수량
+    "product_size": ["대형TV", "소형TV"],  # 사이즈별 분석
+
+    # TBL_ORG (지역/채널 분석)
+    "region": ["북미매출", "유럽매출", "한국매출"],
+    "channel": ["B2B매출", "리테일매출", "온라인매출"],
 }
 
-# SQL 검증 불가능한 Factor (외부 데이터, Graph 기반 설명 필요)
-GRAPH_ONLY_FACTORS = [
-    "환율", "경쟁", "수요", "시장", "소비심리", "경기", "금리",
-    "지정학", "패널가격", "OLED", "LCD", "점유율", "수출", "수입",
-    "유가", "인플레이션", "정책", "규제", "트럼프", "홍해", "공급망"
+# SQL 검증 불가능한 Factor (ERP에 없는 외부 데이터)
+# 이 Factor들은 Graph 기반 인과관계 설명으로 대체
+GRAPH_ONLY_KEYWORDS = [
+    # 거시경제 (ERP에 없음)
+    "환율", "원달러", "달러", "금리", "인플레이션", "경기", "GDP",
+
+    # 시장/경쟁 (ERP에 없음)
+    "경쟁", "점유율", "시장", "수요", "소비심리", "소비자",
+    "삼성", "TCL", "하이센스",
+
+    # 공급망/외부이벤트 (ERP에 없음)
+    "홍해", "수에즈", "공급망", "반도체", "지정학", "전쟁",
+    "트럼프", "정책", "규제", "무역",
+
+    # 원자재 시세 (ERP에 금액만 있고 가격변동 추세는 없음)
+    "패널가격", "유가", "원자재가격", "부품가격",
+
+    # 계절성/이벤트 (ERP에서 직접 측정 불가)
+    "성수기", "블랙프라이데이", "올림픽", "월드컵",
 ]
 
 
@@ -133,21 +198,29 @@ class HypothesisValidator(BaseAgent):
         return validated_hypotheses
 
     def _is_sql_validatable(self, factor: str) -> bool:
-        """Factor가 SQL로 검증 가능한지 확인"""
+        """
+        Factor가 SQL로 검증 가능한지 ERP 스키마 기반으로 확인
+
+        Returns:
+            True: ERP 테이블에 해당 데이터가 존재 (SQL 검증 가능)
+            False: ERP에 없는 외부 데이터 (Graph 검증 필요)
+        """
         factor_lower = factor.lower()
 
-        # Graph-only factor 체크 (먼저 확인)
-        for keyword in GRAPH_ONLY_FACTORS:
-            if keyword in factor_lower:
+        # 1. Graph-only 키워드 체크 (먼저 확인 - 외부 데이터)
+        for keyword in GRAPH_ONLY_KEYWORDS:
+            if keyword.lower() in factor_lower:
                 return False
 
-        # SQL 검증 가능한 factor 체크
-        for category, keywords in SQL_VALIDATABLE_FACTORS.items():
+        # 2. SQL 검증 가능한 키워드 체크 (ERP 테이블에 매핑됨)
+        for erp_mapping, keywords in SQL_VALIDATABLE_KEYWORDS.items():
             for keyword in keywords:
                 if keyword.lower() in factor_lower:
                     return True
 
-        return False  # 기본값: Graph 검증
+        # 3. 기본값: 불확실하면 SQL 먼저 시도 후 실패하면 Graph fallback
+        #    (validate 메서드에서 SQL 실패 시 Graph로 자동 전환)
+        return True
 
     def _validate_single(
         self,
