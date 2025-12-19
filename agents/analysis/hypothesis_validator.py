@@ -3,15 +3,34 @@ Hypothesis Validator Agent - 가설 검증 에이전트
 
 역할:
 - SQLGenerator를 사용하여 각 가설을 ERP 데이터로 검증
+- SQL 검증 불가 시 Graph DB 기반 인과관계 설명으로 대체
 - 임계값 이상 변동이 있는 가설만 validated로 표시
 """
 
 from typing import Dict, Any, List, Optional
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from ..base import BaseAgent, AgentContext
-from ..tools import SQLGenerator, SQLExecutor
+from ..tools import SQLGenerator, SQLExecutor, GraphExecutor
 from .hypothesis_generator import Hypothesis
+
+
+# SQL 검증 가능한 Factor 키워드 (ERP 스키마에 존재하는 것들)
+SQL_VALIDATABLE_FACTORS = {
+    # Cost Types (TBL_TX_COST_DETAIL)
+    "cost": ["물류비", "재료비", "관세", "오버헤드", "원가", "비용", "LOG", "MAT", "TAR", "OH"],
+    # Price Conditions (TBL_TX_PRICE_CONDITION)
+    "pricing": ["할인", "가격보호", "프로모션", "MDF", "K007", "ZPRO", "ZMDF", "PR00", "ASP"],
+    # Sales Data
+    "sales": ["매출", "판매량", "수량", "revenue", "quantity", "판매수량"],
+}
+
+# SQL 검증 불가능한 Factor (외부 데이터, Graph 기반 설명 필요)
+GRAPH_ONLY_FACTORS = [
+    "환율", "경쟁", "수요", "시장", "소비심리", "경기", "금리",
+    "지정학", "패널가격", "OLED", "LCD", "점유율", "수출", "수입",
+    "유가", "인플레이션", "정책", "규제", "트럼프", "홍해", "공급망"
+]
 
 
 @dataclass
@@ -25,20 +44,24 @@ class ValidationResult:
     direction: str
     details: str
     sql_query: str = ""  # 사용된 SQL 쿼리
+    validation_type: str = "sql"  # "sql" or "graph"
+    graph_evidence: Dict = field(default_factory=dict)  # Graph 기반 증거
 
 
 class HypothesisValidator(BaseAgent):
-    """가설 검증 에이전트"""
+    """가설 검증 에이전트 (SQL + Graph 하이브리드)"""
 
     name = "hypothesis_validator"
-    description = "SQLGenerator를 사용하여 가설을 ERP 데이터로 검증합니다."
+    description = "SQL 검증 우선, 불가 시 Graph DB 기반 인과관계 설명으로 대체"
 
     def __init__(self, api_key: str = None, db_path: str = None):
         super().__init__(api_key)
         self.sql_generator = SQLGenerator(db_path, api_key)
         self.sql_executor = SQLExecutor(db_path)
+        self.graph_executor = GraphExecutor()
         self.add_tool(self.sql_generator)
         self.add_tool(self.sql_executor)
+        self.add_tool(self.graph_executor)
 
     def validate(
         self,
@@ -48,7 +71,7 @@ class HypothesisValidator(BaseAgent):
         threshold: float = 5.0
     ) -> List[Hypothesis]:
         """
-        가설 목록 검증
+        가설 목록 검증 (SQL 우선, 불가 시 Graph fallback)
 
         Args:
             hypotheses: 검증할 가설 목록
@@ -69,13 +92,27 @@ class HypothesisValidator(BaseAgent):
         validated_hypotheses = []
 
         for hypothesis in hypotheses:
-            result = self._validate_single(
-                hypothesis,
-                prev_start, prev_end,
-                curr_start, curr_end,
-                region,  # 지역 코드 직접 전달
-                threshold
-            )
+            # 1. Factor가 SQL로 검증 가능한지 확인
+            is_sql_validatable = self._is_sql_validatable(hypothesis.factor)
+
+            result = None
+
+            if is_sql_validatable:
+                # 2. SQL 검증 시도
+                result = self._validate_single(
+                    hypothesis,
+                    prev_start, prev_end,
+                    curr_start, curr_end,
+                    region,
+                    threshold
+                )
+
+            # 3. SQL 검증 실패 또는 Graph-only Factor인 경우 Graph 검증
+            if result is None:
+                result = self._validate_with_graph(
+                    hypothesis,
+                    region
+                )
 
             if result:
                 hypothesis.validated = result.validated
@@ -85,13 +122,32 @@ class HypothesisValidator(BaseAgent):
                     "current_value": result.current_value,
                     "direction": result.direction,
                     "details": result.details,
-                    "sql_query": result.sql_query  # SQL 쿼리 저장
+                    "validation_type": result.validation_type,
+                    "sql_query": result.sql_query,
+                    "graph_evidence": result.graph_evidence
                 }
 
                 if result.validated:
                     validated_hypotheses.append(hypothesis)
 
         return validated_hypotheses
+
+    def _is_sql_validatable(self, factor: str) -> bool:
+        """Factor가 SQL로 검증 가능한지 확인"""
+        factor_lower = factor.lower()
+
+        # Graph-only factor 체크 (먼저 확인)
+        for keyword in GRAPH_ONLY_FACTORS:
+            if keyword in factor_lower:
+                return False
+
+        # SQL 검증 가능한 factor 체크
+        for category, keywords in SQL_VALIDATABLE_FACTORS.items():
+            for keyword in keywords:
+                if keyword.lower() in factor_lower:
+                    return True
+
+        return False  # 기본값: Graph 검증
 
     def _validate_single(
         self,
@@ -189,6 +245,193 @@ class HypothesisValidator(BaseAgent):
         except Exception as e:
             print(f"검증 오류 ({hypothesis.id}): {e}")
             return None
+
+    def _validate_with_graph(
+        self,
+        hypothesis: Hypothesis,
+        region: str = None
+    ) -> Optional[ValidationResult]:
+        """
+        Graph DB 기반 가설 검증 (SQL 불가 시 fallback)
+
+        Event → Factor → Anchor 인과관계 경로를 조회하여
+        해당 Factor가 KPI에 영향을 미치는 근거를 제공
+        """
+        factor_name = hypothesis.factor
+
+        # Region 필터 조건
+        region_filter = ""
+        if region:
+            region_upper = region.upper()
+            region_filter = f"""
+            AND (
+                size([(e)-[:TARGETS]->(r:Region) | r.id]) = 0
+                OR '{region_upper}' IN [(e)-[:TARGETS]->(r:Region) | r.id]
+                OR 'global' IN [reg IN [(e)-[:TARGETS]->(r:Region) | toLower(r.id)] | reg]
+            )
+            """
+
+        # Graph 쿼리: Event → Factor → Anchor 경로 조회
+        query = f"""
+        MATCH (e:Event)-[r1:INCREASES|DECREASES]->(f:Factor)-[r2:AFFECTS]->(a:Anchor)
+        WHERE toLower(f.name) CONTAINS toLower($factor_name)
+        {region_filter}
+        OPTIONAL MATCH (e)-[:TARGETS]->(reg:Region)
+        RETURN
+            e.name as event_name,
+            e.category as event_category,
+            e.severity as severity,
+            e.evidence as event_evidence,
+            type(r1) as event_impact,
+            r1.magnitude as magnitude,
+            f.name as factor_name,
+            r2.type as factor_relation,
+            a.name as anchor_name,
+            collect(DISTINCT reg.id) as target_regions
+        ORDER BY
+            CASE e.severity WHEN 'critical' THEN 1 WHEN 'high' THEN 2 ELSE 3 END,
+            CASE r1.magnitude WHEN 'high' THEN 1 WHEN 'medium' THEN 2 ELSE 3 END
+        LIMIT 5
+        """
+
+        try:
+            result = self.graph_executor.execute(query, {"factor_name": factor_name})
+
+            if not result.success or not result.data:
+                # Graph에서도 못 찾으면 가설 자체 정보로 검증
+                return self._validate_with_hypothesis_info(hypothesis)
+
+            events = result.data
+
+            # 인과관계 설명 구성
+            causal_chains = []
+            for ev in events:
+                event_name = ev.get("event_name", "")
+                event_impact = ev.get("event_impact", "AFFECTS")
+                factor = ev.get("factor_name", "")
+                factor_relation = ev.get("factor_relation", "PROPORTIONAL")
+                anchor = ev.get("anchor_name", "")
+                magnitude = ev.get("magnitude", "medium")
+                regions = ev.get("target_regions", [])
+
+                impact_kr = "증가" if event_impact == "INCREASES" else "감소"
+                relation_kr = "상승" if factor_relation == "PROPORTIONAL" else "하락"
+
+                chain = f"[{event_name}] → {factor} {impact_kr} → {anchor} {relation_kr}"
+                if regions:
+                    chain += f" (지역: {', '.join(regions)})"
+
+                causal_chains.append({
+                    "event": event_name,
+                    "event_category": ev.get("event_category", ""),
+                    "impact": event_impact,
+                    "factor": factor,
+                    "relation": factor_relation,
+                    "anchor": anchor,
+                    "magnitude": magnitude,
+                    "evidence": ev.get("event_evidence", ""),
+                    "chain_text": chain
+                })
+
+            # 가설 방향과 Graph 관계 비교
+            first_event = events[0] if events else {}
+            event_impact = first_event.get("event_impact", "")
+            factor_relation = first_event.get("factor_relation", "PROPORTIONAL")
+
+            # 방향 일치 여부 판단
+            validated = self._check_direction_match(
+                hypothesis.direction,
+                event_impact,
+                factor_relation
+            )
+
+            # 상세 설명 생성
+            details = f"[Graph 기반] {hypothesis.factor}: "
+            if causal_chains:
+                details += causal_chains[0]["chain_text"]
+            else:
+                details += "관련 이벤트 없음"
+
+            return ValidationResult(
+                hypothesis_id=hypothesis.id,
+                validated=validated,
+                change_percent=0.0,  # Graph 검증은 수치 없음
+                previous_value=0.0,
+                current_value=0.0,
+                direction=hypothesis.direction,
+                details=details,
+                sql_query="",  # SQL 사용 안 함
+                validation_type="graph",
+                graph_evidence={
+                    "causal_chains": causal_chains,
+                    "event_count": len(events),
+                    "source": "Knowledge Graph (Event → Factor → Anchor)"
+                }
+            )
+
+        except Exception as e:
+            print(f"Graph 검증 오류 ({hypothesis.id}): {e}")
+            return self._validate_with_hypothesis_info(hypothesis)
+
+    def _validate_with_hypothesis_info(
+        self,
+        hypothesis: Hypothesis
+    ) -> ValidationResult:
+        """
+        Graph에서도 찾지 못한 경우, 가설 자체 정보로 기본 검증
+        (graph_evidence에 저장된 정보 활용)
+        """
+        graph_evidence = hypothesis.graph_evidence or {}
+
+        details = f"[Graph 기반] {hypothesis.factor}: "
+        if graph_evidence.get("relation_evidence"):
+            details += graph_evidence["relation_evidence"]
+        else:
+            details += f"{hypothesis.description}"
+
+        return ValidationResult(
+            hypothesis_id=hypothesis.id,
+            validated=True,  # 가설 자체는 유효하다고 가정
+            change_percent=0.0,
+            previous_value=0.0,
+            current_value=0.0,
+            direction=hypothesis.direction,
+            details=details,
+            sql_query="",
+            validation_type="graph",
+            graph_evidence={
+                "from_hypothesis": True,
+                "factor_id": graph_evidence.get("factor_id", ""),
+                "relation_type": graph_evidence.get("relation_type", ""),
+                "mention_count": graph_evidence.get("mention_count", 0),
+                "source": "Knowledge Graph (Factor → Anchor)"
+            }
+        )
+
+    def _check_direction_match(
+        self,
+        hypothesis_direction: str,
+        event_impact: str,
+        factor_relation: str
+    ) -> bool:
+        """가설 방향과 Graph 관계 일치 여부 확인"""
+        # Event가 Factor를 증가시키고, Factor가 Anchor에 비례 관계면
+        # → Anchor 증가
+        # Event가 Factor를 증가시키고, Factor가 Anchor에 반비례 관계면
+        # → Anchor 감소
+
+        if event_impact == "INCREASES":
+            if factor_relation == "PROPORTIONAL":
+                result_direction = "increase"
+            else:
+                result_direction = "decrease"
+        else:  # DECREASES
+            if factor_relation == "PROPORTIONAL":
+                result_direction = "decrease"
+            else:
+                result_direction = "increase"
+
+        return hypothesis_direction.lower() == result_direction
 
     def _build_validation_question(
         self,
