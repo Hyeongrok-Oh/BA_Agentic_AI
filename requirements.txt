@@ -7,6 +7,10 @@ streamlit>=1.28.0
 pandas>=2.0.0
 numpy>=1.24.0
 
+# ML & Analysis
+scikit-learn>=1.0.0
+shap>=0.42.0
+
 # PDF processing
 PyMuPDF>=1.23.0
 
@@ -18,3 +22,8 @@ python-dotenv>=1.0.0
 
 # YAML processing
 pyyaml>=6.0.0
+
+# Visualization
+streamlit-echarts>=0.4.0
+pyvis>=0.3.0
+streamlit-agraph>=0.0.45

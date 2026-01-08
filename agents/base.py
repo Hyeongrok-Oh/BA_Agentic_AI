@@ -6,6 +6,8 @@ from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 import os
+import time
+import requests
 from openai import OpenAI
 
 
@@ -140,6 +142,112 @@ class BaseAgent(ABC):
             )
 
         return response.choices[0].message.content.strip()
+
+    def _call_responses_api(
+        self,
+        prompt: str,
+        model: str = "o4-mini-deep-research-2025-06-26",
+        max_wait_seconds: int = 300,
+        poll_interval: int = 5
+    ) -> str:
+        """
+        OpenAI Responses API 호출 (Deep Research 모델용)
+
+        Args:
+            prompt: 연구 질문/프롬프트
+            model: 모델 ID (o4-mini-deep-research-2025-06-26)
+            max_wait_seconds: 최대 대기 시간 (초)
+            poll_interval: 폴링 간격 (초)
+
+        Returns:
+            생성된 텍스트
+        """
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+
+        # 1. 요청 생성 (background mode)
+        payload = {
+            "model": model,
+            "input": prompt,
+            "reasoning": {"summary": "auto"},
+            "background": True,
+            "tools": [
+                {"type": "web_search_preview"}
+            ]
+        }
+
+        response = requests.post(
+            "https://api.openai.com/v1/responses",
+            headers=headers,
+            json=payload
+        )
+
+        if response.status_code != 200:
+            raise Exception(f"Responses API 요청 실패: {response.status_code} - {response.text}")
+
+        result = response.json()
+        response_id = result.get("id")
+        status = result.get("status", "queued")
+
+        print(f"[Responses API] Response ID: {response_id}, Status: {status}")
+
+        # 2. 폴링으로 완료 대기
+        start_time = time.time()
+        while status in ["queued", "in_progress"]:
+            if time.time() - start_time > max_wait_seconds:
+                raise Exception(f"Responses API 타임아웃 ({max_wait_seconds}초 초과)")
+
+            time.sleep(poll_interval)
+
+            poll_response = requests.get(
+                f"https://api.openai.com/v1/responses/{response_id}",
+                headers=headers
+            )
+
+            if poll_response.status_code != 200:
+                raise Exception(f"폴링 실패: {poll_response.status_code}")
+
+            poll_result = poll_response.json()
+            status = poll_result.get("status", "unknown")
+            print(f"[Responses API] Polling... Status: {status}")
+
+            if status == "completed":
+                # 3. 결과 추출
+                output = poll_result.get("output", [])
+                for item in output:
+                    if item.get("type") == "message":
+                        content = item.get("content", [])
+                        for c in content:
+                            if c.get("type") == "output_text":
+                                return c.get("text", "")
+                return "(결과 텍스트 없음)"
+
+            elif status == "failed":
+                error = poll_result.get("error", {})
+                error_code = error.get("code", "")
+
+                # Rate Limit인 경우 재시도
+                if error_code == "rate_limit_exceeded":
+                    print(f"[Responses API] Rate limit 도달, 10초 후 재시도...")
+                    time.sleep(10)
+                    # 새로운 요청 생성
+                    retry_response = requests.post(
+                        "https://api.openai.com/v1/responses",
+                        headers=headers,
+                        json=payload
+                    )
+                    if retry_response.status_code == 200:
+                        retry_result = retry_response.json()
+                        response_id = retry_result.get("id")
+                        status = retry_result.get("status", "queued")
+                        print(f"[Responses API] 재시도 - Response ID: {response_id}, Status: {status}")
+                        continue
+
+                raise Exception(f"Deep Research 실패: {error}")
+
+        return "(결과 없음)"
 
     @abstractmethod
     def run(self, context: AgentContext) -> Dict[str, Any]:

@@ -11,6 +11,7 @@ from typing import Dict, Any, List, Optional
 from dataclasses import dataclass, field
 
 from ..base import BaseAgent, AgentContext
+from ..tools import SQLExecutor
 from .hypothesis_generator import HypothesisGenerator, Hypothesis
 from .hypothesis_validator import HypothesisValidator
 from .event_matcher import EventMatcher, MatchedEvent
@@ -41,6 +42,11 @@ class AnalysisResult:
     summary: str = ""
     sources: List[Dict] = field(default_factory=list)
     details: List[Dict] = field(default_factory=list)
+    # 3-Stage 분석 결과
+    analysis_plan: Dict = field(default_factory=dict)
+    interpretation: Dict = field(default_factory=dict)
+    contributions: List = field(default_factory=list)
+    model_r_squared: float = 0.0
 
 
 REASONING_PROMPT = """당신은 LG전자 HE(Home Entertainment) 사업부의 경영 전략 분석 전문가입니다.
@@ -110,22 +116,21 @@ class AnalysisAgent(BaseAgent):
     name = "analysis_agent"
     description = "가설 생성, SQL 검증, 이벤트 매칭을 조율하여 KPI 변동 원인을 분석합니다."
 
-    # KPI 추출 패턴 (실제 DB 스키마에 맞춤)
+    # KPI 추출 패턴 (실제 ERP DB 스키마: TR_SALES, TR_PURCHASE, TR_EXPENSE)
     KPI_PATTERNS = {
         "매출": {
             "keywords": ["매출", "revenue", "sales", "수익"],
             "query_template": """
                 SELECT
                     CASE
-                        WHEN DOC_DATE >= '{prev_start}' AND DOC_DATE <= '{prev_end}' THEN 'Previous'
-                        WHEN DOC_DATE >= '{curr_start}' AND DOC_DATE <= '{curr_end}' THEN 'Current'
+                        WHEN SALES_DATE >= '{prev_start}' AND SALES_DATE <= '{prev_end}' THEN 'Previous'
+                        WHEN SALES_DATE >= '{curr_start}' AND SALES_DATE <= '{curr_end}' THEN 'Current'
                     END AS PERIOD,
-                    SUM(si.NET_VALUE) AS TOTAL_VALUE
-                FROM TBL_TX_SALES_HEADER sh
-                JOIN TBL_TX_SALES_ITEM si ON sh.ORDER_NO = si.ORDER_NO
+                    SUM(REVENUE_USD) AS TOTAL_VALUE
+                FROM TR_SALES
                 WHERE (
-                    (DOC_DATE >= '{prev_start}' AND DOC_DATE <= '{prev_end}')
-                    OR (DOC_DATE >= '{curr_start}' AND DOC_DATE <= '{curr_end}')
+                    (SALES_DATE >= '{prev_start}' AND SALES_DATE <= '{prev_end}')
+                    OR (SALES_DATE >= '{curr_start}' AND SALES_DATE <= '{curr_end}')
                 ) {region_filter}
                 GROUP BY PERIOD
             """
@@ -135,15 +140,14 @@ class AnalysisAgent(BaseAgent):
             "query_template": """
                 SELECT
                     CASE
-                        WHEN sh.DOC_DATE >= '{prev_start}' AND sh.DOC_DATE <= '{prev_end}' THEN 'Previous'
-                        WHEN sh.DOC_DATE >= '{curr_start}' AND sh.DOC_DATE <= '{curr_end}' THEN 'Current'
+                        WHEN PURCHASE_DATE >= '{prev_start}' AND PURCHASE_DATE <= '{prev_end}' THEN 'Previous'
+                        WHEN PURCHASE_DATE >= '{curr_start}' AND PURCHASE_DATE <= '{curr_end}' THEN 'Current'
                     END AS PERIOD,
-                    SUM(cd.COST_AMOUNT) AS TOTAL_VALUE
-                FROM TBL_TX_SALES_HEADER sh
-                JOIN TBL_TX_COST_DETAIL cd ON sh.ORDER_NO = cd.ORDER_NO
+                    SUM(TOTAL_COGS_USD) AS TOTAL_VALUE
+                FROM TR_PURCHASE
                 WHERE (
-                    (sh.DOC_DATE >= '{prev_start}' AND sh.DOC_DATE <= '{prev_end}')
-                    OR (sh.DOC_DATE >= '{curr_start}' AND sh.DOC_DATE <= '{curr_end}')
+                    (PURCHASE_DATE >= '{prev_start}' AND PURCHASE_DATE <= '{prev_end}')
+                    OR (PURCHASE_DATE >= '{curr_start}' AND PURCHASE_DATE <= '{curr_end}')
                 ) {region_filter}
                 GROUP BY PERIOD
             """
@@ -153,16 +157,34 @@ class AnalysisAgent(BaseAgent):
             "query_template": """
                 SELECT
                     CASE
-                        WHEN DOC_DATE >= '{prev_start}' AND DOC_DATE <= '{prev_end}' THEN 'Previous'
-                        WHEN DOC_DATE >= '{curr_start}' AND DOC_DATE <= '{curr_end}' THEN 'Current'
+                        WHEN SALES_DATE >= '{prev_start}' AND SALES_DATE <= '{prev_end}' THEN 'Previous'
+                        WHEN SALES_DATE >= '{curr_start}' AND SALES_DATE <= '{curr_end}' THEN 'Current'
                     END AS PERIOD,
-                    SUM(si.ORDER_QTY) AS TOTAL_VALUE
-                FROM TBL_TX_SALES_HEADER sh
-                JOIN TBL_TX_SALES_ITEM si ON sh.ORDER_NO = si.ORDER_NO
+                    SUM(QTY) AS TOTAL_VALUE
+                FROM TR_SALES
                 WHERE (
-                    (DOC_DATE >= '{prev_start}' AND DOC_DATE <= '{prev_end}')
-                    OR (DOC_DATE >= '{curr_start}' AND DOC_DATE <= '{curr_end}')
+                    (SALES_DATE >= '{prev_start}' AND SALES_DATE <= '{prev_end}')
+                    OR (SALES_DATE >= '{curr_start}' AND SALES_DATE <= '{curr_end}')
                 ) {region_filter}
+                GROUP BY PERIOD
+            """
+        },
+        "영업이익": {
+            "keywords": ["영업이익", "operating profit", "이익"],
+            "query_template": """
+                SELECT
+                    CASE
+                        WHEN s.SALES_DATE >= '{prev_start}' AND s.SALES_DATE <= '{prev_end}' THEN 'Previous'
+                        WHEN s.SALES_DATE >= '{curr_start}' AND s.SALES_DATE <= '{curr_end}' THEN 'Current'
+                    END AS PERIOD,
+                    SUM(s.REVENUE_USD) - COALESCE(SUM(p.TOTAL_COGS_USD), 0) AS TOTAL_VALUE
+                FROM TR_SALES s
+                LEFT JOIN TR_PURCHASE p ON s.PRODUCT_ID = p.PRODUCT_ID
+                    AND strftime('%Y-%m', s.SALES_DATE) = strftime('%Y-%m', p.PURCHASE_DATE)
+                WHERE (
+                    (s.SALES_DATE >= '{prev_start}' AND s.SALES_DATE <= '{prev_end}')
+                    OR (s.SALES_DATE >= '{curr_start}' AND s.SALES_DATE <= '{curr_end}')
+                ) {region_filter_sales}
                 GROUP BY PERIOD
             """
         }
@@ -207,6 +229,9 @@ class AnalysisAgent(BaseAgent):
     def __init__(self, api_key: str = None, db_path: str = None):
         super().__init__(api_key)
         self.db_path = db_path
+
+        # SQL 실행기 초기화
+        self.sql_executor = SQLExecutor(db_path) if db_path else SQLExecutor()
 
         # 하위 에이전트 초기화
         self.hypothesis_generator = HypothesisGenerator(api_key)
@@ -270,34 +295,37 @@ class AnalysisAgent(BaseAgent):
             for h in hypotheses:
                 print(f"    - [{h.id}] {h.description}")
 
-        # Step 2: 가설 검증 (SQL Agent)
+        # Step 2: 가설 검증 (3-Stage SHAP Analysis)
         if verbose:
-            print("\n[Step 2] 가설 검증 중 (SQL Agent)...")
+            print("\n[Step 2] 가설 검증 중 (3-Stage SHAP Analysis)...")
 
-        validated = self.hypothesis_validator.validate(
+        # KPI ID 추출
+        kpi_id = self._extract_kpi_id(question)
+
+        # 3-Stage 기반 검증 실행
+        validation_result = self.hypothesis_validator.validate(
             hypotheses=hypotheses,
+            kpi_id=kpi_id,
             period=period,
-            region=region,
-            threshold=5.0
+            verbose=verbose
         )
 
-        # SQL 쿼리 수집
+        # 결과 추출
+        validated = validation_result.get("validated_hypotheses", [])
+        contributions = validation_result.get("contributions", [])
+        model_r_squared = validation_result.get("model_r_squared", 0.0)
+        analysis_plan = validation_result.get("analysis_plan", {})
+        interpretation = validation_result.get("interpretation", {})
+
+        # SQL 쿼리 수집 (3-Stage에서는 SHAP 기반이므로 별도 쿼리 없음)
         sql_queries = []
         if verbose:
-            print(f"  검증된 가설: {len(validated)}개")
+            print(f"  검증된 가설: {len(validated)}개 (R²: {model_r_squared:.3f})")
             for h in validated:
                 data = h.validation_data or {}
-                print(f"    - [{h.id}] {h.factor}: {data.get('details', '')}")
-
-                # SQL 쿼리 저장 및 출력
-                sql_query = data.get("sql_query", "")
-                if sql_query:
-                    sql_queries.append({
-                        "hypothesis_id": h.id,
-                        "factor": h.factor,
-                        "sql": sql_query
-                    })
-                    print(f"      SQL: {sql_query[:100]}...")
+                contrib_pct = data.get("contribution_pct", 0)
+                rank = data.get("rank", 999)
+                print(f"    - [{h.id}] {h.factor}: 기여도 {contrib_pct:.1f}% (#{rank}위)")
 
         # Step 3: 이벤트 매칭 (Scoring Algorithm)
         if verbose:
@@ -334,7 +362,12 @@ class AnalysisAgent(BaseAgent):
             hypotheses=hypotheses,
             validated_hypotheses=validated,
             matched_events=matched_events,
-            sql_queries=sql_queries
+            sql_queries=sql_queries,
+            # 3-Stage 결과 추가
+            analysis_plan=analysis_plan,
+            interpretation=interpretation,
+            contributions=contributions,
+            model_r_squared=model_r_squared
         )
 
         # 상세 분석 결과 구성
@@ -793,15 +826,17 @@ class AnalysisAgent(BaseAgent):
         curr_start, curr_end = self._get_quarter_date_range(year, quarter)
         prev_start, prev_end = self._get_quarter_date_range(year - 1, quarter)  # 전년 동기
 
-        # 3. 지역 필터 생성 (SUBSIDIARY_ID 기반)
+        # 3. 지역 필터 생성 (ORG_ID 기반)
         region_filter = ""
+        region_filter_sales = ""  # 영업이익 쿼리용 (s. alias)
         if region:
             subsidiaries = self.REGION_SUBSIDIARY_MAP.get(region.upper(), [])
             if not subsidiaries:
                 subsidiaries = self.REGION_SUBSIDIARY_MAP.get(region, [])
             if subsidiaries:
                 subs_str = ", ".join([f"'{s}'" for s in subsidiaries])
-                region_filter = f"AND sh.SUBSIDIARY_ID IN ({subs_str})"
+                region_filter = f"AND ORG_ID IN ({subs_str})"
+                region_filter_sales = f"AND s.ORG_ID IN ({subs_str})"
 
         # 4. SQL 쿼리 생성 (템플릿 사용)
         sql_query = kpi_info["query_template"].format(
@@ -809,12 +844,13 @@ class AnalysisAgent(BaseAgent):
             prev_end=prev_end,
             curr_start=curr_start,
             curr_end=curr_end,
-            region_filter=region_filter
+            region_filter=region_filter,
+            region_filter_sales=region_filter_sales
         )
 
         # 5. SQL 실행
         try:
-            exec_result = self.hypothesis_validator.sql_executor.execute(sql_query)
+            exec_result = self.sql_executor.execute(sql_query)
 
             if not exec_result.success or exec_result.data is None:
                 print(f"KPI 계산 SQL 실행 실패: {exec_result.error}")
@@ -871,6 +907,20 @@ class AnalysisAgent(BaseAgent):
 
         # 기본값: 매출
         return "매출"
+
+    def _extract_kpi_id(self, question: str) -> str:
+        """질문에서 KPI ID 추출 (3-Stage Validator용)"""
+        kpi_name = self._extract_kpi_from_question(question)
+
+        # 한글 KPI 이름 → 영문 ID 매핑
+        kpi_id_map = {
+            "매출": "revenue",
+            "원가": "cost",
+            "판매수량": "quantity",
+            "영업이익": "profit"
+        }
+
+        return kpi_id_map.get(kpi_name, "revenue")
 
     def _get_quarter_range(self, year: int, quarter: int) -> tuple:
         """분기 시작/종료 월 계산 (YEARMONTH 형식)"""

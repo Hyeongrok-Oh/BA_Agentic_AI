@@ -33,12 +33,17 @@ class NormalizedFactor:
 
 @dataclass
 class NormalizedRelation:
-    """정규화된 관계"""
+    """정규화된 관계 (v2: 모든 출처 저장)"""
     factor_id: str
     anchor_id: str
     relation_type: str
     mention_count: int = 0
-    source_count: int = 0
+    polarity: int = 0           # v2: polarity 추가
+    sources: List[dict] = field(default_factory=list)  # v2: 모든 출처 저장
+
+    @property
+    def source_count(self) -> int:
+        return len(self.sources)
 
     def to_dict(self) -> dict:
         return {
@@ -47,6 +52,8 @@ class NormalizedRelation:
             "relation_type": self.relation_type,
             "mention_count": self.mention_count,
             "source_count": self.source_count,
+            "polarity": self.polarity,
+            "sources": self.sources,  # 모든 출처 포함
         }
 
 
@@ -128,8 +135,8 @@ class FactorNormalizer:
             nf.mention_count += factor.get("mention_count", 1)
             nf.sources.extend(factor.get("sources", []))
 
-        # 관계 정규화 및 집계
-        relation_map: Dict[Tuple[str, str, str], NormalizedRelation] = {}
+        # 관계 정규화 및 집계 (v2: polarity + 모든 출처 수집)
+        relation_map: Dict[Tuple[str, str, int], NormalizedRelation] = {}
         skipped_relations = 0
 
         for rel in data.get("relations", []):
@@ -143,18 +150,28 @@ class FactorNormalizer:
             new_factor_id = factor_id_mapping[old_factor_id]
             anchor_id = rel["anchor_id"]
             relation_type = rel["relation_type"]
+            polarity = rel.get("polarity", 0)
 
-            key = (new_factor_id, anchor_id, relation_type)
+            # v2: polarity 기준으로 그룹화
+            key = (new_factor_id, anchor_id, polarity)
 
             if key not in relation_map:
                 relation_map[key] = NormalizedRelation(
                     factor_id=new_factor_id,
                     anchor_id=anchor_id,
                     relation_type=relation_type,
+                    polarity=polarity,
                 )
 
             relation_map[key].mention_count += rel.get("mention_count", 1)
-            relation_map[key].source_count += rel.get("source_count", 1)
+
+            # v2: 모든 출처 수집
+            rel_sources = rel.get("sources", [])
+            if rel_sources:
+                relation_map[key].sources.extend(rel_sources)
+            else:
+                # sources가 없으면 source_count만 있는 경우 - 기존 호환
+                pass
 
         # 결과 생성
         result = {

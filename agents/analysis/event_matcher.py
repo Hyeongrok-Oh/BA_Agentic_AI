@@ -24,17 +24,24 @@ class MatchedEvent:
     event_category: str
     severity: str
     is_ongoing: bool
-    # Factor 관계
-    matched_factor: str
-    impact_type: str  # INCREASES, DECREASES
-    magnitude: str
+    # Driver 관계 (v2: AFFECTS 관계 기반)
+    matched_factor: str       # driver_name
+    driver_id: str = ""       # driver_id (v2)
+    impact_type: str = ""     # INCREASES, DECREASES (polarity 기반 변환)
+    polarity: int = 0         # +1 = INCREASES, -1 = DECREASES (v2)
+    magnitude: str = "medium"
+    weight: float = 0.5       # relationship weight (v2)
     # 매칭 점수
-    total_score: float
-    score_breakdown: Dict[str, float]
-    # 출처
-    sources: List[Dict]
-    evidence: str
-    target_regions: List[str]
+    total_score: float = 0.0
+    score_breakdown: Dict[str, float] = field(default_factory=dict)
+    # 출처 (v2: 상세 정보 포함)
+    sources: List[Dict] = field(default_factory=list)
+    evidence: str = ""
+    start_date: str = ""      # (v2)
+    # Dimension 연결 (v2)
+    target_regions: List[str] = field(default_factory=list)
+    target_periods: List[str] = field(default_factory=list)  # (v2)
+    dimensions: List[Dict] = field(default_factory=list)      # (v2)
 
 
 # Magnitude 점수 매핑
@@ -84,16 +91,29 @@ FACTOR_KEYWORD_MAP = {
 
 
 class EventMatcher(BaseAgent):
-    """개선된 하이브리드 이벤트 매칭 에이전트"""
+    """개선된 하이브리드 이벤트 매칭 에이전트
+
+    v4: 3-Layer Hybrid Search 구조
+    - Layer 1: Graph Filter (KPI/Driver/Region/Period 기반 필터링)
+    - Layer 2: Vector Search (embedding cosine similarity)
+    - Layer 3: Re-ranking (text_similarity + graph_score + time_proximity)
+    """
 
     name = "event_matcher"
-    description = "Factor-Event 직접 매칭 + Vector Similarity 기반 하이브리드 스코어링"
+    description = "3-Layer Hybrid Search: Graph Filter → Vector Search → Re-ranking"
 
-    # 개선된 스코어 가중치 (Graph 비중 증가)
+    # v4: 3-Layer Hybrid Search 가중치 (의미적 유사도 강조)
+    RERANK_WEIGHTS = {
+        "text_similarity": 0.45,  # Vector cosine similarity (45%)
+        "graph_score": 0.35,      # 0.7×impact + 0.3×confidence (35%)
+        "time_proximity": 0.20,   # 시간적 근접성 (20%)
+    }
+
+    # Legacy 호환용 가중치 (deprecated)
     WEIGHTS = {
-        "semantic": 0.2,      # Vector Similarity (20% ← 40%에서 감소)
-        "graph": 0.5,         # Graph Score (50%)
-        "factor_match": 0.3,  # Factor 직접 매칭 (30% 신규)
+        "semantic": 0.45,
+        "graph": 0.35,
+        "factor_match": 0.20,
     }
 
     def __init__(self, api_key: str = None):
@@ -115,25 +135,35 @@ class EventMatcher(BaseAgent):
         self,
         hypotheses: List[Hypothesis],
         region: str = None,
+        period: Dict = None,  # v2: {"year": 2024, "quarter": 4}
         min_score: float = 0.3,
         top_k: int = 5
     ) -> Dict[str, List[MatchedEvent]]:
         """
-        검증된 가설들에 대한 Event 매칭 (개선된 하이브리드 스코어링)
+        검증된 가설들에 대한 Event 매칭 (v2: AFFECTS 관계 기반)
 
-        개선사항:
-        1. Factor-Event 직접 매칭 우선
-        2. 가설별 고유 이벤트 우선 (중복 페널티)
-        3. 이미 사용된 이벤트 추적
+        v2 개선사항:
+        1. AFFECTS 관계 기반 Driver-Event 직접 매칭
+        2. TARGETS 관계 기반 Region/TimePeriod 필터
+        3. polarity (+1/-1) 기반 방향 매칭
+        4. 가설별 고유 이벤트 우선 (중복 페널티)
         """
         results = {}
         self._used_events = set()  # 초기화
+
+        # period를 TimePeriod ID로 변환 (예: "2025Q3")
+        period_id = None
+        if period:
+            year = period.get("year")
+            quarter = period.get("quarter")
+            if year and quarter:
+                period_id = f"{year}Q{quarter}"
 
         for hypothesis in hypotheses:
             if not hypothesis.validated:
                 continue
 
-            matched_events = self._match_single(hypothesis, region, min_score, top_k)
+            matched_events = self._match_single(hypothesis, region, period_id, min_score, top_k)
             if matched_events:
                 results[hypothesis.id] = matched_events
 
@@ -147,22 +177,23 @@ class EventMatcher(BaseAgent):
         self,
         hypothesis: Hypothesis,
         region: str = None,
+        period_id: str = None,  # v2: "2025Q3" 형식
         min_score: float = 0.3,
         top_k: int = 5
     ) -> List[MatchedEvent]:
-        """단일 가설에 대한 개선된 매칭"""
+        """단일 가설에 대한 Event 매칭 (v2: AFFECTS 관계 기반)"""
 
         # 1. Factor 키워드 추출 (정밀)
         factor_keywords = self._extract_factor_keywords_precise(hypothesis.factor)
 
-        # 2. Graph Search: Factor와 직접 연결된 Event만 검색 (우선)
-        graph_results = self._graph_search_direct(hypothesis, factor_keywords, region)
+        # 2. Graph Search: Driver와 직접 연결된 Event 검색 (v2: AFFECTS 관계)
+        graph_results = self._graph_search_direct(hypothesis, factor_keywords, region, period_id)
 
         # 3. Vector Search: 보조적으로 사용 (Graph에서 못 찾은 경우)
         vector_results = []
         if len(graph_results) < top_k:
             hypothesis_embedding = self._get_embedding(hypothesis.description)
-            vector_results = self._vector_search(hypothesis_embedding, top_k=15, region=region)
+            vector_results = self._vector_search(hypothesis_embedding, top_k=15, region=region, period_id=period_id)
 
         # 4. 병합 및 스코어 계산
         all_events = self._merge_and_score_improved(
@@ -170,7 +201,8 @@ class EventMatcher(BaseAgent):
             factor_keywords,
             graph_results,
             vector_results,
-            region
+            region,
+            period_id
         )
 
         # 5. 필터링, 중복 페널티 적용, 정렬
@@ -201,25 +233,49 @@ class EventMatcher(BaseAgent):
         self,
         hypothesis: Hypothesis,
         factor_keywords: List[str],
-        region: str = None
+        region: str = None,
+        period_id: str = None  # v2: "2025Q3"
     ) -> List[Dict]:
-        """Factor와 직접 연결된 Event만 검색 (정밀)"""
+        """Driver와 직접 연결된 Event 검색 (v2: AFFECTS 관계 기반)"""
 
-        # 지역 필터 조건 - Region 노드 직접 확인
+        # v2: Region 필터 - 새로운 Dimension ID 사용 ("북미", "유럽" 등)
         region_filter = ""
         if region:
             normalized = self._normalize_region(region)
             if normalized:
-                # Region이 없거나(global), 해당 region을 타겟하거나, 'global' 타겟인 경우
-                region_filter = f"AND (size(target_regions) = 0 OR '{normalized}' IN target_regions OR 'global' IN [reg IN target_regions | toLower(reg)])"
+                region_filter = f"""
+                AND (
+                    size(target_regions) = 0
+                    OR '{normalized}' IN target_regions
+                    OR '글로벌' IN target_regions
+                )
+                """
 
+        # v2: Period 필터 - TimePeriod Dimension 사용
+        period_filter = ""
+        if period_id:
+            period_filter = f"""
+            AND (
+                size(target_periods) = 0
+                OR '{period_id}' IN target_periods
+            )
+            """
+
+        # v2: AFFECTS 관계 기반 쿼리 (Driver 노드 사용)
         query = f"""
-        MATCH (e:Event)-[r:INCREASES|DECREASES]->(f:Factor)
-        WHERE any(kw IN $keywords WHERE toLower(f.name) CONTAINS toLower(kw))
-        // Region 노드만 명시적으로 조회 (Layer 1 Dimension)
-        OPTIONAL MATCH (e)-[:TARGETS]->(reg:Region)
-        WITH e, r, f, collect(DISTINCT reg.id) as target_regions
-        WHERE true {region_filter}
+        MATCH (e:Event)-[r:AFFECTS]->(d:Driver)
+        WHERE d.id IN $keywords
+           OR any(kw IN $keywords WHERE toLower(d.name_kr) CONTAINS toLower(kw))
+           OR any(kw IN $keywords WHERE toLower(d.id) CONTAINS toLower(kw))
+
+        // Dimension 연결 조회 (Region, TimePeriod)
+        OPTIONAL MATCH (e)-[:TARGETS]->(dim)
+        WITH e, r, d,
+             collect(DISTINCT CASE WHEN 'Region' IN labels(dim) OR dim.id IN ['북미', '유럽', '아시아', '한국', '중국', '중동', '글로벌'] THEN dim.id END) as target_regions,
+             collect(DISTINCT CASE WHEN dim.id STARTS WITH '202' THEN dim.id END) as target_periods,
+             collect(DISTINCT {{type: labels(dim)[0], id: dim.id}}) as dimensions
+        WHERE true {region_filter} {period_filter}
+
         RETURN
             e.id as event_id,
             e.name as event_name,
@@ -227,14 +283,23 @@ class EventMatcher(BaseAgent):
             e.severity as event_severity,
             e.is_ongoing as is_ongoing,
             e.evidence as evidence,
+            e.start_date as start_date,
             e.source_urls as source_urls,
             e.source_titles as source_titles,
-            f.name as factor_name,
-            f.id as factor_id,
-            type(r) as impact_type,
-            r.magnitude as magnitude,
-            r.confidence as confidence,
+            e.sources as sources,
+            d.id as driver_id,
+            d.name_kr as driver_name,
+            r.polarity as polarity,
+            r.weight as weight,
+            CASE WHEN r.polarity > 0 THEN 'INCREASES' ELSE 'DECREASES' END as impact_type,
+            COALESCE(r.weight, 0.5) as magnitude_weight,
+            // v4: confidence 관련 필드 추가
+            COALESCE(e.source_confidence, 0.8) as event_confidence,
+            COALESCE(r.confidence, 0.8) as relation_confidence,
+            COALESCE(r.impact_score, 0.5) as impact_score,
             target_regions,
+            target_periods,
+            dimensions,
             1.0 as factor_match_score
         ORDER BY
             CASE e.severity
@@ -243,11 +308,7 @@ class EventMatcher(BaseAgent):
                 WHEN 'medium' THEN 3
                 ELSE 4
             END,
-            CASE r.magnitude
-                WHEN 'high' THEN 1
-                WHEN 'medium' THEN 2
-                ELSE 3
-            END
+            abs(r.weight) DESC
         LIMIT 20
         """
 
@@ -278,26 +339,35 @@ class EventMatcher(BaseAgent):
         self,
         query_embedding: List[float],
         top_k: int = 15,
-        region: str = None
+        region: str = None,
+        period_id: str = None  # v2
     ) -> List[Dict]:
-        """Neo4j Vector Index로 유사 Event 검색 (보조)"""
+        """Neo4j Vector Index로 유사 Event 검색 (v2: AFFECTS 관계 기반)"""
         if not query_embedding:
             return []
 
-        # Region 필터 조건
+        # v2: Region 필터 조건 (새 Dimension ID 사용)
         region_filter = ""
         if region:
             normalized = self._normalize_region(region)
             if normalized:
-                region_filter = f"WHERE size(target_regions) = 0 OR '{normalized}' IN target_regions OR 'global' IN [reg IN target_regions | toLower(reg)]"
+                region_filter = f"""
+                WHERE size(target_regions) = 0
+                   OR '{normalized}' IN target_regions
+                   OR '글로벌' IN target_regions
+                """
 
+        # v2: AFFECTS 관계 기반 Vector Search
         query = f"""
         CALL db.index.vector.queryNodes('event_embedding', $top_k, $embedding)
         YIELD node, score
-        MATCH (node)-[r:INCREASES|DECREASES]->(f:Factor)
-        // Region 노드만 명시적으로 조회 (Layer 1 Dimension)
-        OPTIONAL MATCH (node)-[:TARGETS]->(reg:Region)
-        WITH node, score, r, f, collect(DISTINCT reg.id) as target_regions
+        MATCH (node)-[r:AFFECTS]->(d:Driver)
+
+        // Dimension 연결 조회
+        OPTIONAL MATCH (node)-[:TARGETS]->(dim)
+        WITH node, score, r, d,
+             collect(DISTINCT CASE WHEN dim.id IN ['북미', '유럽', '아시아', '한국', '중국', '중동', '글로벌'] THEN dim.id END) as target_regions,
+             collect(DISTINCT CASE WHEN dim.id STARTS WITH '202' THEN dim.id END) as target_periods
         {region_filter}
         RETURN
             node.id as event_id,
@@ -306,13 +376,22 @@ class EventMatcher(BaseAgent):
             node.severity as event_severity,
             node.is_ongoing as is_ongoing,
             node.evidence as evidence,
+            node.start_date as start_date,
             node.source_urls as source_urls,
             node.source_titles as source_titles,
-            f.name as factor_name,
-            type(r) as impact_type,
-            r.magnitude as magnitude,
+            node.sources as sources,
+            d.id as driver_id,
+            d.name_kr as driver_name,
+            r.polarity as polarity,
+            r.weight as weight,
+            CASE WHEN r.polarity > 0 THEN 'INCREASES' ELSE 'DECREASES' END as impact_type,
             score as vector_score,
-            target_regions
+            // v4: confidence 관련 필드 추가
+            COALESCE(node.source_confidence, 0.8) as event_confidence,
+            COALESCE(r.confidence, 0.8) as relation_confidence,
+            COALESCE(r.impact_score, 0.5) as impact_score,
+            target_regions,
+            target_periods
         """
 
         params = {
@@ -335,9 +414,10 @@ class EventMatcher(BaseAgent):
         factor_keywords: List[str],
         graph_results: List[Dict],
         vector_results: List[Dict],
-        region: str = None
+        region: str = None,
+        period_id: str = None  # v2: "2025Q3" 형식
     ) -> List[MatchedEvent]:
-        """개선된 병합 및 스코어 계산"""
+        """개선된 병합 및 스코어 계산 (v2: AFFECTS 관계 기반)"""
 
         events_map = {}
 
@@ -356,14 +436,14 @@ class EventMatcher(BaseAgent):
         for vr in vector_results:
             event_id = vr.get("event_id", "")
             if event_id and event_id not in events_map:
-                # Factor 키워드 매칭 확인
-                factor_name = vr.get("factor_name", "").lower()
-                factor_match = any(kw.lower() in factor_name for kw in factor_keywords)
+                # v2: Driver 키워드 매칭 확인
+                driver_name = vr.get("driver_name", "").lower()
+                driver_match = any(kw.lower() in driver_name for kw in factor_keywords)
 
                 events_map[event_id] = {
                     **vr,
                     "from_graph": False,
-                    "factor_match_score": 0.7 if factor_match else 0.2,
+                    "factor_match_score": 0.7 if driver_match else 0.2,
                     "vector_score": vr.get("vector_score", 0)
                 }
 
@@ -373,11 +453,16 @@ class EventMatcher(BaseAgent):
             score, breakdown = self._calculate_improved_score(
                 hypothesis,
                 event_data,
-                region
+                region,
+                period_id
             )
 
             # sources 구성
             sources = self._build_sources(event_data)
+
+            # v2: polarity에서 magnitude 계산
+            weight = event_data.get("weight", 0.5)
+            magnitude = "high" if abs(weight) >= 0.7 else ("medium" if abs(weight) >= 0.4 else "low")
 
             matched_events.append(MatchedEvent(
                 event_id=event_id,
@@ -385,14 +470,21 @@ class EventMatcher(BaseAgent):
                 event_category=event_data.get("event_category", ""),
                 severity=event_data.get("event_severity", "medium"),
                 is_ongoing=event_data.get("is_ongoing", False),
-                matched_factor=event_data.get("factor_name", ""),
+                # v2: driver_name 사용 (factor_name 대신)
+                matched_factor=event_data.get("driver_name", "") or event_data.get("factor_name", ""),
+                driver_id=event_data.get("driver_id", ""),
                 impact_type=event_data.get("impact_type", ""),
-                magnitude=event_data.get("magnitude", "medium"),
+                polarity=event_data.get("polarity", 0),
+                magnitude=magnitude,
+                weight=weight,
                 total_score=score,
                 score_breakdown=breakdown,
                 sources=sources,
                 evidence=event_data.get("evidence", ""),
-                target_regions=event_data.get("target_regions", [])
+                start_date=event_data.get("start_date", ""),
+                target_regions=event_data.get("target_regions", []),
+                target_periods=event_data.get("target_periods", []),
+                dimensions=event_data.get("dimensions", [])
             ))
 
         return matched_events
@@ -401,63 +493,150 @@ class EventMatcher(BaseAgent):
         self,
         hypothesis: Hypothesis,
         event_data: Dict,
-        region: str = None
+        region: str = None,
+        period_id: str = None  # v2: "2025Q3" 형식
     ) -> tuple:
         """
-        개선된 스코어 계산
+        v4: 3-Layer Hybrid Search 스코어 계산
 
-        Final Score = 0.2 × Semantic + 0.5 × Graph + 0.3 × Factor_Match
+        Final Score = 0.45 × Text_Similarity + 0.35 × Graph_Score + 0.20 × Time_Proximity
 
-        Graph Score = 0.4 × Direction + 0.3 × Magnitude + 0.2 × Region + 0.1 × Severity
+        Graph Score = 0.7 × Impact_Score + 0.3 × Confidence
         """
         breakdown = {}
 
-        # === 1. Semantic Score (20%) ===
+        # === 1. Text Similarity (45%) - Vector cosine similarity ===
         vector_score = event_data.get("vector_score", 0)
-        breakdown["semantic"] = round(vector_score, 3)
+        # Graph에서 온 결과는 vector_score가 0일 수 있음 → factor_match로 보완
+        if vector_score == 0 and event_data.get("from_graph"):
+            # Graph 직접 매칭은 의미적 관련성이 높다고 가정
+            vector_score = 0.7
+        breakdown["text_similarity"] = round(vector_score, 3)
 
-        # === 2. Factor Match Score (30%) - 신규 ===
-        factor_match_score = event_data.get("factor_match_score", 0)
-        breakdown["factor_match"] = round(factor_match_score, 3)
+        # === 2. Graph Score (35%) = 0.7 × Impact + 0.3 × Confidence ===
+        impact_score = self._calc_impact_score(event_data)
+        confidence_score = self._calc_confidence_score(event_data)
+        graph_score = 0.7 * impact_score + 0.3 * confidence_score
+        breakdown["impact_score"] = round(impact_score, 3)
+        breakdown["confidence"] = round(confidence_score, 3)
+        breakdown["graph_score"] = round(graph_score, 3)
 
-        # === 3. Graph Score (50%) ===
-        # Direction Match (40% of graph)
-        direction_score = self._calc_direction_score(hypothesis, event_data)
-        breakdown["direction"] = round(direction_score, 3)
+        # === 3. Time Proximity (20%) ===
+        time_proximity = self._calc_time_proximity(event_data, period_id)
+        breakdown["time_proximity"] = round(time_proximity, 3)
 
-        # Magnitude (30% of graph)
-        magnitude = event_data.get("magnitude", "medium")
-        magnitude_score = MAGNITUDE_SCORES.get(magnitude, 0.5)
-        breakdown["magnitude"] = round(magnitude_score, 3)
-
-        # Region Match (20% of graph)
-        region_score = self._calc_region_score(event_data, region)
-        breakdown["region"] = round(region_score, 3)
-
-        # Severity (10% of graph)
-        severity = event_data.get("event_severity", "medium")
-        severity_score = SEVERITY_SCORES.get(severity, 0.5)
-        breakdown["severity"] = round(severity_score, 3)
-
-        # Graph Score 합산
-        graph_score = (
-            direction_score * 0.4 +
-            magnitude_score * 0.3 +
-            region_score * 0.2 +
-            severity_score * 0.1
-        )
-        breakdown["graph"] = round(graph_score, 3)
-
-        # === 4. Final Score ===
+        # === 4. Final Score (v4: 새로운 가중치) ===
         final_score = (
-            vector_score * self.WEIGHTS["semantic"] +
-            graph_score * self.WEIGHTS["graph"] +
-            factor_match_score * self.WEIGHTS["factor_match"]
+            vector_score * self.RERANK_WEIGHTS["text_similarity"] +
+            graph_score * self.RERANK_WEIGHTS["graph_score"] +
+            time_proximity * self.RERANK_WEIGHTS["time_proximity"]
         )
-
         breakdown["final"] = round(final_score, 3)
 
+        # Legacy breakdown 호환 (디버깅/로깅용)
+        breakdown["semantic"] = breakdown["text_similarity"]
+        breakdown["graph"] = breakdown["graph_score"]
+
         return final_score, breakdown
+
+    def _calc_impact_score(self, event_data: Dict) -> float:
+        """
+        v4: Impact Score 계산
+
+        impact_score = severity_weight × magnitude_weight
+        - DB에 저장된 impact_score 우선 사용
+        - 없으면 severity × weight로 계산
+        """
+        # DB에서 미리 계산된 impact_score가 있으면 사용
+        stored_impact = event_data.get("impact_score", 0)
+        if stored_impact and stored_impact > 0:
+            return min(stored_impact, 1.0)
+
+        # 없으면 직접 계산
+        severity = event_data.get("event_severity", "medium")
+        severity_weight = SEVERITY_SCORES.get(severity, 0.5)
+
+        weight = abs(event_data.get("weight", 0.5))
+        magnitude_weight = min(weight, 1.0)
+
+        return severity_weight * magnitude_weight
+
+    def _calc_confidence_score(self, event_data: Dict) -> float:
+        """
+        v4: Confidence Score 계산 (정보 출처 신뢰도)
+
+        - relation_confidence: Event-Driver 연결의 신뢰도
+        - event_confidence: Event 자체의 출처 신뢰도
+        - 둘의 평균 또는 relation_confidence 우선
+        """
+        relation_conf = event_data.get("relation_confidence", 0.8)
+        event_conf = event_data.get("event_confidence", 0.8)
+
+        # relation_confidence가 있으면 우선 사용
+        if relation_conf and relation_conf > 0:
+            return min(relation_conf, 1.0)
+
+        # 없으면 event_confidence 사용
+        if event_conf and event_conf > 0:
+            return min(event_conf, 1.0)
+
+        return 0.8  # 기본값
+
+    def _calc_time_proximity(self, event_data: Dict, analysis_period: str) -> float:
+        """
+        v4: 시간적 근접성 계산
+
+        - 분석 기간 내 발생: 1.0
+        - 1분기 전/후: 0.8
+        - 2분기 전/후: 0.5
+        - 그 외: 0.2
+        """
+        if not analysis_period:
+            return 0.5  # 기간 미지정 시 중간값
+
+        target_periods = event_data.get("target_periods", [])
+        # None 필터링
+        target_periods = [p for p in target_periods if p]
+
+        if not target_periods:
+            return 0.5  # 이벤트에 기간 지정 없음
+
+        # 정확한 기간 일치 (예: "2025Q3")
+        if analysis_period in target_periods:
+            return 1.0
+
+        # 인접 분기 체크
+        try:
+            if len(analysis_period) >= 5:  # "2025Q3" 형식
+                year = int(analysis_period[:4])
+                quarter = int(analysis_period[5])
+
+                for tp in target_periods:
+                    if tp and len(tp) >= 5:
+                        tp_year = int(tp[:4])
+                        tp_quarter = int(tp[5])
+
+                        # 분기 차이 계산
+                        total_quarters = (year - tp_year) * 4 + (quarter - tp_quarter)
+                        abs_diff = abs(total_quarters)
+
+                        if abs_diff == 1:
+                            return 0.8  # 1분기 전/후
+                        elif abs_diff == 2:
+                            return 0.5  # 2분기 전/후
+                        elif abs_diff <= 4:
+                            return 0.3  # 1년 이내
+        except (ValueError, IndexError):
+            pass
+
+        # 연도만 일치하는 경우
+        if analysis_period and len(analysis_period) >= 4:
+            year = analysis_period[:4]
+            for tp in target_periods:
+                if tp and tp.startswith(year):
+                    return 0.6  # 같은 연도
+
+        return 0.2  # 불일치
 
     def _apply_uniqueness_bonus(self, events: List[MatchedEvent]) -> List[MatchedEvent]:
         """
@@ -478,61 +657,105 @@ class EventMatcher(BaseAgent):
         return events
 
     def _calc_direction_score(self, hypothesis: Hypothesis, event_data: Dict) -> float:
-        """방향 일치 점수 계산"""
-        event_impact = event_data.get("impact_type", "").upper()
+        """방향 일치 점수 계산 (v2: polarity 기반)"""
+        # v2: polarity 사용 (+1 = INCREASES, -1 = DECREASES)
+        polarity = event_data.get("polarity", 0)
         hypothesis_direction = hypothesis.direction.lower()
 
-        # 부정적 Factor 체크
-        factor_name = event_data.get("factor_name", "").lower()
-        negative_keywords = ["부진", "위축", "감소", "하락", "손실", "적자"]
-        is_negative_factor = any(kw in factor_name for kw in negative_keywords)
+        # v2: driver_name 사용 (factor_name 대신)
+        driver_name = event_data.get("driver_name", "") or event_data.get("factor_name", "")
+        driver_name = driver_name.lower()
 
+        # 부정적 Driver 체크 (비용, 손실 등은 감소가 긍정적)
+        negative_keywords = ["부진", "위축", "감소", "하락", "손실", "적자", "비용", "원가"]
+        is_negative_driver = any(kw in driver_name for kw in negative_keywords)
+
+        # 방향 매칭 로직
         if hypothesis_direction == "increase":
-            if event_impact == "INCREASES":
-                return 0.0 if is_negative_factor else 1.0
-            elif event_impact == "DECREASES":
-                return 1.0 if is_negative_factor else 0.0
+            # 가설: 증가 → Event가 Driver를 증가시키면 일치
+            if polarity > 0:  # INCREASES
+                return 0.0 if is_negative_driver else 1.0
+            elif polarity < 0:  # DECREASES
+                return 1.0 if is_negative_driver else 0.0
         elif hypothesis_direction == "decrease":
-            if event_impact == "DECREASES":
-                return 0.0 if is_negative_factor else 1.0
-            elif event_impact == "INCREASES":
-                return 1.0 if is_negative_factor else 0.0
+            # 가설: 감소 → Event가 Driver를 감소시키면 일치
+            if polarity < 0:  # DECREASES
+                return 0.0 if is_negative_driver else 1.0
+            elif polarity > 0:  # INCREASES
+                return 1.0 if is_negative_driver else 0.0
 
-        return 0.5
+        return 0.5  # polarity가 0이거나 알 수 없는 경우
 
     def _calc_region_score(self, event_data: Dict, region: str) -> float:
-        """지역 일치 점수 계산"""
+        """지역 일치 점수 계산 (v2: 한글 Dimension ID 사용)"""
         if not region:
-            return 0.7
+            return 0.7  # 지역 미지정 시 중간 점수
 
         target_regions = event_data.get("target_regions", [])
+        # None 필터링
+        target_regions = [r for r in target_regions if r]
+
         if not target_regions:
-            return 0.5  # 글로벌/미지정
+            return 0.5  # 이벤트에 지역 지정 없음 = 글로벌/미지정
 
         normalized_region = self._normalize_region(region)
-        target_regions_upper = [r.upper() if r else "" for r in target_regions]
+        if not normalized_region:
+            return 0.5
 
-        if normalized_region in target_regions_upper:
+        # v2: 한글 Dimension ID로 직접 비교 (북미, 유럽, 글로벌 등)
+        if normalized_region in target_regions:
             return 1.0
 
-        if "GLOBAL" in target_regions_upper or "전체" in target_regions:
+        # 글로벌은 모든 지역과 부분 일치
+        if "글로벌" in target_regions:
             return 0.7
 
         return 0.2  # 불일치
 
+    def _calc_period_score(self, event_data: Dict, period_id: str) -> float:
+        """시간 일치 점수 계산 (v2: TimePeriod Dimension 사용)"""
+        if not period_id:
+            return 0.7  # 기간 미지정 시 중간 점수
+
+        target_periods = event_data.get("target_periods", [])
+        # None 필터링
+        target_periods = [p for p in target_periods if p]
+
+        if not target_periods:
+            return 0.5  # 이벤트에 기간 지정 없음
+
+        # 정확한 기간 일치 (예: "2025Q3")
+        if period_id in target_periods:
+            return 1.0
+
+        # 연도 또는 반기 단위 부분 일치
+        # 예: "2025Q3"는 "2025H2", "2025"와 부분 일치
+        if period_id and len(period_id) >= 4:
+            year = period_id[:4]
+            # 연도 일치 체크
+            for tp in target_periods:
+                if tp and tp.startswith(year):
+                    return 0.7  # 같은 연도
+
+        return 0.3  # 불일치
+
     def _normalize_region(self, region: str) -> Optional[str]:
-        """지역 코드 정규화"""
+        """지역 코드 정규화 (v2: 새 Dimension ID 사용)"""
         if not region:
             return None
 
         region_upper = region.upper()
+        # v2: 새 Dimension ID로 매핑 ("북미", "유럽" 등)
         mapping = {
-            "NA": "NA", "NORTH AMERICA": "NA", "북미": "NA",
-            "EU": "EU", "EUROPE": "EU", "유럽": "EU",
-            "KR": "KR", "KOREA": "KR", "한국": "KR",
-            "ASIA": "ASIA", "아시아": "ASIA"
+            "NA": "북미", "NORTH AMERICA": "북미", "북미": "북미",
+            "EU": "유럽", "EUROPE": "유럽", "유럽": "유럽",
+            "KR": "한국", "KOREA": "한국", "한국": "한국",
+            "ASIA": "아시아", "아시아": "아시아",
+            "CN": "중국", "CHINA": "중국", "중국": "중국",
+            "ME": "중동", "MIDDLE EAST": "중동", "중동": "중동",
+            "GLOBAL": "글로벌", "글로벌": "글로벌",
         }
-        return mapping.get(region_upper, region_upper)
+        return mapping.get(region_upper, region)
 
     def _build_sources(self, event_data: Dict) -> List[Dict]:
         """출처 정보 구성"""
@@ -564,33 +787,42 @@ class EventMatcher(BaseAgent):
         return dot_product / (norm1 * norm2)
 
     def run(self, context: AgentContext) -> Dict[str, Any]:
-        """Agent 실행"""
+        """Agent 실행 (v2: period 파라미터 추가)"""
         hypotheses = context.metadata.get("validated_hypotheses", [])
         region = context.metadata.get("region")
+        period = context.metadata.get("period")  # v2: {"year": 2024, "quarter": 4}
         min_score = context.metadata.get("min_score", 0.3)
         top_k = context.metadata.get("top_k", 5)
 
         matched = self.match(
             hypotheses=hypotheses,
             region=region,
+            period=period,
             min_score=min_score,
             top_k=top_k
         )
 
-        # MatchedEvent를 직렬화 가능한 형태로 변환
+        # MatchedEvent를 직렬화 가능한 형태로 변환 (v2: 필드 추가)
         serialized = {}
         for h_id, events in matched.items():
             serialized[h_id] = [
                 {
+                    "event_id": ev.event_id,
                     "event_name": ev.event_name,
                     "event_category": ev.event_category,
                     "severity": ev.severity,
                     "impact_type": ev.impact_type,
+                    "polarity": ev.polarity,
                     "matched_factor": ev.matched_factor,
+                    "driver_id": ev.driver_id,
+                    "weight": ev.weight,
                     "total_score": ev.total_score,
                     "score_breakdown": ev.score_breakdown,
                     "sources": ev.sources[:2],
-                    "evidence": ev.evidence[:200] if ev.evidence else ""
+                    "evidence": ev.evidence[:200] if ev.evidence else "",
+                    "start_date": ev.start_date,
+                    "target_regions": ev.target_regions,
+                    "target_periods": ev.target_periods
                 }
                 for ev in events
             ]

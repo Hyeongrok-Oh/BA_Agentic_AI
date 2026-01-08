@@ -4,6 +4,9 @@ import argparse
 import json
 from pathlib import Path
 from datetime import date
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def test_pdf_extraction():

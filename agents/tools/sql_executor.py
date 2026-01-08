@@ -20,7 +20,7 @@ class SQLExecutor(BaseTool):
     name = "sql_executor"
     description = "SQLite 데이터베이스에서 SQL 쿼리를 실행하고 결과를 반환합니다."
 
-    DEFAULT_DB_PATH = "/Users/hyeongrokoh/BI/sql/lge_he_erp.db"
+    DEFAULT_DB_PATH = "/Users/hyeongrokoh/BI/erp_database/lge_he_erp.db"
 
     def __init__(self, db_path: str = None):
         self.db_path = db_path or self.DEFAULT_DB_PATH

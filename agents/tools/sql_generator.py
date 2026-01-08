@@ -31,7 +31,7 @@ class SQLGenerator(BaseTool):
     name = "sql_generator"
     description = "자연어 질문을 분석하여 SQLite 쿼리를 생성합니다."
 
-    DEFAULT_DB_PATH = "/Users/hyeongrokoh/BI/sql/lge_he_erp.db"
+    DEFAULT_DB_PATH = "/Users/hyeongrokoh/BI/erp_database/lge_he_erp.db"
 
     def __init__(self, db_path: str = None, api_key: str = None):
         self.db_path = db_path or os.getenv("ERP_DB_PATH", self.DEFAULT_DB_PATH)
@@ -102,75 +102,95 @@ class SQLGenerator(BaseTool):
 
 === 비즈니스 컨텍스트 ===
 
-**지역별 SUBSIDIARY_ID 매핑 (필수)**:
-- 북미(NA, North America): SUBSIDIARY_ID IN ('LGEUS', 'LGECA')
-- 유럽(EU, Europe): SUBSIDIARY_ID IN ('LGEUK', 'LGEDE', 'LGEFR')
-- 한국(KR, Korea): SUBSIDIARY_ID = 'LGEKR'
+**지역별 매핑 (MD_ORG.REGION)**:
+- Americas: 북미 (US, CA, MX)
+- Europe: 유럽 (DE, UK, FR)
+- Asia: 아시아 (KR, CN, VN)
+- Production: 생산법인 (VN, MX, PL)
 
-**원가 유형 (TBL_TX_COST_DETAIL 테이블)**:
-- COST_TYPE: 원가 유형
-  - MAT: 재료비 (Material Cost)
-  - LOG: 물류비 (Logistics Cost)
-  - TAR: 관세 (Tariff)
-  - OH: 오버헤드 (Overhead)
-- COST_AMOUNT: 단위 원가 금액 (이 컬럼 사용!)
-- ORDER_NO, ITEM_NO: JOIN 키
+**테이블 구조**:
 
-**매출 헤더 (TBL_TX_SALES_HEADER 테이블)**:
-- ORDER_NO: 주문번호 (PK)
-- DOC_DATE: 문서 날짜 (기간 필터용)
-- SUBSIDIARY_ID: 법인 코드 (지역 필터용)
-- TOTAL_NET_VALUE: 순매출액
+1. TR_SALES (판매):
+   - SALES_DATE: 판매 날짜
+   - PRODUCT_ID, ORG_ID, CHANNEL_ID: 조인 키
+   - QTY: 판매 수량
+   - REVENUE_USD, REVENUE_KRW: 매출
+   - WEBOS_REV_USD: webOS 플랫폼 수익
+   - IS_B2B_SALES: B2B 여부 ('Y'/'N')
+   - EXCHANGE_RATE: 환율
 
-**매출 아이템 (TBL_TX_SALES_ITEM 테이블)**:
-- ORDER_NO, ITEM_NO: 키
-- ORDER_QTY: 주문 수량
+2. TR_PURCHASE (구매/원가):
+   - PURCHASE_DATE: 구매 날짜
+   - PANEL_PRICE_USD: 패널 단가
+   - DRAM_PRICE_USD_PER_GB: DRAM 단가
+   - RAW_MATERIAL_INDEX: 원자재 지수
+   - TOTAL_COGS_USD, TOTAL_COGS_KRW: 총 원가
 
-**가격 조건 (TBL_TX_PRICE_CONDITION 테이블)**:
-- COND_TYPE: 조건 유형
-  - ZPR0: 매출 (Gross Price) - 양수
-  - ZPRO: Price Protection (비용) - 음수
-  - K007: 할인 (Discount) - 음수
-  - ZMDF: MDF (마케팅비용) - 음수
-- COND_VALUE: 금액 (이 컬럼 사용!)
-- ORDER_NO: 주문번호 (JOIN 키)
+3. TR_EXPENSE (비용):
+   - EXPENSE_DATE: 비용 발생일
+   - EXPENSE_TYPE: LOGISTICS, MARKETING, PROMOTION, LABOR
+   - LOGISTICS_COST: 물류비
+   - MARKETING_COST: 마케팅비
+   - PROMOTION_COST: 프로모션비
+   - LABOR_COST: 인건비
+
+4. EXT_MACRO (거시경제):
+   - DATA_DATE, COUNTRY_CODE
+   - EXCHANGE_RATE_KRW_USD: 원달러 환율
+   - INTEREST_RATE: 기준금리
+   - INFLATION_RATE: 인플레이션율
+   - CSI_INDEX: 소비자심리지수
+
+5. EXT_MARKET (시장):
+   - DATA_DATE, REGION
+   - TOTAL_SHIPMENT_10K: 글로벌 TV 출하량 (만대)
+   - LGE_MARKET_SHARE: LG 점유율 (%)
+   - SCFI_INDEX: 해상운임지수
+
+6. EXT_TRADE_POLICY (무역정책):
+   - DATA_DATE, COUNTRY_CODE
+   - TARIFF_RATE: 관세율 (%)
+   - TRADE_RISK_INDEX: 무역 리스크 지수
 
 **기간 필터**:
 - Q1: 01-03월, Q2: 04-06월, Q3: 07-09월, Q4: 10-12월
-- 예: strftime('%Y-%m', DOC_DATE) BETWEEN '2024-10' AND '2024-12'
+- 예: SALES_DATE BETWEEN '2024-10-01' AND '2024-12-31'
 - 데이터 범위: 2023-01-01 ~ 2025-12-31
 {period_hint}{region_hint}
 
-**JOIN 예제 (올바른 컬럼 참조)**:
+**JOIN 예제**:
 
-1. 물류비 현황 조회:
+1. 지역별 매출 조회:
 ```sql
-SELECT sh.SUBSIDIARY_ID, cd.COST_TYPE, SUM(cd.COST_AMOUNT) as total_cost
-FROM TBL_TX_COST_DETAIL cd
-JOIN TBL_TX_SALES_HEADER sh ON cd.ORDER_NO = sh.ORDER_NO
-WHERE cd.COST_TYPE = 'LOG'
-  AND sh.SUBSIDIARY_ID IN ('LGEUS', 'LGECA')
-  AND sh.DOC_DATE BETWEEN '2025-10-01' AND '2025-12-31'
-GROUP BY sh.SUBSIDIARY_ID, cd.COST_TYPE
+SELECT o.REGION, SUM(s.REVENUE_USD) as total_revenue
+FROM TR_SALES s
+JOIN MD_ORG o ON s.ORG_ID = o.ORG_ID
+WHERE s.SALES_DATE BETWEEN '2024-10-01' AND '2024-12-31'
+GROUP BY o.REGION
 ```
 
-2. 매출 및 가격조건 조회:
+2. 물류비 추이:
 ```sql
-SELECT sh.SUBSIDIARY_ID, pc.COND_TYPE, SUM(pc.COND_VALUE) as total_amount
-FROM TBL_TX_PRICE_CONDITION pc
-JOIN TBL_TX_SALES_HEADER sh ON pc.ORDER_NO = sh.ORDER_NO
-WHERE sh.DOC_DATE BETWEEN '2025-10-01' AND '2025-12-31'
-GROUP BY sh.SUBSIDIARY_ID, pc.COND_TYPE
+SELECT strftime('%Y-%m', EXPENSE_DATE) as month,
+       SUM(LOGISTICS_COST) as logistics
+FROM TR_EXPENSE
+WHERE EXPENSE_DATE BETWEEN '2024-01-01' AND '2024-12-31'
+GROUP BY month
 ```
 
-**주의**:
-- TBL_TX_SALES_HEADER에는 ORDER_NO, DOC_DATE, SUBSIDIARY_ID, TOTAL_NET_VALUE만 있음 (ITEM_NO 없음!)
-- ITEM_NO는 TBL_TX_SALES_ITEM과 TBL_TX_COST_DETAIL에만 있음
+3. 패널 가격과 원가 관계:
+```sql
+SELECT strftime('%Y-%m', PURCHASE_DATE) as month,
+       AVG(PANEL_PRICE_USD) as panel_price,
+       AVG(TOTAL_COGS_USD) as cogs
+FROM TR_PURCHASE
+GROUP BY month
+```
 
 **분석 가이드라인**:
 1. 수익성 분석 시 전년 동기 비교 우선 (YoY)
-2. COST_TYPE별 분석으로 원가 상승 요인 파악
-3. COND_TYPE별 분석으로 매출 감소 요인 파악
+2. TR_EXPENSE로 비용 요인 분석
+3. EXT_MACRO, EXT_MARKET으로 외부 요인 파악
 4. 변동률 계산: (New - Old) / Old * 100
 
 === 사용자 질문 ===
@@ -188,9 +208,11 @@ SQL 쿼리만 반환하세요. 설명이나 마크다운 없이 순수 SQL만 �
 {self.schema_info}
 
 === 비즈니스 컨텍스트 ===
-- 북미(NA): SUBSIDIARY_ID IN ('LGEUS', 'LGECA')
-- 유럽(EU): SUBSIDIARY_ID IN ('LGEUK', 'LGEDE', 'LGEFR')
-- 한국(KR): SUBSIDIARY_ID = 'LGEKR'
+- 지역: MD_ORG.REGION (Americas, Europe, Asia, Production)
+- 판매: TR_SALES (REVENUE_USD, QTY, WEBOS_REV_USD)
+- 원가: TR_PURCHASE (PANEL_PRICE_USD, TOTAL_COGS_USD)
+- 비용: TR_EXPENSE (LOGISTICS_COST, MARKETING_COST, PROMOTION_COST)
+- 외부데이터: EXT_MACRO, EXT_MARKET, EXT_TRADE_POLICY
 - 데이터 범위: 2023-01-01 ~ 2025-12-31
 
 === 사용자 질문 ===
@@ -200,9 +222,9 @@ SQL 쿼리만 반환하세요. 설명이나 마크다운 없이 순수 SQL만 �
 SQL 쿼리 생성 전, 분석 전략을 설명하세요:
 
 1. **질문 해석**: 사용자가 무엇을 요청하는가?
-2. **지역 매핑**: 언급된 지역의 SUBSIDIARY_ID는?
+2. **테이블 선택**: 어떤 테이블이 필요한가?
 3. **기간 선택**: 비교할 기간은? (YoY 우선)
-4. **분석 방법**: 어떤 테이블과 메트릭이 필요한가?
+4. **분석 방법**: 어떤 메트릭과 집계가 필요한가?
 
 한국어로 간결하게 3-5줄로 작성하세요.
 """

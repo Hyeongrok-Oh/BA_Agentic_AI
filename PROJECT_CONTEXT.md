@@ -1,328 +1,206 @@
-# LGE HE ERP Knowledge Graph Project
+# LGE HE BI System - Knowledge Graph + Multi-Agent 기반 KPI 원인 분석
 
-## Project Overview
-LG전자 HE(Home Entertainment) 사업부 ERP 데이터를 기반으로 지식그래프를 구축하는 프로젝트
+## 1. 프로젝트 개요
 
-## Data Source
-- **Database**: `data/lge_he_erp.db` (SQLite)
-- **Domain**: TV 제품 판매 데이터
+### 목적
+LG전자 HE(Home Entertainment) 사업부의 ERP 데이터와 외부 뉴스/컨센서스 리포트를 결합하여, KPI(매출/원가/수량) 변동의 **근본 원인을 자동 분석**하는 시스템
 
-## Database Schema
-
-### Master Data (MD)
-| Table | Description | Rows | Primary Key |
-|-------|-------------|------|-------------|
-| TBL_MD_PRODUCT | 제품 마스터 | 12 | PRODUCT_ID |
-
-**Columns**: PRODUCT_ID, MODEL_NAME, SERIES, PANEL_TYPE, SCREEN_SIZE, LAUNCH_YEAR, MFG_PLANT
-
-### Organization Data (ORG)
-| Table | Description | Rows | Primary Key |
-|-------|-------------|------|-------------|
-| TBL_ORG_SUBSIDIARY | 법인(지역) 마스터 | 6 | SUBSIDIARY_ID |
-| TBL_ORG_CUSTOMER | 고객(거래처) 마스터 | 13 | CUSTOMER_ID |
-
-**TBL_ORG_SUBSIDIARY Columns**: SUBSIDIARY_ID, REGION, CURRENCY
-**TBL_ORG_CUSTOMER Columns**: CUSTOMER_ID, CUST_NAME, SUBSIDIARY_ID, CHANNEL_TYPE
-
-### Transaction Data (TX)
-| Table | Description | Rows | Primary Key |
-|-------|-------------|------|-------------|
-| TBL_TX_SALES_HEADER | 판매 주문 헤더 | 10,269 | ORDER_NO |
-| TBL_TX_SALES_ITEM | 판매 주문 아이템 | 10,269 | ORDER_NO, ITEM_NO |
-| TBL_TX_PRICE_CONDITION | 가격 조건 | 23,797 | ORDER_NO, ITEM_NO, COND_TYPE |
-| TBL_TX_COST_DETAIL | 원가 상세 | 41,076 | ORDER_NO, ITEM_NO, COST_TYPE |
-
-## Foreign Key Relationships
-```
-TBL_ORG_CUSTOMER.SUBSIDIARY_ID -> TBL_ORG_SUBSIDIARY.SUBSIDIARY_ID
-TBL_TX_SALES_HEADER.CUSTOMER_ID -> TBL_ORG_CUSTOMER.CUSTOMER_ID
-TBL_TX_SALES_ITEM.ORDER_NO -> TBL_TX_SALES_HEADER.ORDER_NO
-TBL_TX_SALES_ITEM.PRODUCT_ID -> TBL_MD_PRODUCT.PRODUCT_ID
-```
-
-## Sample Data
-
-### Products (OLED TV)
-- OLED65G4PUA: 65" OLED evo G4, 2024, Mexico
-- OLED77G4PUA: 77" OLED evo G4, 2024, Mexico
-- OLED83G4PUA: 83" OLED evo G4, 2024, Poland
-
-### Subsidiaries
-- LGEUS: North America (USD)
-- LGECA: North America (CAD)
-- LGEKR: Korea (KRW)
-
-### Customers
-- Best Buy, Costco, Amazon.com (US RETAIL/ONLINE)
-
-## Knowledge Graph 3-Layer Architecture
-
-```
-[Layer 3: Event]
-    │ INCREASES / DECREASES
-    ▼
-[Layer 2: Factor]
-    │ PROPORTIONAL / INVERSELY_PROPORTIONAL
-    ▼
-[Layer 1: Anchor (3NF RDB Schema)]
-```
-
-### Layer 1: 3NF RDB Anchoring (구현 완료)
-- 3정규형 DB의 테이블/컬럼 구조를 그래프로 변환
-- Fact 컬럼(매출, 원가 등)을 Anchor 노드로 정의
-- 노드: Table, Column, Anchor
-- 관계: HAS_COLUMN, HAS_ANCHOR, REFERENCES, BELONGS_TO
-
-### Layer 2: Anchor-Factor 상관관계 (구현 완료)
-- 컨센서스 리포트 + LLM으로 외부 Factor 추출
-- Factor ─(PROPORTIONAL/INVERSELY_PROPORTIONAL)→ Anchor
-- Factor Chain: Factor 간 관계 (예: 유가 → 물류비)
-- **464 Factor 노드, 74 AFFECTS, 451 INFLUENCES 관계**
-
-### Layer 3: Event 매핑 (구현 완료)
-- Serper API로 뉴스 검색 → LLM으로 Event 추출
-- Event ─(INCREASES/DECREASES)→ Factor
-- Event ─(TARGETS)→ Dimension (Region, ProductCategory)
-- 추론 경로: Event → Factor → Anchor
-- **100+ Event 노드, Vector Embedding 포함**
-
-## Anchor Nodes (Fact Columns)
-| Table | Column | Metric Type | Description |
-|-------|--------|-------------|-------------|
-| TBL_TX_SALES_HEADER | TOTAL_NET_VALUE | VALUE | 총 매출액 |
-| TBL_TX_SALES_ITEM | NET_VALUE | VALUE | 아이템별 매출 |
-| TBL_TX_SALES_ITEM | ORDER_QTY | QTY | 판매 수량 |
-| TBL_TX_COST_DETAIL | COST_AMOUNT | VALUE | 원가 |
-| TBL_TX_PRICE_CONDITION | COND_VALUE | VALUE | 가격 조건 값 |
-
-## Directory Structure
-```
-BI/
-├── knowledge_graph/         # Layer 1 구현
-│   ├── __init__.py
-│   ├── config.py           # 설정
-│   ├── models.py           # Node/Relationship 타입
-│   ├── schema_extractor.py # DB 스키마 추출
-│   ├── graph_builder.py    # Neo4j 빌더
-│   └── main.py             # 실행 진입점
-├── data/
-│   └── lge_he_erp.db
-├── consensus/              # 컨센서스 리포트 (Layer 2용)
-├── dart/                   # DART 공시 (Layer 2용)
-├── .env                    # 환경변수
-└── PROJECT_CONTEXT.md      # 이 파일
-```
-
-## Usage
-
-```bash
-# 스키마 추출 (확인용)
-python -m knowledge_graph.main extract
-
-# Neo4j에 그래프 빌드
-python -m knowledge_graph.main build
-
-# 스키마 JSON 내보내기
-python -m knowledge_graph.main export -o schema.json
-```
-
-## Neo4j Setup (Docker)
-
-```bash
-docker run -d \
-  --name neo4j \
-  -p 7474:7474 -p 7687:7687 \
-  -e NEO4J_AUTH=neo4j/password \
-  neo4j:latest
-```
+### 핵심 기능
+1. **자연어 질문 → 원인 분석**: "2024년 4분기 북미 매출이 감소한 원인은?"
+2. **Knowledge Graph 기반 인과관계 추론**: Event → Factor → KPI
+3. **ERP 데이터 기반 정량 검증**: SQL 쿼리로 가설 검증
+4. **Shapley Value 기반 기여도 분석**: 각 Driver가 KPI 변화에 기여한 정도 산출
 
 ---
 
-## Multi-Agent BI System Architecture (구현 완료)
+## 2. 시스템 아키텍처
 
-### System Overview
 ```
-User Query
-    │
-    ▼
-┌─────────────────────────────────────────┐
-│           Intent Classifier             │
-│  (LLM-based: service_type, analysis_mode)│
-└─────────────────────────────────────────┘
-    │
-    ├── data_qa + descriptive ──▶ SQL Agent
-    │
-    └── data_qa + diagnostic ──▶ Analysis Agent (Orchestrator)
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         사용자 질문 (Streamlit UI)                           │
+│  "2024년 4분기 북미 지역의 매출이 감소한 원인을 분석해줘"                         │
+└─────────────────────────────────────────────────────────────────────────────┘
                                       │
-                   ┌──────────────────┼──────────────────┐
-                   │                  │                  │
-                   ▼                  ▼                  ▼
-           Hypothesis          Hypothesis          Event
-           Generator           Validator           Matcher
-         (Graph-Enhanced)       (SQL Agent)    (Hybrid Scoring)
+                                      ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          Intent Classifier                                   │
+│    service_type: data_qa | report_generation                                │
+│    analysis_mode: descriptive | diagnostic                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+                                      │
+              ┌───────────────────────┴───────────────────────┐
+              │                                               │
+              ▼                                               ▼
+    ┌─────────────────┐                         ┌─────────────────────────┐
+    │   SQL Agent     │                         │    Analysis Agent       │
+    │ (descriptive)   │                         │    (diagnostic)         │
+    └─────────────────┘                         └─────────────────────────┘
+                                                            │
+                                ┌───────────────────────────┼───────────────────────────┐
+                                │                           │                           │
+                                ▼                           ▼                           ▼
+                    ┌───────────────────┐     ┌───────────────────┐     ┌───────────────────┐
+                    │   Hypothesis      │     │   Hypothesis      │     │    Event          │
+                    │   Generator       │     │   Validator       │     │    Matcher        │
+                    │ (Graph-Enhanced)  │     │ (Tier + Shapley)  │     │ (Hybrid Scoring)  │
+                    └───────────────────┘     └───────────────────┘     └───────────────────┘
+                                │                       │                       │
+                                ▼                       ▼                       ▼
+                    ┌───────────────────────────────────────────────────────────────────────┐
+                    │                      Knowledge Graph (Neo4j)                          │
+                    │  Layer 3: Event → Layer 2: Factor → Layer 1: Anchor (ERP Schema)     │
+                    └───────────────────────────────────────────────────────────────────────┘
 ```
-
-### Intent Classifier (`intent_classifier/`)
-- **서비스 유형**: `data_qa`, `report_generation`
-- **분석 모드**: `descriptive` (데이터 조회), `diagnostic` (원인 분석)
-- **Sub Intent**: `internal_data`, `external_data`, `event_query`
-- **Entity 추출**: period, region, company, metric_type
 
 ---
 
-## Analysis Agent Components
+## 3. Knowledge Graph 3-Layer 아키텍처
 
-### 1. Hypothesis Generator (Graph-Enhanced)
+```
+[Layer 3: Event]           "트럼프 관세 정책 발표" (2024-11-15)
+    │ AFFECTS (polarity: -1, weight: 0.8)
+    ▼
+[Layer 2: Factor/Driver]   "물류비", "패널원가", "환율"
+    │ HYPOTHESIZED_TO_AFFECT (polarity: "+", confidence: 0.85)
+    ▼
+[Layer 1: Anchor (KPI)]    "매출(revenue)", "원가(cost)", "수량(quantity)"
+    │ Mapped to ERP Tables
+    ▼
+[ERP Database]             TR_SALES, TR_PURCHASE, TR_EXPENSE
+```
+
+### Layer 1: 3NF RDB Anchoring
+- ERP 테이블/컬럼 구조를 그래프로 변환
+- **Anchor 노드**: 매출(revenue), 원가(cost), 판매수량(quantity)
+- 노드: `Table`, `Column`, `Anchor`
+- 관계: `HAS_COLUMN`, `HAS_ANCHOR`, `REFERENCES`
+
+### Layer 2: Factor-Anchor 관계
+- 컨센서스 리포트 + LLM으로 Factor(Driver) 추출
+- **464 Factor 노드, 74 AFFECTS, 451 INFLUENCES 관계**
+- 관계 유형:
+  - `AFFECTS`: Factor → Anchor (직접 영향)
+  - `INFLUENCES`: Factor → Factor (간접 영향)
+
+### Layer 3: Event 매핑
+- Serper API + LLM으로 뉴스 기반 Event 추출
+- **100+ Event 노드, Vector Embedding (1536차원)**
+- 관계:
+  - `AFFECTS`: Event → Driver (polarity: +1/-1, weight: 0-1)
+  - `TARGETS`: Event → Dimension (Region, TimePeriod)
+
+---
+
+## 4. Multi-Agent System
+
+### 4.1 Analysis Agent (Orchestrator)
+**파일**: `agents/analysis/analysis_agent.py`
+
+분석 플로우 조율:
+```
+Step 0: KPI 변동 계산 (TR_SALES 쿼리)
+    ↓
+Step 1: 가설 생성 (Graph-Enhanced)
+    ↓
+Step 2: 가설 검증 (Tier 기반 + Shapley)
+    ↓
+Step 3: 이벤트 매칭 (Hybrid Scoring)
+    ↓
+Step 4: 결과 종합 + 추론 기반 요약
+```
+
+### 4.2 Hypothesis Generator
 **파일**: `agents/analysis/hypothesis_generator.py`
 
-#### 핵심 기능
+**기능**:
 - Knowledge Graph에서 KPI 관련 Factor 조회
-- 최근 Event 정보 조회
-- LLM + Graph Context 기반 가설 생성
+- 최근 Event 정보 기반 가설 생성
+- LLM + Graph Context 활용
 
-#### KPI 매핑
+**KPI 매핑**:
 ```python
 KPI_MAPPING = {
-    "매출": {"anchor_id": "revenue", "keywords": ["매출", "revenue", "수익", "sales"]},
-    "원가": {"anchor_id": "cost", "keywords": ["원가", "cost", "비용", "expense"]},
-    "판매수량": {"anchor_id": "quantity", "keywords": ["판매량", "수량", "quantity", "volume"]},
+    "매출": {"anchor_id": "revenue", "keywords": ["매출", "revenue", "sales"]},
+    "원가": {"anchor_id": "cost", "keywords": ["원가", "cost", "비용"]},
+    "판매수량": {"anchor_id": "quantity", "keywords": ["판매량", "수량"]}
 }
 ```
 
-#### Graph 조회 쿼리 (Factor)
-```cypher
-MATCH (f:Factor)-[r:AFFECTS]->(a:Anchor {id: $anchor_id})
-RETURN f.name as factor, f.id as factor_id,
-       r.type as relation_type, r.mention_count as mention_count
-ORDER BY r.mention_count DESC
-LIMIT 15
-```
-
-#### Graph 조회 쿼리 (Recent Events)
-```cypher
-MATCH (e:Event)-[r1:INCREASES|DECREASES]->(f:Factor)-[r2:AFFECTS]->(a:Anchor {id: $anchor_id})
-OPTIONAL MATCH (e)-[:TARGETS]->(d:Dimension)
-RETURN e.name as event_name, e.category, e.severity,
-       type(r1) as impact_on_factor, f.name as factor
-ORDER BY CASE e.severity WHEN 'critical' THEN 1 WHEN 'high' THEN 2 ELSE 3 END
-LIMIT 10
-```
-
-#### 출력: Hypothesis 데이터 클래스
+**Hypothesis 데이터 클래스**:
 ```python
 @dataclass
 class Hypothesis:
     id: str
-    category: str       # revenue, cost, pricing, external
-    factor: str         # 관련 Factor
-    direction: str      # increase, decrease
-    description: str    # 가설 설명
-    sql_template: str   # 검증용 SQL 힌트
+    category: str           # revenue, cost, pricing, external
+    factor: str             # 관련 Factor (한글)
+    driver_id: str          # Driver ID (한글)
+    direction: str          # increase, decrease
+    description: str        # 가설 설명
+    confidence: float       # 0-1
+    consensus_grade: str    # A, B, C
     validated: bool
     validation_data: Dict
-    graph_evidence: Dict  # from_graph, relation_type, mention_count, related_events
+    graph_evidence: Dict    # validation_tier, evidence_sentences
 ```
 
----
-
-### 2. Hypothesis Validator (SQL Agent)
+### 4.3 Hypothesis Validator (V3: Tier + Shapley)
 **파일**: `agents/analysis/hypothesis_validator.py`
 
-#### 핵심 기능
-- 각 가설에 대한 SQL 쿼리 생성 (LLM)
-- ERP 데이터베이스에서 실행
-- 기간 비교 (전분기 vs 당분기)
-- threshold (5%) 초과 시 검증 통과
-
-#### SQL Generation Prompt
-```python
-SQL_GENERATION_PROMPT = """
-ERP 데이터베이스에서 {hypothesis}를 검증하는 SQL을 작성하세요.
-
-원가 유형 (COST_TYPE): MAT(재료비), LOG(물류비), TAR(관세), OH(오버헤드)
-가격 조건 (COND_TYPE): ZPR0(매출), ZPRO(PP), K007(할인), ZMDF(MDF)
-"""
+**검증 방식 3단계 Fallback**:
+```
+T1 (ERP 직접 검증) → T2 (Proxy 지표) → T3 (Graph 기반)
 ```
 
-#### 출력: ValidationResult
+**T1 ERP Drivers (직접 검증 가능)**:
 ```python
-@dataclass
-class ValidationResult:
-    hypothesis_id: str
-    validated: bool
-    change_percent: float
-    previous_value: float
-    current_value: float
-    direction: str
-    details: str
-    sql_query: str  # 사용된 SQL 쿼리
+T1_ERP_DRIVERS = {
+    "출하량": {"table": "TR_SALES", "column": "QTY"},
+    "판매량": {"table": "TR_SALES", "column": "QTY"},
+    "OLED비중": {"table": "TR_SALES", "column": "REVENUE_USD", "filter": "prod.DISPLAY_TYPE = 'OLED'"},
+    "할인율": {"table": "TR_EXPENSE", "column": "PROMOTION_COST"},
+    "패널원가": {"table": "TR_PURCHASE", "column": "PANEL_PRICE_USD"},
+    "물류비": {"table": "TR_EXPENSE", "column": "LOGISTICS_COST"},
+    "달러환율": {"table": "EXT_MACRO", "column": "EXCHANGE_RATE_KRW_USD"},
+    # ... 총 18개
+}
 ```
 
----
+**T2 Proxy Drivers (외부 지표)**:
+```python
+T2_PROXY_DRIVERS = {
+    "글로벌TV수요": {"table": "EXT_MARKET", "column": "TOTAL_SHIPMENT_10K"},
+    "소비심리": {"table": "EXT_MACRO", "column": "CSI_INDEX"},
+    "인플레이션": {"table": "EXT_MACRO", "column": "INFLATION_RATE"},
+    "금리": {"table": "EXT_MACRO", "column": "INTEREST_RATE"},
+    # ... 총 14개
+}
+```
 
-### 3. Event Matcher (Hybrid Scoring)
+**T3 Event Drivers (Graph 기반)**:
+```python
+T3_EVENT_DRIVERS = [
+    "경쟁사가격인하", "경쟁사신제품", "공급망차질",
+    "무역규제", "스포츠이벤트", "브랜드이슈", ...
+]
+```
+
+**동적 임계값 계산**:
+```python
+# 변동계수(CV) 기반 임계값 = stddev / mean × 100 × 1.5
+threshold = max(2.0, min(20.0, CV × STDDEV_MULTIPLIER))
+```
+
+### 4.4 Event Matcher (Hybrid Scoring)
 **파일**: `agents/analysis/event_matcher.py`
 
-#### 핵심 기능
-- 검증된 가설에 대해 관련 Event 매칭
-- **Hybrid Scoring**: Vector Similarity + Knowledge Graph
-- 최종 스코어 0-1 범위
+**Hybrid Score 공식**:
+```
+Total Score = 0.4 × Semantic Score + 0.6 × Graph Score
 
-#### Scoring Algorithm
-
-##### Overall Weights
-```python
-WEIGHTS = {
-    "semantic": 0.4,  # Vector Similarity (40%)
-    "graph": 0.6,     # Graph Score (60%)
-}
+Graph Score = 0.4 × Direction + 0.3 × Magnitude + 0.2 × Region + 0.1 × Severity
 ```
 
-##### Graph Score Components
-```python
-GRAPH_WEIGHTS = {
-    "direction": 0.4,   # 방향 일치 (40%)
-    "magnitude": 0.3,   # 크기 (30%)
-    "region": 0.2,      # 지역 일치 (20%)
-    "severity": 0.1,    # 심각도 (10%)
-}
-
-MAGNITUDE_SCORES = {"high": 1.0, "medium": 0.6, "low": 0.3}
-SEVERITY_SCORES = {"critical": 1.0, "high": 0.8, "medium": 0.5, "low": 0.3}
-```
-
-##### Direction Score Logic
-```python
-def _calc_direction_score(hypothesis, event):
-    factor_anchor = event.get("factor_anchor_relation")  # PROPORTIONAL or INVERSELY_PROPORTIONAL
-    event_impact = event.get("impact_type")               # INCREASES or DECREASES
-    hypothesis_dir = hypothesis.direction                 # increase or decrease
-
-    if factor_anchor == "PROPORTIONAL":
-        expected = "INCREASES" if hypothesis_dir == "increase" else "DECREASES"
-    else:  # INVERSELY_PROPORTIONAL
-        expected = "DECREASES" if hypothesis_dir == "increase" else "INCREASES"
-
-    return 1.0 if event_impact == expected else 0.5
-```
-
-##### Vector Search Query (Neo4j)
-```cypher
-MATCH (e:Event)-[r:INCREASES|DECREASES]->(f:Factor)
-WHERE f.name CONTAINS $factor_keyword
-WITH e, r, f,
-     vector.similarity.cosine(e.embedding, $query_embedding) AS similarity
-WHERE similarity > 0.5
-RETURN e.id, e.name, e.category, e.severity,
-       type(r) as impact_type, r.magnitude,
-       f.name as matched_factor,
-       similarity as vector_score
-ORDER BY similarity DESC
-LIMIT $top_k
-```
-
-#### 출력: MatchedEvent
+**MatchedEvent 데이터 클래스**:
 ```python
 @dataclass
 class MatchedEvent:
@@ -331,109 +209,338 @@ class MatchedEvent:
     event_category: str
     matched_factor: str
     impact_type: str        # INCREASES or DECREASES
-    magnitude: str          # high, medium, low
+    polarity: int           # +1 or -1
+    weight: float           # 0-1
     severity: str           # critical, high, medium, low
-    target_regions: List[str]
-    total_score: float      # 0-1 범위
-    score_breakdown: Dict   # semantic, graph, direction, magnitude, region, severity
-    sources: List[Dict]
+    total_score: float      # 0-1 최종 점수
+    score_breakdown: Dict
+    sources: List[Dict]     # 뉴스 출처
     evidence: str
+    start_date: str
+    target_regions: List[str]
+    target_periods: List[str]
 ```
 
 ---
 
-## Analysis Flow (전체 플로우)
+## 5. Shapley Value 기반 기여도 분석 (신규)
+
+### 5.1 개요
+**파일**: `agents/tools/data_analysis.py`
+
+기존 임계값 기반 검증의 한계 극복:
+- **기존**: "Driver가 변했는가?" (단순 변동 감지)
+- **개선**: "Driver가 KPI 변화에 얼마나 기여했는가?" (기여도 분석)
+
+### 5.2 DataAnalyzer 클래스
+
+```python
+class DataAnalyzer(BaseTool):
+    """KPI 기여도 분석기 (Shapley Value 기반)"""
+
+    def analyze(
+        self,
+        hypotheses: List[Hypothesis],
+        kpi_id: str = "revenue",
+        period: Dict = None,
+        months: int = 24
+    ) -> AnalysisResult:
+        """
+        1. 시계열 수집 (Driver별 24개월)
+        2. Ridge 회귀 모델 학습
+        3. SHAP 기여도 계산
+        4. 가설 검증 (rank ≤ 3 OR contribution ≥ 10%)
+        5. 해석 생성
+        """
+```
+
+### 5.3 분석 흐름
 
 ```
-Step 1: Intent Classification
-    │
-    ▼ (diagnostic mode)
-Step 2: Graph-Enhanced Hypothesis Generation
-    │   - KPI 추출 (질문에서)
-    │   - Graph에서 관련 Factor 조회 (mention_count 기준)
-    │   - Graph에서 최근 Event 조회
-    │   - LLM으로 가설 생성 (Graph context 포함)
-    │
-    ▼
-Step 3: Hypothesis Validation (SQL Agent)
-    │   - 각 가설에 대한 SQL 생성
-    │   - ERP DB 실행
-    │   - 변화율 5% 이상 시 검증 통과
-    │   - SQL 쿼리 저장 및 표시
-    │
-    ▼
-Step 4: Event Matching (Hybrid Scoring)
-    │   - OpenAI Embedding 생성
-    │   - Neo4j Vector Search
-    │   - Graph-based Scoring 계산
-    │   - Hybrid Score = 0.4*Semantic + 0.6*Graph
-    │
-    ▼
-Step 5: Summary Generation
-    │   - 상세 분석 결과 종합
-    │   - LLM으로 자연어 요약 생성
-    │
-    ▼
-Final Output
+[Step 1] 시계열 데이터 수집
+    └─ Driver별 24개월 월별 데이터 (SQL)
+    └─ KPI 24개월 월별 데이터
+
+[Step 2] 회귀모델 학습
+    └─ Ridge 회귀 (다중공선성 완화)
+    └─ StandardScaler로 표준화
+    └─ R² 확인 (모델 설명력)
+
+[Step 3] Shapley Value 계산
+    └─ SHAP LinearExplainer
+    └─ 각 Driver의 기여도(%) 산출
+    └─ 순위 부여
+
+[Step 4] 가설 검증
+    └─ rank ≤ 3 → validated
+    └─ contribution_pct ≥ 10% → validated
+```
+
+### 5.4 Driver-Table 매핑
+
+```python
+DRIVER_CONFIG = {
+    # T1: ERP 직접 검증
+    "출하량": {"table": "TR_SALES", "column": "QTY", "date_col": "SALES_DATE"},
+    "TV평균판매가": {"table": "TR_SALES", "column": "REVENUE_USD/QTY", "date_col": "SALES_DATE"},
+    "할인율": {"table": "TR_EXPENSE", "column": "PROMOTION_COST", "date_col": "EXPENSE_DATE"},
+    "패널원가": {"table": "TR_PURCHASE", "column": "PANEL_PRICE_USD", "date_col": "PURCHASE_DATE"},
+    "물류비": {"table": "TR_EXPENSE", "column": "LOGISTICS_COST", "date_col": "EXPENSE_DATE"},
+    "달러환율": {"table": "EXT_MACRO", "column": "EXCHANGE_RATE_KRW_USD", "date_col": "DATA_DATE"},
+    # T2: Proxy
+    "글로벌TV수요": {"table": "EXT_MARKET", "column": "TOTAL_SHIPMENT_10K", "date_col": "DATA_DATE"},
+    "소비심리": {"table": "EXT_MACRO", "column": "CSI_INDEX", "date_col": "DATA_DATE"},
+}
+```
+
+### 5.5 출력 데이터 클래스
+
+```python
+@dataclass
+class DriverContribution:
+    driver_id: str
+    driver_name: str
+    shapley_value: float
+    contribution_pct: float     # 기여도 %
+    direction: str              # "positive" | "negative"
+    rank: int                   # 기여도 순위
+    interpretation: str
+
+@dataclass
+class HypothesisValidation:
+    hypothesis_id: str
+    driver_id: str
+    validation_status: str      # "validated" | "not_validated"
+    confidence_score: float     # 0-1
+    reasoning: str
+
+@dataclass
+class AnalysisResult:
+    kpi_change_summary: str
+    kpi_change_pct: float
+    top_drivers: List[DriverContribution]
+    hypotheses: List[HypothesisValidation]
+    final_explanation: str
+    model_r_squared: float
+    data_quality: Dict
+```
+
+### 5.6 검증 결과 예시
+
+```
+매출 감소 -100억 원인 분석:
+
+┌────────────────────────────────────────────────────┐
+│  #1 🔴 환율 상승        ████████████████  42.3%    │
+│  #2 🔴 할인율 증가      ██████████        28.1%    │
+│  #3 🔴 글로벌 수요 감소  ██████           15.2%    │
+│  #4 🔴 패널 원가        ███               8.7%     │
+│  #5    기타/잔차        ██                5.7%     │
+└────────────────────────────────────────────────────┘
+
+→ 할인율: 기여도 28.1% (#2위) → ✅ validated
+→ 패널원가: 기여도 8.7% (#4위) → ❌ not_validated
+```
+
+### 5.7 HypothesisValidator 통합
+
+```python
+# hypothesis_validator.py
+class HypothesisValidator:
+    def __init__(self, ...):
+        self.data_analyzer = DataAnalyzer(self.sql_executor)
+
+    def validate_with_shapley(
+        self,
+        hypotheses: List[Hypothesis],
+        kpi_id: str = "revenue"
+    ) -> Dict[str, Any]:
+        """Shapley Value 기반 가설 검증"""
+        analysis_result = self.data_analyzer.analyze(hypotheses, kpi_id)
+
+        return {
+            "analysis_result": analysis_result,
+            "validated_hypotheses": [...],
+            "contributions": [...],
+            "kpi_change_summary": "...",
+            "final_explanation": "..."
+        }
 ```
 
 ---
 
-## Updated Directory Structure
+## 6. ERP 데이터베이스 스키마
+
+### 6.1 Master Data
+
+| Table | Description | Primary Key |
+|-------|-------------|-------------|
+| MD_PRODUCT | 제품 마스터 | PRODUCT_ID |
+| MD_ORG | 조직(법인) 마스터 | ORG_ID |
+| MD_CHANNEL | 채널 마스터 | CHANNEL_ID |
+
+**MD_PRODUCT 컬럼**:
+- PRODUCT_ID, MODEL_NAME, SERIES, PANEL_TYPE, SCREEN_SIZE
+- DISPLAY_TYPE (OLED/LCD), IS_PREMIUM (Y/N), LAUNCH_YEAR
+
+**MD_ORG 컬럼**:
+- ORG_ID, ORG_NAME, REGION (Americas/Europe/Asia), CURRENCY
+
+### 6.2 Transaction Data
+
+| Table | Description | Primary Key |
+|-------|-------------|-------------|
+| TR_SALES | 판매 트랜잭션 | SALES_ID |
+| TR_PURCHASE | 구매/원가 트랜잭션 | PURCHASE_ID |
+| TR_EXPENSE | 비용 트랜잭션 | EXPENSE_ID |
+
+**TR_SALES 컬럼**:
+- SALES_ID, SALES_DATE, ORG_ID, PRODUCT_ID, CHANNEL_ID
+- QTY, REVENUE_USD, GROSS_PROFIT_USD, WEBOS_REV_USD
+
+**TR_PURCHASE 컬럼**:
+- PURCHASE_ID, PURCHASE_DATE, ORG_ID, PRODUCT_ID
+- PANEL_PRICE_USD, TOTAL_COGS_USD, RAW_MATERIAL_INDEX
+
+**TR_EXPENSE 컬럼**:
+- EXPENSE_ID, EXPENSE_DATE, ORG_ID, PRODUCT_ID
+- LOGISTICS_COST, MARKETING_COST, PROMOTION_COST, LABOR_COST
+
+### 6.3 External Data
+
+| Table | Description | Primary Key |
+|-------|-------------|-------------|
+| EXT_MACRO | 거시경제 지표 | DATA_DATE |
+| EXT_MARKET | 시장 지표 | DATA_DATE |
+
+**EXT_MACRO 컬럼**:
+- DATA_DATE, EXCHANGE_RATE_KRW_USD, INFLATION_RATE
+- INTEREST_RATE, CSI_INDEX (소비자심리지수)
+
+**EXT_MARKET 컬럼**:
+- DATA_DATE, TOTAL_SHIPMENT_10K, LGE_MARKET_SHARE, SCFI_INDEX
+
+---
+
+## 7. 디렉토리 구조
 
 ```
 BI/
-├── agents/                      # Multi-Agent System
+├── agents/                          # Multi-Agent System
 │   ├── __init__.py
-│   ├── base.py                  # BaseAgent, AgentContext
-│   ├── orchestrator.py          # 메인 오케스트레이터
-│   ├── search_agent.py          # 검색 에이전트
-│   ├── tools/                   # 공용 도구
+│   ├── base.py                      # BaseAgent, AgentContext, BaseTool
+│   ├── orchestrator.py              # 메인 오케스트레이터
+│   ├── search_agent.py              # 검색 에이전트
+│   │
+│   ├── tools/                       # 공용 도구
 │   │   ├── __init__.py
-│   │   ├── sql_executor.py      # SQL 실행기
-│   │   └── graph_executor.py    # Neo4j 실행기
-│   └── analysis/                # 분석 에이전트 그룹
-│       ├── __init__.py
-│       ├── analysis_agent.py    # 분석 오케스트레이터
-│       ├── hypothesis_generator.py  # Graph-Enhanced 가설 생성
-│       ├── hypothesis_validator.py  # SQL 기반 가설 검증
-│       ├── event_matcher.py     # Hybrid Scoring 이벤트 매칭
-│       └── evidence_collector.py    # (deprecated)
+│   │   ├── sql_executor.py          # SQL 실행기
+│   │   ├── sql_generator.py         # LLM 기반 SQL 생성기
+│   │   ├── graph_executor.py        # Neo4j 실행기
+│   │   ├── vector_search.py         # Vector 검색 도구
+│   │   └── data_analysis.py         # ★ Shapley 기반 기여도 분석
+│   │
+│   ├── analysis/                    # 분석 에이전트 그룹
+│   │   ├── __init__.py
+│   │   ├── analysis_agent.py        # 분석 오케스트레이터
+│   │   ├── hypothesis_generator.py  # Graph-Enhanced 가설 생성
+│   │   ├── hypothesis_validator.py  # ★ Tier + Shapley 검증
+│   │   ├── event_matcher.py         # Hybrid Scoring 이벤트 매칭
+│   │   └── evidence_collector.py    # (deprecated)
+│   │
+│   └── report/                      # 리포트 에이전트
+│       └── report_agent.py
 │
-├── knowledge_graph/             # Knowledge Graph 구축
-│   ├── layer1/                  # 3NF RDB Anchoring
-│   ├── layer2/                  # Factor-Anchor 관계
+├── knowledge_graph/                 # Knowledge Graph 구축
+│   ├── __init__.py
+│   ├── config.py                    # Neo4j 설정
+│   │
+│   ├── layer1/                      # 3NF RDB Anchoring
 │   │   ├── models.py
-│   │   ├── factor_extractor.py  # LLM 기반 Factor 추출
-│   │   ├── normalizer.py        # Factor 정규화
-│   │   └── neo4j_loader.py
-│   └── layer3/                  # Event Layer
-│       ├── models.py
-│       ├── serper_client.py     # 뉴스 검색 API
-│       ├── event_extractor.py   # LLM 기반 Event 추출
-│       ├── factor_linker.py     # Event → Factor 매핑
-│       ├── dimension_linker.py  # Event → Dimension 매핑
-│       ├── vector_store.py      # Embedding 생성
-│       └── neo4j_loader.py
+│   │   ├── dimension_extractor.py
+│   │   ├── graph_builder.py
+│   │   └── main.py
+│   │
+│   ├── layer2/                      # Factor-Anchor 관계
+│   │   ├── models.py
+│   │   ├── factor_extractor.py      # LLM 기반 Factor 추출
+│   │   ├── factor_relation_extractor.py
+│   │   ├── normalizer.py            # Factor 정규화
+│   │   ├── neo4j_loader.py
+│   │   └── main.py
+│   │
+│   ├── layer3/                      # Event Layer
+│   │   ├── models.py
+│   │   ├── serper_client.py         # 뉴스 검색 API
+│   │   ├── search_client.py
+│   │   ├── event_extractor.py       # LLM 기반 Event 추출
+│   │   ├── event_linker.py          # Event → Factor 연결
+│   │   ├── vector_store.py          # Embedding 생성
+│   │   ├── neo4j_loader.py
+│   │   └── main.py
+│   │
+│   ├── hybrid_search/               # 하이브리드 검색
+│   │   ├── graph_searcher.py
+│   │   └── hybrid_engine.py
+│   │
+│   ├── migrations/                  # 스키마 마이그레이션
+│   └── schema/                      # 스키마 정의
 │
-├── intent_classifier/           # Intent 분류기
+├── intent_classifier/               # Intent 분류기
+│   ├── app.py
+│   ├── db_schema.py                 # DB 스키마 정의 (LLM용)
 │   └── src/
-│       └── intent_classifier/
-│           ├── classifier.py
-│           └── prompts.py
+│       ├── intent_classifier.py
+│       └── agent_orchestrator.py
 │
-├── sql/                         # SQL Agent 관련
-├── data/
-│   └── lge_he_erp.db           # ERP 데이터베이스
+├── erp_database/                    # ERP 데이터 생성
+│   └── generate_erp_data.py
 │
-├── app.py                       # Streamlit UI
-├── .env                         # 환경변수
-└── PROJECT_CONTEXT.md           # 이 파일
+├── app.py                           # ★ Streamlit UI
+├── requirements.txt
+├── .env                             # 환경변수
+└── PROJECT_CONTEXT.md               # 이 파일
 ```
 
 ---
 
-## Environment Variables (.env)
+## 8. 환경 설정
+
+### 8.1 필수 의존성
+
+```txt
+# requirements.txt
+
+# Core
+openai>=1.0.0
+neo4j>=5.0.0
+streamlit>=1.28.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# ML & Analysis (Shapley 분석용)
+scikit-learn>=1.0.0
+shap>=0.42.0
+
+# PDF processing
+PyMuPDF>=1.23.0
+
+# API clients
+requests>=2.31.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# YAML processing
+pyyaml>=6.0.0
+
+# Visualization
+streamlit-echarts>=0.4.0
+```
+
+### 8.2 환경변수 (.env)
 
 ```bash
 OPENAI_API_KEY=sk-xxx
@@ -441,31 +548,72 @@ SERPER_API_KEY=xxx
 NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=password
-DB_PATH=/Users/hyeongrokoh/BI/data/lge_he_erp.db
+DB_PATH=/Users/hyeongrokoh/BI/erp_database/lge_he_erp.db
+```
+
+### 8.3 Neo4j Setup (Docker)
+
+```bash
+docker run -d \
+  --name neo4j \
+  -p 7474:7474 -p 7687:7687 \
+  -e NEO4J_AUTH=neo4j/password \
+  -e NEO4J_PLUGINS='["apoc"]' \
+  neo4j:latest
 ```
 
 ---
 
-## Neo4j Graph Statistics
+## 9. 실행 방법
 
-### Node Counts
+### 9.1 Streamlit UI 실행
+
+```bash
+cd /Users/hyeongrokoh/BI
+streamlit run app.py
+```
+
+### 9.2 Knowledge Graph 빌드
+
+```bash
+# Layer 1: RDB Schema → Graph
+python -m knowledge_graph.layer1.main
+
+# Layer 2: Factor 추출 및 로드
+python -m knowledge_graph.layer2.main
+
+# Layer 3: Event 추출 및 로드
+python -m knowledge_graph.layer3.main
+```
+
+### 9.3 ERP 데이터 생성
+
+```bash
+python erp_database/generate_erp_data.py
+```
+
+---
+
+## 10. Neo4j Graph 통계
+
+### 노드 수
 | Label | Count | Description |
 |-------|-------|-------------|
 | Anchor | 3 | 매출, 원가, 판매수량 |
-| Factor | 464 | 외부 영향 요인 |
+| Factor/Driver | 464 | 외부 영향 요인 |
 | Event | 100+ | 뉴스 기반 이벤트 |
-| Dimension | 10+ | Region, ProductCategory |
+| Dimension | 10+ | Region, ProductCategory, TimePeriod |
 
-### Relationship Counts
+### 관계 수
 | Type | Count | Description |
 |------|-------|-------------|
-| AFFECTS | 74 | Factor → Anchor |
+| AFFECTS | 74+ | Factor/Event → Anchor/Driver |
 | INFLUENCES | 451 | Factor → Factor |
-| INCREASES | 150+ | Event → Factor |
-| DECREASES | 50+ | Event → Factor |
+| HYPOTHESIZED_TO_AFFECT | 50+ | Driver → KPI |
 | TARGETS | 100+ | Event → Dimension |
 
 ### Vector Index
+
 ```cypher
 CREATE VECTOR INDEX event_embedding IF NOT EXISTS
 FOR (e:Event) ON e.embedding
@@ -477,140 +625,92 @@ OPTIONS {indexConfig: {
 
 ---
 
-## Sample Queries
+## 11. 주요 Cypher 쿼리
 
 ### 가설 생성 시 Factor 조회
+
 ```cypher
-MATCH (f:Factor)-[r:AFFECTS]->(a:Anchor {id: "cost"})
+MATCH (f:Factor)-[r:AFFECTS]->(a:Anchor {id: "revenue"})
 RETURN f.name, r.type, r.mention_count
 ORDER BY r.mention_count DESC LIMIT 10
 ```
 
-### 하이브리드 이벤트 검색
+### Event → Factor → KPI 경로 조회
+
 ```cypher
-MATCH (e:Event)-[r:INCREASES|DECREASES]->(f:Factor {name: "물류비"})
-OPTIONAL MATCH (e)-[:TARGETS]->(d:Dimension)
-WITH e, r, f, collect(d.name) as regions,
+MATCH (e:Event)-[r1:AFFECTS]->(d:Driver {id: $driver_id})
+OPTIONAL MATCH (e)-[:TARGETS]->(dim)
+WITH e, r1, d, collect(DISTINCT dim.id) as target_dimensions
+WHERE size($dimension_filters) = 0
+   OR any(df IN $dimension_filters WHERE df IN target_dimensions)
+RETURN e.id, e.name, e.severity, r1.polarity, r1.weight
+ORDER BY abs(r1.weight) DESC
+LIMIT 10
+```
+
+### Hybrid Vector + Graph 검색
+
+```cypher
+MATCH (e:Event)-[r:INCREASES|DECREASES]->(f:Factor)
+WHERE f.name CONTAINS $factor_keyword
+WITH e, r, f,
      vector.similarity.cosine(e.embedding, $query_embedding) AS similarity
 WHERE similarity > 0.5
-RETURN e.name, type(r), r.magnitude, e.severity, regions, similarity
+RETURN e.name, type(r), r.magnitude, e.severity, similarity
 ORDER BY similarity DESC
 LIMIT 5
 ```
 
-### 인과관계 추론 경로
-```cypher
-MATCH path = (e:Event)-[:INCREASES]->(f:Factor)-[:AFFECTS]->(a:Anchor {id: "cost"})
-WHERE e.severity IN ['critical', 'high']
-RETURN e.name as event, f.name as factor, a.name as anchor
-```
-
 ---
 
-## Reasoning-based Answer Generation (구현 완료)
+## 12. 분석 결과 예시
 
-### 추론 프롬프트 (REASONING_PROMPT)
-```python
-REASONING_PROMPT = """
-## 질문
-{question}
+### 입력
 
-## 내부 데이터 분석 결과 (ERP 기반)
-{internal_data}
+```
+질문: "2024년 4분기 북미 지역의 매출이 감소한 원인을 분석해줘"
+```
 
-## 외부 이벤트 정보 (뉴스 기반)
-{external_events}
+### 출력
 
-## 추론 태스크
-1. **인과관계 추론**: Event → Factor → KPI 경로
-2. **영향도 분석**: 변화율/이벤트 심각도 기준
-3. **종합 결론**: 핵심 원인 2-3가지
+```
+[Step 0] KPI 변동 계산
+  매출: 1,200,000 → 960,000 (-20.0%)
+  비교 기간: 2024년 Q4 vs 2023년 Q4 (NA)
 
-## 응답 형식
+[Step 1] 가설 생성: 6개 (Graph-Enhanced)
+
+[Step 2] 가설 검증 (Tier + Shapley)
+  - [H1] 환율: T1 검증, 기여도 42.3% (#1위) ✅
+  - [H2] 할인율: T1 검증, 기여도 28.1% (#2위) ✅
+  - [H3] 글로벌수요: T2 검증, 기여도 15.2% (#3위) ✅
+  - [H4] 패널원가: T1 검증, 기여도 8.7% (#4위) ❌
+
+[Step 3] 이벤트 매칭: 10개 (Score 0.65-0.82)
+
+[Step 4] 추론 결과
 ### 분석 결론
-[핵심 원인 요약]
+2024년 4분기 북미 매출 감소의 주요 원인은 달러 강세(42%), 프로모션 비용 증가(28%),
+글로벌 TV 수요 둔화(15%)입니다.
 
 ### 상세 분석
-**1. [원인1] (변화율: +XX%)**
-- 내부 데이터: [수치 변화]
-- 외부 요인: [이벤트명]
-- 인과 경로: [Event] → [Factor] → [KPI 영향]
-- 출처: [1]
+1. 환율 상승과 가격 경쟁력 약화
+   원/달러 환율이 1,350원을 돌파하면서 미국 시장에서 가격 경쟁력이 약화되었습니다 [1].
+
+2. 프로모션 비용 증가
+   블랙프라이데이 시즌 할인 경쟁 심화로 프로모션 비용이 전년 대비 28% 증가했습니다.
 
 ### 출처
-[1] 기사제목 - URL
-"""
-```
-
-### 출처 수집 로직
-```python
-def _generate_summary(self, question: str, details: List[Dict]) -> Dict:
-    # 1. 내부 데이터 포맷팅 (ERP)
-    # 2. 외부 이벤트 + 출처 수집 (Neo4j source_urls, source_titles)
-    # 3. 추론 프롬프트 구성
-    # 4. gpt-4o 호출 (temperature=0.2)
-    # 5. 출처 섹션 추가
-
-    return {
-        "summary": summary,  # 추론 결과
-        "sources": all_sources  # 출처 목록
-    }
-```
-
-### 출처 데이터 구조
-```python
-source = {
-    "idx": 1,
-    "title": "European Commission seeks relief from Section 232 tariffs",
-    "url": "https://www.steelmarketupdate.com/...",
-    "event": "미국 행정부 섹션 232 관세 확대",
-    "factor": "물류비"
-}
+[1] Reuters: USD/KRW Exchange Rate Hits New High
 ```
 
 ---
 
-## Test Results (2024-12-18)
-
-### 추론 기반 분석 테스트 (최신)
-```
-질문: "2024년 4분기 북미 지역의 원가가 증가한 원인을 분석해줘"
-
-결과:
-- 가설 생성: 6개 (Graph-Enhanced)
-- 가설 검증: 2개 통과 (물류비 +206.3%, 경쟁심화 +33.5%)
-- 이벤트 매칭: 10개 (Score 0.78-0.80)
-- 출처 수집: 3개 URL
-
-추론 결과 (요약):
-### 분석 결론
-2024년 4분기 북미 지역 원가 증가의 주요 원인은 미국 행정부의 섹션 232
-관세 확대와 수출입 운송비용 상승입니다.
-
-### 상세 분석
-**1. 물류비 증가 (변화율: +206.3%)**
-- 인과 경로: [섹션 232 관세 확대] → [수입 철강/알루미늄 비용 증가] → [물류비]
-- 출처: [1]
-
-**2. 경쟁심화 (변화율: +33.5%)**
-- 인과 경로: [원/달러 환율 상승] → [가격 경쟁력 약화] → [경쟁심화]
-- 출처: [3]
-
-### 출처
-[1] European Commission seeks relief from Section 232 tariffs
-    https://www.steelmarketupdate.com/...
-[2] Trump's steel and aluminum tariffs are putting America first
-    https://thehill.com/...
-[3] 관세청. 2025년 11월 수출입 운송비용 현황 발표
-    https://policenews24.co.kr/...
-```
-
----
-
-## Future Enhancements
+## 13. Future Enhancements
 
 1. **Real-time Event Ingestion**: 뉴스 API 연동으로 실시간 Event 추가
 2. **Confidence Calibration**: Hybrid Score 가중치 최적화
 3. **Multi-hop Reasoning**: Event → Factor → Factor → Anchor 체인 추론
-4. **Report Generation**: 분석 결과 자동 리포트 생성
+4. **Shapley Waterfall Chart**: 기여도 워터폴 시각화
 5. **Feedback Loop**: 사용자 피드백으로 모델 개선
+6. **Time-series Forecasting**: 향후 KPI 예측 기능

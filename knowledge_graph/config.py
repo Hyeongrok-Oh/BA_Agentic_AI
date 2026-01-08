@@ -14,7 +14,7 @@ class BaseConfig:
 
     @property
     def sqlite_path(self) -> Path:
-        return self.base_dir / "data" / "lge_he_erp.db"
+        return self.base_dir / "erp_database" / "lge_he_erp.db"
 
     # Neo4j settings
     neo4j_uri: str = "bolt://localhost:7687"

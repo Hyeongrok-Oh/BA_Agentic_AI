@@ -6,6 +6,13 @@ from .sql_executor import SQLExecutor
 from .sql_generator import SQLGenerator, SQLGenerationResult
 from .graph_executor import GraphExecutor
 from .vector_search import VectorSearchTool, SimilarEvent
+from .data_analysis import (
+    DataAnalyzer,
+    AnalysisResult,
+    DriverContribution,
+    HypothesisValidation
+)
+from .metadata_collector import MetadataCollector
 
 __all__ = [
     "SQLExecutor",
@@ -13,5 +20,10 @@ __all__ = [
     "SQLGenerationResult",
     "GraphExecutor",
     "VectorSearchTool",
-    "SimilarEvent"
+    "SimilarEvent",
+    "DataAnalyzer",
+    "AnalysisResult",
+    "DriverContribution",
+    "HypothesisValidation",
+    "MetadataCollector",
 ]
